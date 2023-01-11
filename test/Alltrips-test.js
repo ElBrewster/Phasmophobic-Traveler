@@ -5,6 +5,8 @@ describe("AllTrips", () => {
     let alltrips1;
     let oneUserTrips;
     let userID = 44;
+    let today1 = "2020/07/24"
+    let today2;
     let tripsData = [
         {
         id: 1,
@@ -53,7 +55,7 @@ describe("AllTrips", () => {
         travelers: 6,
         date: "2021/02/10",
         duration: 8,
-        status: "approved",
+        status: "pending",
         suggestedActivities: [ ]
         }, 
       ];
@@ -83,16 +85,25 @@ describe("AllTrips", () => {
     it("Should have a method to find all trips for one user, with a userID passed in as a parameter", () => {
 //-->what if the parameter is not great, doesn't have data I can use?
         let method1 = alltrips1.getOneUserTrips(userID);
-
+        console.log("method1: ", method1);
         expect(method1).to.be.equal(oneUserTrips)
         expect(method1).to.have.deep.members(oneUserTrips);
     });
+    it("Should have a method to check whether a trip is upcoming and is 'approved' from the method1 list", () => {
+//-->check date and status. before "2020/08/24"
+        let today = "2020/07/24";
+    });
 
-    it("Should have a method to filter for trip status using method1", () => {
+    it("Should have a method to filter the list from method1 for trip status 'pending' using method1", () => {
+        //sad path: trip is pending but before today's date
 //past?
 //upcoming?
 //pending?
-    })
-})
-// method1 finds trips for one user: past, upcoming, pending (is this one or 3 methods?)
-//in destinations instantiate AllTrips to get one user's trips, then evaluate base cost of desinations there, and do the fee in a Dom class?
+    });
+
+    it("Should evaluate whether a trip is completed based on the date of an 'approved' trip referencing the current date", () => {
+
+    });
+});
+
+//in destinations instantiate AllTrips to get one user's trips, then evaluate base cost of desinations there, and do the fee in a Agent class?
