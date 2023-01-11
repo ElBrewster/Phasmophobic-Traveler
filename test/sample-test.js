@@ -34,7 +34,7 @@ const travelers = [
   travelerType: "thrill-seeker"
   }
 ];
-const trips = [
+let tripsData = [
   {
   id: 1,
   userID: 44,
@@ -64,7 +64,27 @@ const trips = [
   duration: 17,
   status: "approved",
   suggestedActivities: [ ]
-  }
+  },
+  {
+  id: 46,
+  userID: 44,
+  destinationID: 33,
+  travelers: 2,
+  date: "2020/08/24",
+  duration: 11,
+  status: "approved",
+  suggestedActivities: [ ]
+  },
+  {
+  id: 48,
+  userID: 44,
+  destinationID: 14,
+  travelers: 6,
+  date: "2021/02/10",
+  duration: 8,
+  status: "pending",
+  suggestedActivities: [ ]
+  }, 
 ];
 
 const destinations = [
