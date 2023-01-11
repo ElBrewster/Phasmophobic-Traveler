@@ -1,0 +1,1 @@
+// method1 finds trips for one user: past, upcoming, pending (is this one or 3 methods?)
