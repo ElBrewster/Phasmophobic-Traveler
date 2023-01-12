@@ -93,3 +93,8 @@ If you _are_ done, you can follow [this procedure](./gh-pages-procedure.md) to g
 ## Resources/Mentions:
 I was thinking about this color scheme article, in particular the iridescent palette in the "Sequential data" section and the second panel in "Sequential schemes":
 https://cran.r-project.org/web/packages/khroma/vignettes/tol.html
+
+fira code
+
+glide.js
+day.js
