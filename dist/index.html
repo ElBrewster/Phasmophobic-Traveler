@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.core.min.css">
+  <!-- <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.theme.min.css"> -->
+  <!-- ^get @import files instead if we switch to sass/scss  -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -21,14 +24,15 @@
        <div class="glide">
           <div class="glide__track" data-glide-el="track">
             <ul class="glide__slides">
-              <li class="glide__slide">0</li>
-              <li class="glide__slide">1</li>
-              <li class="glide__slide">2</li>
+              <li class="glide__slide">image 1</li>
+              <li class="glide__slide">image 2</li>
+              <li class="glide__slide">image 3</li>
             </ul>
           </div>
           <div class="glide__arrows" data-glide-el="controls">
             <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
             <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
+            <!-- ^maybe change prev and next text to icons? -->
           </div>
         </div>
       </section>
@@ -58,6 +62,9 @@
   
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
   <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+  <script>
+    new Glide('.glide').mount()
+  </script>
   <!-- ^should this be in weback? -->
   <script src="bundle.js"></script>
 </body>
