@@ -11,11 +11,12 @@
   <title>Webpack Starter Kit</title>
 </head>
 <body>
+  <header class="travelAgency" id="travelAgency">the Phasmophobic Traveler
+    <!-- do a span on the 'the'? ^^ --> 
+    <section class="news-ticker" id="newsTicker"></section>
+  </header>
   <main>
-    <header class="travelAgency" id="travelAgency">the Phasmophobic Traveler
-      <!-- do a span on the 'the'? ^^ --> 
-      <section class="news-ticker" id="newsTicker"></section>
-    </header>
+    <div class="flexDisplay">
     <section class="glide-display" id="glideDisplay"></section>
     <section class="the-whole-accordion" id="theWholeAccordion">
       <button class="accordion" id="accordionBtn">oh heck</button>
@@ -23,18 +24,19 @@
         <p>what's here!</p>
       </section>
     </section>
+    </div>
+    <aside class="aside-bar" id="asideBar">
+      <section class="formContainer" id="formContainer">
+        <section class="formSection" id="forms"></section>
+        <section class="money-tracker" id="moneyTracker"></section>
+      </section>
+    </aside>
   </main>
-  <aside class="aside-bar" id="asideBar">
-    <section class="formContainer" id="formContainer">
-      <section class="formSection" id="forms"></section>
-      <section class="money-tracker" id="moneyTracker"></section>
-    </section>
-    <footer class="logo-links" id="logoLinks"></footer>
-  </aside>
+  <footer class="logo-links" id="logoLinks"></footer>
+  <!-- <footer></footer> -->
   <!-- <img src="./images/turing-logo.png" alt="turing logo"> -->
   
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
   <script src="bundle.js"></script>
-
 </body>
 </html>
