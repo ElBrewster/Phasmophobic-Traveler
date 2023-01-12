@@ -38,6 +38,7 @@ main {
 .flexDisplay {
   display: flex;
   flex-direction: column;
+  background-color: rgb(229, 246, 255);
 }
 
 .glide-display {
