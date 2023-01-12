@@ -97,16 +97,13 @@ describe("AllTrips", () => {
         expect(method1b).to.have.deep.members(oneUserTrips2);
     });
 
-    // it("Should have a helper function to ensure the date for today passed in as a parameter is a string for upcoming filter methods", () => {
-    //     let methodA = alltrips1.mutateString(today);
-    // });
-
-    // it("Should have a helper function to mutate the oneUserTrips data to then sort that data for the following filter methods", () => {
-    //     let methodB = alltrips1.mutateToSortOneClientTrips();
-    // });
-
     it("Should have a method to filter the client's trips and return a list of trips that are both upcoming and 'approved' in the method1 list", () => {
         // let today =  "2019/09/28";
+        let day1 = "2019/09/28";
+        let day2 = "1999/01/22";
+        console.log("is working? ", dayjs(day1).isAfter(day2));
+        console.log("is this working? ", dayjs("2019/09/28").isAfter("1999/01/22"))
+        console.log("is this also working? ", dayjs("2019/09/28").isSame("2019-09-28"))
         let method2 = alltrips1.checkClientTripApprovals(userID1, today);
         let method2b = alltrips2.checkClientTripApprovals(userID2, today);
         let answer1 = [
