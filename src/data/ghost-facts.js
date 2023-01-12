@@ -8,13 +8,13 @@ const ghostFacts = [
     "Ghosts are generally described as solitary, human-like essences, though stories of ghostly armies and the ghosts of animals rather than humans have also been recounted.",
     "They are believed to haunt particular locations, objects, or people they were associated with in life.",
     "According to a 2009 study by the Pew Research Center, 18% of Americans say they have seen a ghost.",
-    "The overwhelming consensus of science is that there is no proof that ghosts exist.[5] Their existence is impossible to falsify,[5] and ghost hunting has been classified as pseudoscience.",
+    "The overwhelming consensus of science is that there is no proof that ghosts exist.sol Their existence is impossible to falsify, and ghost hunting has been classified as pseudoscience.",
     "Despite centuries of investigation, there is no scientific evidence that any location is inhabited by the spirits of the dead.",
     "Historically, certain toxic and psychoactive plants (such as datura and hyoscyamus niger), whose use has long been associated with necromancy and the underworld, have been shown to contain anticholinergic compounds that are pharmacologically linked to dementia (specifically DLB) as well as histological patterns of neurodegeneration.",
     "Recent research has indicated that ghost sightings may be related to degenerative brain diseases such as Alzheimer's disease.",
     "Common prescription medication and over-the-counter drugs (such as sleep aids) may also, in rare instances, cause ghost-like hallucinations, particularly zolpidem and diphenhydramine.",
     "Older reports linked carbon monoxide poisoning to ghost-like hallucinations.",
-    "In folklore studies, ghosts fall within the motif index designation E200–E599 ('Ghosts and other revenants').",
+    "In folklore studies, ghosts fall within the motif index designation E200-E599 ('Ghosts and other revenants').",
     "An engraving of the Hammersmith Ghost appears in Roger Kirby's Wonderful and Scientific Museum, a magazine published in 1804. The 'ghost' turned out to be an old local cobbler who used a white sheet to get back at his apprentice for scaring his grandchildren.",
     "A notion of the transcendent, supernatural, or numinous, usually involving entities like ghosts, demons, or deities, is a cultural universal. In pre-literate folk religions, these beliefs are often summarized under animism and ancestor worship.",
     "Some people believe the ghost or spirit never leaves Earth until there is no-one left to remember the one who died.",
@@ -45,5 +45,5 @@ const ghostFacts = [
     "However, not all hauntings are at a place of a violent death, or even on violent grounds. Many cultures and religions believe the essence of a being, such as the 'soul', continues to exist.",
     "Some religious views argue that the 'spirits' of those who have died have not 'passed over' and are trapped inside the property where their memories and energy are strong."
 ];
-
+//This text is taken from the Wikipedia article on "Ghosts" as of January 11, 2023.
 export {ghostFacts};
