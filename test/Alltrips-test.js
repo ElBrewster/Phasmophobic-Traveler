@@ -1,7 +1,8 @@
 import { expect } from 'chai';
 import AllTrips from "../src/AllTrips";
-
+const dayjs = require('dayjs')
 describe("AllTrips", () => {
+    // console.log(dayjs);
     let alltrips1;
     let alltrips2;
     let oneUserTrips;
@@ -95,10 +96,28 @@ describe("AllTrips", () => {
         expect(method1).to.have.deep.members(oneUserTrips);
         expect(method1b).to.have.deep.members(oneUserTrips2);
     });
+
+    // it("Should have a helper function to ensure the date for today passed in as a parameter is a string for upcoming filter methods", () => {
+    //     let methodA = alltrips1.mutateString(today);
+    // });
+
+    // it("Should have a helper function to mutate the oneUserTrips data to then sort that data for the following filter methods", () => {
+    //     let methodB = alltrips1.mutateToSortOneClientTrips();
+    // });
+
     it("Should have a method to filter the client's trips and return a list of trips that are both upcoming and 'approved' in the method1 list", () => {
         // let today =  "2019/09/28";
         let method2 = alltrips1.checkClientTripApprovals(userID1, today);
         let method2b = alltrips2.checkClientTripApprovals(userID2, today);
+        let answer1 = [
+            {id: 1, userID: 44, date: "2022/09/16", duration: 8, status: "approved"},
+            {id: 46, userID: 44, date: "2020/08/24", duration: 11, status: "approved"}];
+        let answer2 =  [
+            {id: 155, userID: 43, date: "2020/05/16", duration: 11, status: "approved"},
+            {id: 143, userID: 43, date: "2020/02/25", duration: 12, status: "approved"},
+            {id: 80, userID: 43, date: "2019/09/28", duration: 4, status: "approved"},]
+        expect(method2).to.have.deep.members(answer1);
+        expect(method2b).to.have.deep.members(answer2);
 //-->check date and status. before "2019/09/28"
 //-->today - trip.duration, and approved status is 'true'
     });
