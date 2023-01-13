@@ -13,7 +13,6 @@ class Destination {
         let destinationObject = destinationData.find(element => {
             return element.id === this.id;
         })
-        console.log(destinationObject);
         return destinationObject;
     }
 

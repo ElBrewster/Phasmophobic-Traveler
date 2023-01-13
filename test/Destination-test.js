@@ -3,7 +3,6 @@ import Destination from "../src/classes/Destination";
 
 describe("Destination", () => {
     let destination1;
-    let destination1data;
     let destId = 3;
     let dest3 = {id: 3, destination: "Sydney, Austrailia", estimatedLodgingCostPerDay: 130,
     estimatedFlightCostPerPerson: 950,
