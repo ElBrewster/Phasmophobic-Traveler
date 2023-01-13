@@ -72,7 +72,6 @@ describe("Destination", () => {
         expect(destination1.imageAlt).to.be.equal(picAlt);
       });
 
-
       it("Should have a method to get the cost per person for the destination that combines lodging and flight cost", () => {
         let method1 = destination1.calculateTripCost();
         expect(method1).to.be.equal(1080);
