@@ -1,3 +1,5 @@
+import dayjs from 'dayjs';
+
 class AllTrips {
     constructor(tripsData) {
         this.data = tripsData;
@@ -8,40 +10,22 @@ class AllTrips {
         return oneUserTrips;
     }
 
-    // mutateString(todayDate) {
-    //     let dateString = String(todayDate);
-    //     let dateString2 = dateString.replace("/", "").replace("/", "");
-    //     console.log("dateString: ", dateString2);
-    //     return dateString2;
-    // }
-
-    // mutateToSortOneClientTrips(userID1) {
-    //     let userTrips = this.filterOneClientTrips(userID1);
-    //     const noSlashArray = userTrips.reduce((acc, curr) => {
-    //         let newDate = curr.date.replace("/", "").replace("/", "");
-    //         curr.date = newDate;
-    //         acc.push(curr);
-    //         return acc;
-    //     }, []).sort((a, b) => b.date - a.date );
-    //     console.log("noSlashArray: ", noSlashArray);
-    //     return noSlashArray;
-    // }
     checkClientTripApprovals(userID1, todayDate) {
-        let newDate = this.mutateString(todayDate);
-        let sortedData = this.mutateToSortOneClientTrips(userID1);
-        let upcomingApprovedTrips = sortedData.filter(element => {
-            element.date >= newDate;
-        });
-        console.log("upcomingApprovedTrips", upcomingApprovedTrips);
+        let userTrips1 = this.filterOneClientTrips(userID1);
+        let upcomingApprovedTrips = userTrips1.filter(element => ((dayjs(element.date).isAfter(todayDate)) && (element.status === "approved")));
         return upcomingApprovedTrips;
     }
 
     checkClientPendingTrips(userID1) {
-        let userTrips = this.filterOneClientTrips(userID1);
+        let userTrips2 = this.filterOneClientTrips(userID1);
+        let pendingTrips = userTrips2.filter(element => element.status === "pending");
+        return pendingTrips;
     }
 
-    checkClientTripCompletion(userID1){
-        let userTrips = this.filterOneClientTrips(userID1);
+    checkClientTripCompletion(userID1, todayDate){
+        let userTrips3 = this.filterOneClientTrips(userID1);
+        let completeTrips = userTrips3.filter(element => (element.status === "approved") && (dayjs(element.date).isBefore(todayDate)));
+        return completeTrips;
     }
 }
 
