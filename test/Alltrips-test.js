@@ -93,7 +93,6 @@ describe("AllTrips", () => {
 //-->SAD PATH: what if the parameter is not great, doesn't have data I can use?
         let method1 = alltrips1.filterOneClientTrips(userID1);
         let method1b = alltrips2.filterOneClientTrips(userID2);
-        console.log("method1: ", method1);
         expect(method1).to.have.deep.members(oneUserTrips);
         expect(method1b).to.have.deep.members(oneUserTrips2);
     });
@@ -101,9 +100,11 @@ describe("AllTrips", () => {
     it("Should have a method to filter the client's trips and return a list of trips that are both upcoming and 'approved' in the method1 list", () => {
         let day1 = "2019/09/28";
         let day2 = "1999/01/22";
-        console.log("is working? ", dayjs(day1).isAfter(day2));
-        console.log("is this working? ", dayjs("2019/09/28").isAfter("1999/01/22"))
-        console.log("is this also working? ", dayjs("2019/09/28").isSame("2019-09-28"))
+
+        dayjs(day1).isAfter(day2);
+        dayjs("2019/09/28").isAfter("1999/01/22");
+        dayjs("2019/09/28").isSame("2019-09-28");
+        
         let method2 = alltrips1.checkClientTripApprovals(userID1, today);
         let method2b = alltrips2.checkClientTripApprovals(userID2, today);
         let answer1 = [
