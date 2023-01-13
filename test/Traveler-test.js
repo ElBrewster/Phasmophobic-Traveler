@@ -1,6 +1,5 @@
 import { expect } from "chai";
 import Traveler from "../src/classes/Traveler";
-import AllTrips from "../src/classes/AllTrips";
 
 describe("Traveler", () => {
     let traveler1;

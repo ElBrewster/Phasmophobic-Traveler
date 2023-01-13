@@ -3,7 +3,6 @@ import AllTrips from "../src/classes/AllTrips";
 
 const dayjs = require('dayjs');
 describe("AllTrips", () => {
-    // console.log(dayjs);
     let alltrips1;
     let alltrips2;
     let oneUserTrips;
@@ -136,4 +135,3 @@ describe("AllTrips", () => {
     });
 });
 
-//in destinations instantiate AllTrips to get one user's trips, then evaluate base cost of desinations there, and do the fee in a Agent class?
