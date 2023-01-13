@@ -37,5 +37,6 @@ describe("AllDestinations", () => {
       it("Should have a function to provide a random set of destinations for display purposes", () => {
         let method1 = allDestinations1.getRandomDestination(smallDestinationList);
         expect(method1).to.be.an("object");
+        //add if statement to check if destinations have already been randomly selected so no repeats
       });
 })

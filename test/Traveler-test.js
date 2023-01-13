@@ -51,10 +51,20 @@ describe("Traveler", () => {
             let method0 = traveler1.findTravelerObject(travelersData);
             expect(method0).to.be.equal(traveler1.object);
         });
-    
+
         it("Should have a property to store the results of that method", () => {
             expect(traveler1.object).to.deep.equal(travelersData[2]);
         });
+
+        it("Should have a property to store the traveler's name", () => {
+            expect(traveler1.object.name).to.equal(traveler1.name);
+            expect(traveler1.name).to.equal("Sibby Dawidowitsch");
+        });
+
+        it("Should have a property to store the traveler's vibe", () => {
+            expect(traveler1.object.travelerType).to.equal(traveler1.vibe);
+            expect(traveler1.vibe).to.equal("shopper");
+        })
 
         it("Should have a method to instantiate AllTrips to call filterOneClientTrips method", () => {
             let method1 = traveler1.askForTripList(tripsData3);
