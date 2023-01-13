@@ -105,9 +105,7 @@ describe("AllTrips", () => {
         console.log("is this working? ", dayjs("2019/09/28").isAfter("1999/01/22"))
         console.log("is this also working? ", dayjs("2019/09/28").isSame("2019-09-28"))
         let method2 = alltrips1.checkClientTripApprovals(userID1, today);
-        console.log("method2", method2);
         let method2b = alltrips2.checkClientTripApprovals(userID2, today);
-        console.log("method2b", method2b)
         let answer1 = [
             {id: 1, userID: 44, date: "2022/09/16", duration: 8, status: "approved"},
             {id: 46, userID: 44, date: "2020/08/24", duration: 11, status: "approved"}];
@@ -119,18 +117,20 @@ describe("AllTrips", () => {
         expect(method2b).to.have.deep.members(answer2);
     });
 
-    it("Should have a method to filter the client's trips and return a list of trips that are both upcoming and approved based on real time, actualtoday", () => {
-
-        //do this also for actual today with day.js?
-    });
-
     it("Should have a method to filter the list from method1 for trip status 'pending' using method1", () => {
-        let method3 = alltrips1.checkClientPendingTrips();
+        let method3 = alltrips2.checkClientPendingTrips(userID2);
+        let answer3 = [
+            {id: 187, userID: 43, date: "2020/11/12", duration: 18, status: "pending"},           
+            {id: 44, userID: 43, date: "2020/09/12", duration: 4, status: "pending"}];
+        expect(method3).to.have.deep.members(answer3);    
         //sad path: trip is pending but before today's date
     });
 
-    it("Should evaluate whether a trip is completed based on the date of an 'approved' trip referencing the current date", () => {
-        let method4 = alltrips1.checkClientTripCompletion();
+    it("Should evaluate whether a trip is completed based on the date of an 'approved' trip referencing the current date and trip duration", () => {
+        let todayDate2 = "2020/02/25";
+        let method4 = alltrips2.checkClientTripCompletion(userID2, todayDate2);
+        let finishedTrips = [
+        {id: 80, userID: 43, date: "2019/09/28", duration: 4, status: "approved"}];        expect(method4).to.have.deep.members(finishedTrips);
         //just evaluate on approved and date I think? And if duration is over! because if it was a pending approval and past date, they didn't go
     });
 });
