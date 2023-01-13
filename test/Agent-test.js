@@ -45,7 +45,7 @@ describe("Agent", () => {
         expect(agent1.tripsData).to.be.deep.equal(allTripData);
     })
 
-    it("Should have a method to get the total cost for one trip for a user passing their id as an argument", () => {
+    it("Should have a method1 to get the total cost for one trip for a user passing their id as an argument", () => {
         //(an agent would handle totals for the user)
 //method to get total cost for 1 trip for a user: this is for a trip request
         let method1 = agent1.calculateOneTripCost(tripId1);
@@ -55,14 +55,34 @@ describe("Agent", () => {
 //there's got to be so many sad paths for this :grimace:
     });
 
-    //properties to store the login info? could use it to troubleshoot weird inputs? 
-// username: agency
-// password: travel
-    //method to get total cost for all trips for a user
-    //method to get total cost/profit for all trips for all users (agent's total income)
-    //method to get all pending trips for agent's display
-    //method to get and show all travelers on trips "today"
-    //method to approve a user's trip
-    //method to delete a user's trip
-    //method to search by AllTravelers by name and return id and instantiate Traveler
+    it("Should have a method2 to get the total cost for all trips for a user for one year to display on the dash", () => {
+        //so call method1 on each trip in a user's trip list. Instantiate Traveler to access this list?
+        //method to get total cost for all trips for a user
+//--> get a user's trip list, then calculateOneTripCost on each element in that list
+    })
+
+    it("Should have a method3 to get the total cost for all trips for all users for the past year to get the agent's yearly income", () => {
+        //so call method2 on each traveler to get the total cost for all trips for all users this past year
+    });
+
+    it("Should have a method4 to get all pending trips for agent's display", () => {
+
+    });
+
+    it("Should have a method5 to get all travelers on trips 'today' for display", () => {
+
+    });
+
+    it("Should have a method6 to approve a user's trip", () => {
+//make sure "Agent" doesn't make the change, but that the right class does this!
+// change trip status to "approve"
+    });
+
+    it("Should have a method7 to delete a user's upcoming trip", () => {
+//what does delete mean, remove from data set? remove from traveler's list? attach to button click?
+    });
+
+    it("Should have a method to search by AllTravelers by name and return the id to instantiate the Traveler", () => {
+//do we need just the id, or the whole object? is this just for login? or pageload?
+    });
 })

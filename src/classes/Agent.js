@@ -4,7 +4,6 @@ import Trip from "./Trip";
 //this is my class highway 
 class Agent {
     constructor(allDestinationData, allTripData) {
-        // this.id = tripId;
         this.placesData = allDestinationData;
         this.tripsData = allTripData;
     }
