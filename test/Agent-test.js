@@ -1,5 +1,6 @@
 import { expect } from "chai";
 import Agent from "../src/classes/Agent";
+import Traveler from "../src/classes/Traveler";
 
 describe("Agent", () => {
     let agent1;
@@ -8,6 +9,11 @@ describe("Agent", () => {
         agent1 = new Agent();
     });
 
+    it("Should have a method to get the total cost for one trip for a user passing their id as an argument", () => {
+        // instantiate Traveler
+        // reference Traveler.tripsList
+
+    });
     //properties to store the login info? could use it to troubleshoot weird inputs? 
 // username: agency
 // password: travel
