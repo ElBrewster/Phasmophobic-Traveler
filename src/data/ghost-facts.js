@@ -23,7 +23,7 @@ const ghostFacts = [
     "Strategies for preventing revenants may either include sacrifice, i.e., giving the dead food and drink to pacify them, or magical banishment of the deceased to force them not to return.",
     "Ritual feeding of the dead is performed in traditions like the Chinese Ghost Festival or the Western All Souls' Day.",
     "Magical banishment of the dead is present in many of the world's burial customs.",
-    "The bodies found in many tumuli (kurgan) had been ritually bound before burial,[34] and the custom of binding the dead persists, for example, in rural Anatolia.",
+    "The bodies found in many tumuli (kurgan) had been ritually bound before burial, and the custom of binding the dead persists, for example, in rural Anatolia.",
     "Nineteenth-century anthropologist James Frazer stated in his classic work 'The Golden Bough' that souls were seen as the creature within that animated the body.",
     "Although the human soul was sometimes symbolically or literally depicted in ancient cultures as a bird or other animal, it appears to have been widely held that the soul was an exact reproduction of the body in every feature, even down to clothing the person wore.",
     "This is depicted in artwork from various ancient cultures, including such works as the Egyptian Book of the Dead, which shows deceased people in the afterlife appearing much as they did before death, including the style of dress.",

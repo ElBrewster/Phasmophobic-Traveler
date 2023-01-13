@@ -89,3 +89,12 @@ _If you are finished with the functionality and testing of your project_, then y
 [GitHub Pages](https://pages.github.com/) is a great way to deploy your project to the web. Don't worry about this until your project is free of bugs and well tested!
 
 If you _are_ done, you can follow [this procedure](./gh-pages-procedure.md) to get your project live on GitHub Pages.
+
+## Resources/Mentions:
+I was thinking about this color scheme article, in particular the iridescent palette in the "Sequential data" section and the second panel in "Sequential schemes":
+https://cran.r-project.org/web/packages/khroma/vignettes/tol.html
+
+fira code
+
+glide.js
+day.js
