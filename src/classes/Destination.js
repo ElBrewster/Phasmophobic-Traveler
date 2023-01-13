@@ -18,6 +18,7 @@ class Destination {
 
     calculateTripCost() {
         let oneTravelerCost = this.lodgingCost + this.flightCost;
+        //I don't have trip duration for this calculation!
         return oneTravelerCost;
     }
 
