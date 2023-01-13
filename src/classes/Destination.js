@@ -18,6 +18,7 @@ class Destination {
 
     calculateTripCost() {
         let oneTravelerCost = this.lodgingCost + this.flightCost;
+        //I don't have trip duration for this calculation! did it in Agent, maybe delete this method?
         return oneTravelerCost;
     }
 
