@@ -18,5 +18,5 @@ describe("Agent", () => {
     //method to get all pending trips for agent's display
     //method to get and show all travelers on trips "today"
     //method to delete a user's trip
-    //method to search by AllTravelers name and return id and instantiate Traveler
+    //method to search by AllTravelers by name and return id and instantiate Traveler
 })
