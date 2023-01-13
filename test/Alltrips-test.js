@@ -1,6 +1,7 @@
 import { expect } from 'chai';
-import AllTrips from "../src/AllTrips";
-const dayjs = require('dayjs')
+import AllTrips from "../src/classes/AllTrips";
+
+const dayjs = require('dayjs');
 describe("AllTrips", () => {
     // console.log(dayjs);
     let alltrips1;
@@ -98,25 +99,29 @@ describe("AllTrips", () => {
     });
 
     it("Should have a method to filter the client's trips and return a list of trips that are both upcoming and 'approved' in the method1 list", () => {
-        // let today =  "2019/09/28";
         let day1 = "2019/09/28";
         let day2 = "1999/01/22";
         console.log("is working? ", dayjs(day1).isAfter(day2));
         console.log("is this working? ", dayjs("2019/09/28").isAfter("1999/01/22"))
         console.log("is this also working? ", dayjs("2019/09/28").isSame("2019-09-28"))
         let method2 = alltrips1.checkClientTripApprovals(userID1, today);
+        console.log("method2", method2);
         let method2b = alltrips2.checkClientTripApprovals(userID2, today);
+        console.log("method2b", method2b)
         let answer1 = [
             {id: 1, userID: 44, date: "2022/09/16", duration: 8, status: "approved"},
             {id: 46, userID: 44, date: "2020/08/24", duration: 11, status: "approved"}];
         let answer2 =  [
             {id: 155, userID: 43, date: "2020/05/16", duration: 11, status: "approved"},
             {id: 143, userID: 43, date: "2020/02/25", duration: 12, status: "approved"},
-            {id: 80, userID: 43, date: "2019/09/28", duration: 4, status: "approved"},]
+            {id: 43, userID: 43, date: "2021/01/09", duration: 5, status: "approved"}]
         expect(method2).to.have.deep.members(answer1);
         expect(method2b).to.have.deep.members(answer2);
-//-->check date and status. before "2019/09/28"
-//-->today - trip.duration, and approved status is 'true'
+    });
+
+    it("Should have a method to filter the client's trips and return a list of trips that are both upcoming and approved based on real time, actualtoday", () => {
+
+        //do this also for actual today with day.js?
     });
 
     it("Should have a method to filter the list from method1 for trip status 'pending' using method1", () => {

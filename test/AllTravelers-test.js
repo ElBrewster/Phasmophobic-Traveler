@@ -1,2 +1,2 @@
 import { expect } from "chai";
-import AllTravelers from "../src/AllTravelers";
+import AllTravelers from "../src/classes/AllTravelers";

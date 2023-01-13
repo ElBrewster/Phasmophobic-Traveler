@@ -1,3 +1,5 @@
+import dayjs from 'dayjs';
+
 class AllTrips {
     constructor(tripsData) {
         this.data = tripsData;
@@ -8,30 +10,10 @@ class AllTrips {
         return oneUserTrips;
     }
 
-    // mutateString(todayDate) {
-    //     let dateString = String(todayDate);
-    //     let dateString2 = dateString.replace("/", "").replace("/", "");
-    //     console.log("dateString: ", dateString2);
-    //     return dateString2;
-    // }
-
-    // mutateToSortOneClientTrips(userID1) {
-    //     let userTrips = this.filterOneClientTrips(userID1);
-    //     const noSlashArray = userTrips.reduce((acc, curr) => {
-    //         let newDate = curr.date.replace("/", "").replace("/", "");
-    //         curr.date = newDate;
-    //         acc.push(curr);
-    //         return acc;
-    //     }, []).sort((a, b) => b.date - a.date );
-    //     console.log("noSlashArray: ", noSlashArray);
-    //     return noSlashArray;
-    // }
     checkClientTripApprovals(userID1, todayDate) {
-        let newDate = this.mutateString(todayDate);
-        let sortedData = this.mutateToSortOneClientTrips(userID1);
-        let upcomingApprovedTrips = sortedData.filter(element => {
-            element.date >= newDate;
-        });
+        let userTrips1 = this.filterOneClientTrips(userID1);
+        let upcomingApprovedTrips = userTrips1.filter(element => ((dayjs(element.date).isAfter(todayDate)) && (element.status === "approved")));
+
         console.log("upcomingApprovedTrips", upcomingApprovedTrips);
         return upcomingApprovedTrips;
     }

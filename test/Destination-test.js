@@ -1,2 +1,2 @@
 import { expect } from "chai";
-import Destination from "../src/Destination";
+import Destination from "../src/classes/Destination";
