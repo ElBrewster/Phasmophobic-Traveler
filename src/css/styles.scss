@@ -22,3 +22,115 @@ $brown: #46353a;
 
 $font-stack: 'Fira Sans', sans-serif;
 
+*,
+*:after,
+*:before {
+  box-sizing:border-box;
+  margin: 0;
+  padding: 0;
+    /* color: rgb(230, 159, 0);
+    color: rgb(86, 180, 233);
+    color: rgb(0, 114, 178);
+    color: rgb(213, 94, 0);
+    color: rgb(204, 121, 167); */
+    /* background-color: rgb(229, 246, 255); */
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Open Sans', sans-serif;
+  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+}
+
+header {
+  height: 10%;
+  width: 100%;
+  background-color: rgb(213, 94, 0);
+}
+
+main {
+  height: 90%;
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(229, 246, 255);
+}
+
+.flexDisplay {
+  display: flex;
+  flex-direction: column;
+}
+
+.glide-display {
+  height: 50%;
+  width: 100%;
+  background-color: #ffe7d4;
+}
+
+
+.the-whole-accordion {
+  height: 40%;
+  width: 100%;
+  background-color: #fff7f1;
+  /* have a pretty canvas for when there's no populated buttons? */
+}
+
+/* --->>--------accordion nonsense--------------<<------------------------------- */
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: #ccc;
+}
+/* --> need to add the .active class with js */
+.accordion:after {
+  content: '\02795'; /* Unicode character for "plus" sign (+) */
+  font-size: 13px;
+  color: #777;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  display: none;
+  overflow: hidden;
+}
+/* ^hidden by default */
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+/* -^----------accordion nonsense--------------------------------------------^- */
+
+.aside-bar {
+  width: 20%;
+  height: 90%;
+  background-color: #ffc89c;
+}
+
+footer {
+  width: 100%;
+  height: 10%;
+  background-color: #ffa863;
+}
