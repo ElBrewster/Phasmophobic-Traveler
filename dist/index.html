@@ -81,8 +81,30 @@
 
     </div>
     <aside class="aside-bar" id="asideBar">
-      <section class="formContainer" id="formContainer">
-        <section class="formSection" id="forms"></section>
+      <section class="form-container" id="formContainer">
+        <section class="form-section" id="forms">
+          <form action="" method="post">
+            <!-- <form action="URL"> -->
+            <legend>Let's set up your trip!</legend>
+            
+            <label for="destinations">Choose your destination:</label>
+            <select class="select-destination" id="selectDestination" name="Destinations">
+              <option value="place1">place1</option>
+            </select>
+
+            <label for="numberTraveling"></label>
+            <input type="number">
+
+            <label for="date"></label>
+            <input type="date">
+
+            <label for="tripDuration"></label>
+            <input type="number">
+
+            <button>Submit</button>
+          </form>
+
+        </section>
         <section class="money-tracker" id="moneyTracker"></section>
       </section>
     </aside>

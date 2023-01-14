@@ -2,27 +2,29 @@ const callForData = (urlPath) => {
     return fetch(`http://localhost:3001/api/v1/${urlPath}`)
         .then(response => response.json());
 }
-
-const makeTrip = (idNum, userIdNum, destinationIdNum, travelersNum, dateString, durationNum, statusString, array1) => {
+let makeThisTrip = {
+    id: idNum,
+    userId: userIdNum,
+    destinationId: destinationIdNum,
+    travelers: travelersNum,
+    date: dateString,
+    duration: durationNum,
+    status: statusString,
+    suggestedActivities: array1};
+const makeTrip = (makeThisTrip) => {
     fetch("http://localhost:3001/api/v1/trips", {
         method: "POST",
-        headers: {"Conten-type": "application/json"},
-        body: JSON.stringify({
-            id: idNum,
-            userId: userIdNum,
-            destinationId: destinationIdNum,
-            travelers: travelersNum,
-            date: dateString,
-            duration: durationNum,
-            status: statusString,
-            suggestedActivities: array1
-        })
+        headers: {"Conten-type": "application/json",
+            Accept: "application/json"    
+        },
+        body: JSON.stringify(makeThisTrip)
         .then(response => {
             if(response.ok) {
                 return response.json()
             }
             throw new Error()
         })
+        .then()
         .catch((err) => {
             throw new Error("This didn't work!", { cause: err });
         })
