@@ -1,9 +1,32 @@
-const fetchData = (urlPath) => {
+const callForData = (urlPath) => {
     return fetch(`http://localhost:3001/api/v1/${urlPath}`)
         .then(response => response.json());
 }
 
-const postTrip = () => {
+const makeTrip = (idNum, userIdNum, destinationIdNum, travelersNum, dateString, durationNum, statusString, array1) => {
+    fetch("http://localhost:3001/api/v1/trips", {
+        method: "POST",
+        headers: {"Conten-type": "application/json"},
+        body: JSON.stringify({
+            id: idNum,
+            userId: userIdNum,
+            destinationId: destinationIdNum,
+            travelers: travelersNum,
+            date: dateString,
+            duration: durationNum,
+            status: statusString,
+            suggestedActivities: array1
+        })
+        .then(response => {
+            if(response.ok) {
+                return response.json()
+            }
+            throw new Error()
+        })
+        .catch((err) => {
+            throw new Error("This didn't work!", { cause: err });
+        })
+    })
 
 }
 // Feedback from Cass on fitlit: Consider in future projects making sure users can’t add negative numbers in forms and consider blocking dates that don’t make sense for a user to be able to add. For example, a user probably shouldn’t be able to add data to a day that hasn’t yet occurred.
@@ -17,8 +40,8 @@ const postTrip = () => {
 
 
 
-
-export { fetchData };
+export { makeTrip };
+export { callForData };
 //--------------prototype----------------------------------///
 // fetch(url, {
 //     method: 'POST',
