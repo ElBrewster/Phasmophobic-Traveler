@@ -15,10 +15,9 @@ class Agent {
         return new Traveler(clientId, this.clientsData, this.tripsData);
     }
 
-    handleDestinationNames() {
-        let allLocales = new AllDestinations(this.placesData);
-        return allLocales.getDestinationNames();
-    }
+    // handleDestinationNames() {
+
+    // }
 
     calculateOneTripCost(tripId) {
         let trip1 = new Trip(tripId, this.tripsData);

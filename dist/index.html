@@ -90,14 +90,15 @@
             <select class="select-destination" id="select-destinations" name="destinations">
               <option value="" disabled selected hidden>choose your destination</option>
             </select>
+
             <label for="number-traveling">How many travelers do you have in your party?
-              <input type="number" min="1" max="500">
+              <input type="number" min="1" max="500" name="numberTravelers">
             </label>
             <label for="date">What day do you want to leave?
-              <input type="date">
+              <input type="date" name="date">
             </label>
             <label for="trip-duration">How many days does this trip take?
-              <input type="number" min="1" max="365">
+              <input type="number" min="1" max="365" name="numberDays">
             </label>
             <button>Submit</button>
           </form>
