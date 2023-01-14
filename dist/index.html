@@ -17,20 +17,26 @@
   </header>
   <main>
     <div class="flexDisplay">
-      <section class="glide-display" id="glideDisplay">
-       <div class="glide">
-          <div class="glide__track" data-glide-el="track">
-            <ul class="glide__slides">
-              <li class="glide__slide">image 1</li>
-              <li class="glide__slide">image 2</li>
-              <li class="glide__slide">image 3</li>
-            </ul>
+      <section class="swiper-container" id="swiperContainer">
+        <!-- Slider main container -->
+        <div class="swiper">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">Slide 1</div>
+            <div class="swiper-slide">Slide 2</div>
+            <div class="swiper-slide">Slide 3</div>
+    ...
           </div>
-          <div class="glide__arrows" data-glide-el="controls">
-            <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
-            <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
-            <!-- ^maybe change prev and next text to icons? -->
-          </div>
+          <!-- If we need pagination -->
+          <div class="swiper-pagination"></div>
+
+          <!-- If we need navigation buttons -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+
+          <!-- If we need scrollbar -->
+          <div class="swiper-scrollbar"></div>
         </div>
       </section>
       <div class="side-piece" id="sidePiece">
@@ -44,7 +50,7 @@
             <p>what's here!</p>
           </section>
       </div>
-    </section>
+      </section>
     </div>
     <aside class="aside-bar" id="asideBar">
       <section class="formContainer" id="formContainer">
@@ -54,16 +60,10 @@
     </aside>
   </main>
   <footer class="logo-links" id="logoLinks"></footer>
-  <!-- <footer></footer> -->
   <!-- <img src="./images/turing-logo.png" alt="turing logo"> -->
   
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
-  <!-- <script src="node_modules/@glidejs/glide/dist/glide.min.js"></script> -->
-  <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
-  <script>
-    new Glide('.glide').mount()
-  </script>
-  <!-- ^should this be in weback? -->
+
   <script src="bundle.js"></script>
 </body>
 </html>
