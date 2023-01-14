@@ -118,14 +118,15 @@ main {
 
 /* --->>--------accordion nonsense--------------<<------------------------------- */
 .accordion {
-  background-color: #eee;
-  color: #444;
+  background-color: $cornflower;
+  color: $brown;
   cursor: pointer;
   padding: 18px;
   width: 100%;
   text-align: left;
   border: none;
   outline: none;
+  font-size: 1em;
   transition: 0.4s;
 }
 
@@ -136,7 +137,7 @@ main {
 .accordion:after {
   content: '\02795'; /* Unicode character for "plus" sign (+) */
   font-size: 13px;
-  color: #777;
+  color: $brown;
   float: right;
   margin-left: 5px;
 }
@@ -147,18 +148,12 @@ main {
 
 .panel {
   padding: 0 18px;
-  background-color: $ltYellow;
   display: none;
-  overflow: hidden;
-}
-/* ^hidden by default */
-.panel {
-  padding: 0 18px;
-  background-color: $ltYellow;
-  max-height: 0;
+  background-color: $softBlue;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
 }
+
 /* -^----------accordion nonsense--------------------------------------------^- */
 
 .aside-bar {
