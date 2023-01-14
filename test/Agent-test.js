@@ -28,8 +28,15 @@ describe("Agent", () => {
         alt: "opera house and city buildings on the water with boats"
         }];
 
+    let allTravelersData = [
+            {id: 1, name: "Ham Leadbeater", travelerType: "relaxer"},
+            {id: 2, name: "Rachael Vaughten", travelerType: "thrill-seeker"},
+            {id: 3, name: "Sibby Dawidowitsch", travelerType: "shopper"},
+            {id: 4, name: "Leila Thebeaud", travelerType: "photographer"},
+            {id: 5, name: "Tiffy Grout", travelerType: "thrill-seeker"}];
+            
     beforeEach(function() {
-        agent1 = new Agent(allDestinationData, allTripData);
+        agent1 = new Agent(allDestinationData, allTripData, allTravelersData);
     });
 
     it("Should be a function and instantiate our good friend the Agent", () => {
@@ -45,6 +52,9 @@ describe("Agent", () => {
         expect(agent1.tripsData).to.be.deep.equal(allTripData);
     })
 
+    it("Should have a property to store all their client's data", () => {
+        expect(agent1.clientsData).to.be.deep.equal(allTravelersData);
+    })
     it("Should have a method1 to get the total cost for one trip for a user passing their id as an argument", () => {
         //(an agent would handle totals for the user)
 //method to get total cost for 1 trip for a user: this is for a trip request

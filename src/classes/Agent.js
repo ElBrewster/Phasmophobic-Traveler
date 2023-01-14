@@ -3,9 +3,10 @@ import Trip from "./Trip";
 
 //this is my class highway 
 class Agent {
-    constructor(allDestinationData, allTripData) {
+    constructor(allDestinationData, allTripData, allTravelersData) {
         this.placesData = allDestinationData;
         this.tripsData = allTripData;
+        this.clientsData = allTravelersData;
     }
 
     calculateOneTripCost(tripId) {
