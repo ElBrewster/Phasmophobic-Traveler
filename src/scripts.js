@@ -1,6 +1,7 @@
 import './css/styles.scss';
 import "./data/ghost-facts";
-import Agent from "./classes/Agent"
+import Agent from "./classes/Agent";
+import AllDestinations from './classes/AllDestinations';
 import Glide from '@glidejs/glide';
 import { callForData, makeTrip } from "./api";
 // import './images/turing-logo.png'
@@ -8,6 +9,7 @@ import { callForData, makeTrip } from "./api";
 let agent1;
 //-----query-Selectors-----
 let form = document.querySelector("#tripForm")
+let myDropDown = document.querySelector("#select-destinations")
 
 
 //-----event-Listeners-----
@@ -21,21 +23,20 @@ Promise.all([callForData("travelers"), callForData("trips"), callForData("destin
     let allTripsData = promisedData [1];
     let allDestinationData = promisedData [2];
     agent1 = new Agent(allDestinationData, allTripsData, allTravelersData);
-    getTripsDropdown();
+    // getTripsDropdown();
     console.log(agent1);
     console.log("agent1 index 0:", agent1.placesData.destinations[0])
 })
 .catch(error => console.log(error));
     //-->figure out how to do error handling on the DOM so user know's what's going on, not just a console.log in the console
 
-const getTripsDropdown = () => {
-    //I want a destination name for each destination id in the trip data
-    //for each destinationID replace with the name; return id from selection
-    let destinationNames = agent1.handleDestinationNames();
-    destinationNames.forEach(place => {
-
-    })
-}
+// const getTripsDropdown = () => {
+//     let destinationNames = agent1.handleDestinationNames();
+//     console.log(destinationNames);
+//     destinationNames.forEach(place => {
+//         myDropDown.innerHTML += <option value="place">${place}</option>;
+//     })
+// }
 
 function formSubmitHandler(event) {
     event.preventDefault();
