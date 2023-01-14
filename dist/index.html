@@ -86,21 +86,19 @@
           <form action="" method="post">
             <!-- <form action="URL"> -->
             <legend>Let's set up your trip!</legend>
-            
             <label for="destinations">Choose your destination:</label>
-            <select class="select-destination" id="selectDestination" name="Destinations">
-              <option value="place1">place1</option>
+            <select class="select-destination" id="destinations" name="destinations">
+              <option value=""></option>
             </select>
-
-            <label for="numberTraveling"></label>
-            <input type="number">
-
-            <label for="date"></label>
-            <input type="date">
-
-            <label for="tripDuration"></label>
-            <input type="number">
-
+            <label for="number-traveling">How many travelers do you have in your party?
+              <input type="number" min="1" max="500">
+            </label>
+            <label for="date">What day do you want to leave?
+              <input type="date">
+            </label>
+            <label for="trip-duration">How many days does this trip take?
+              <input type="number" min="1" max="365">
+            </label>
             <button>Submit</button>
           </form>
 
