@@ -34,9 +34,14 @@ describe("AllDestinations", () => {
         expect(allDestinations1.data).to.be.equal(smallDestinationList);
       });
 
-      it("Should have a function to provide a random set of destinations for display purposes", () => {
+      it("Should have a method to provide a random set of destinations for display purposes", () => {
         let method1 = allDestinations1.getRandomDestination(smallDestinationList);
         expect(method1).to.be.an("object");
         //add if statement to check if destinations have already been randomly selected so no repeats
       });
+
+      it("Should have a method to get an array of strings that match the destination names, the this.location of a single Destination", () => {
+        let method2 = allDestinations1.getDestinationNames();
+        expect(method2).have.deep.members(["Lima, Peru", "Stockholm, Sweden", "Sydney, Austrailia"]);
+      })
 })

@@ -2,15 +2,7 @@ const callForData = (urlPath) => {
     return fetch(`http://localhost:3001/api/v1/${urlPath}`)
         .then(response => response.json());
 }
-let makeThisTrip = {
-    id: idNum,
-    userId: userIdNum,
-    destinationId: destinationIdNum,
-    travelers: travelersNum,
-    date: dateString,
-    duration: durationNum,
-    status: statusString,
-    suggestedActivities: array1};
+
 const makeTrip = (makeThisTrip) => {
     fetch("http://localhost:3001/api/v1/trips", {
         method: "POST",

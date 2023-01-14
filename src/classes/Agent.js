@@ -1,3 +1,4 @@
+import AllDestinations from "./AllDestinations";
 import Destination from "./Destination";
 import Traveler from "./Traveler";
 import Trip from "./Trip";
@@ -12,6 +13,11 @@ class Agent {
 
     getClient(clientId) {
         return new Traveler(clientId, this.clientsData, this.tripsData);
+    }
+
+    handleDestinationNames() {
+        let allLocales = new AllDestinations(this.placesData);
+        return allLocales.getDestinationNames();
     }
 
     calculateOneTripCost(tripId) {

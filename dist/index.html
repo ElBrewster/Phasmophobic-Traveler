@@ -83,12 +83,12 @@
     <aside class="aside-bar" id="asideBar">
       <section class="form-container" id="formContainer">
         <section class="form-section" id="forms">
-          <form action="" method="post">
+          <form action="" method="post" id="tripForm">
             <!-- <form action="URL"> -->
             <legend>Let's set up your trip!</legend>
             <label for="destinations">Choose your destination:</label>
             <select class="select-destination" id="destinations" name="destinations">
-              <option value=""></option>
+              <option value="" disabled selected hidden>choose your destination</option>
             </select>
             <label for="number-traveling">How many travelers do you have in your party?
               <input type="number" min="1" max="500">

@@ -83,6 +83,11 @@ describe("Agent", () => {
 //there's got to be so many sad paths for this :grimace:
     });
 
+    it("Should have a method to insantiate AllDestinations to call the method getDestinationNames", () => {
+        let method2 = agent1.handleDestinationNames();
+        expect(method2).to.have.deep.members(["Lima, Peru", "Stockholm, Sweden", "Sydney, Austrailia"]);
+    });
+
     it("Should have a method2 to get the total cost for all trips for a user for one year to display on the dash", () => {
         //so call method1 on each trip in a user's trip list. Instantiate Traveler to access this list?
         //method to get total cost for all trips for a user
