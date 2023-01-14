@@ -5,7 +5,7 @@
 import './css/styles.scss';
 import "./data/ghost-facts";
 import Swiper from 'swiper/bundle';
-import 'swiper/scss/bundle';
+import 'swiper/scss';
 const swiper = new Swiper('.swiper', {
     // Optional parameters
     direction: 'vertical',
