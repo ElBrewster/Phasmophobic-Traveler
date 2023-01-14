@@ -3,17 +3,22 @@ const fetchData = (urlPath) => {
         .then(response => response.json());
 }
 
-const fetchDataOneUser = (urlPath, idNum) => {
-    return fetch(`http://localhost:3001/api/v1/${urlPath}/${idNum}`)
-        .then(response => response.json());
+const postTrip = () => {
+
 }
+// Feedback from Cass on fitlit: Consider in future projects making sure users can’t add negative numbers in forms and consider blocking dates that don’t make sense for a user to be able to add. For example, a user probably shouldn’t be able to add data to a day that hasn’t yet occurred.
+
+
+
+
+
+
+
 
 
 
 
 export { fetchData };
-export { fetchDataOneUser };
-
 //--------------prototype----------------------------------///
 // fetch(url, {
 //     method: 'POST',

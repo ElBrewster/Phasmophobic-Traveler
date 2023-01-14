@@ -1,6 +1,6 @@
 import './css/styles.scss';
 import "./data/ghost-facts";
-import "./classes/Agent"
+import Agent from "./classes/Agent"
 import Glide from '@glidejs/glide';
 import { fetchData } from "./api";
 // import './images/turing-logo.png'
@@ -13,13 +13,19 @@ import { fetchData } from "./api";
 window.addEventListener("load", startUp);
 
 //-----functions-----
-let agent1 = new Agent()
+let agent1;
+
 Promise.all([fetchData("travelers"), fetchData("trips"), fetchData("destinations")])
 .then((promisedData) => {
-    Agent.
-
+    let allDestinationData = promisedData[0];
+    let allTripsData = promisedData [1];
+    let allTravelersData = promisedData [2];
+    agent1 = new Agent(allDestinationData, allTripsData, allTravelersData);
+    console.log(agent1);
 })
-Promise(fetchDataOneUser("travelers", idNum))
+.catch(error => console.log(error));
+    //-->figure out how to do error handling on the DOM so user know's what's going on, not just a console.log in the console
+
 const startUp = () => {
     
 };
