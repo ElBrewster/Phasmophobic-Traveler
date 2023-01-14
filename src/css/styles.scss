@@ -81,20 +81,33 @@ main {
 }
 
 .flexDisplay {
+  width: 80%;
+  height: 100%;
   display: flex;
   flex-direction: column;
 }
 
-.glide-display {
+.swiper-container {
   height: 50%;
   width: 100%;
   background-color: #ffe7d4;
 }
 
+.side-piece {
+  height: 50%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.left-aside {
+  height: 100%;
+  width: 20%:
+}
 
 .the-whole-accordion {
-  height: 40%;
-  width: 100%;
+  height:100%;
+  width: 80%;
   background-color: #fff7f1;
   /* have a pretty canvas for when there's no populated buttons? */
 }
@@ -146,7 +159,7 @@ main {
 
 .aside-bar {
   width: 20%;
-  height: 90%;
+  height: 100%;
   background-color: #ffc89c;
 }
 
