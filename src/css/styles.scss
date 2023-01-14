@@ -1,3 +1,7 @@
+@import "node_modules/@glidejs/glide/src/assets/sass/glide.core";
+@import "node_modules/@glidejs/glide/src/assets/sass/glide.theme";
+
+
 $ltYellow: #fefbe9;
 $ltYellowRGB: rgb(254, 251, 231);
 $softYellow: #fcf7d5;
@@ -63,7 +67,7 @@ body {
   display: flex;
   flex-direction: column;
   font-family: 'Open Sans', sans-serif;
-  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+  background: radial-gradient(circle, $softBlue 0%, $warmPurple 100%);
 }
 
 header {
@@ -87,7 +91,7 @@ main {
   flex-direction: column;
 }
 
-.swiper-container {
+.glide-display{
   height: 50%;
   width: 100%;
   background-color: #ffe7d4;
@@ -126,7 +130,7 @@ main {
 }
 
 .active, .accordion:hover {
-  background-color: #ccc;
+  background-color: $lavender;
 }
 /* --> need to add the .active class with js */
 .accordion:after {
@@ -143,14 +147,14 @@ main {
 
 .panel {
   padding: 0 18px;
-  background-color: white;
+  background-color: $ltYellow;
   display: none;
   overflow: hidden;
 }
 /* ^hidden by default */
 .panel {
   padding: 0 18px;
-  background-color: white;
+  background-color: $ltYellow;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
