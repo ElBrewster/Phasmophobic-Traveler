@@ -17,10 +17,25 @@ class Agent {
         return new Traveler(clientId, this.clientsData, this.tripsData);
     }
 
-    addClientTripsYearlyCost(clientId) {
+    filterClientsTripsThisYear(clientId) {
+        let currYear = "2023/01/01";
         let client = this.getClient(clientId);
-        console.log(client.tripsList);
+        let currentYearTrips = client.tripsList.filter(element => (dayjs(element.date).isAfter(dayjs(currYear))) || (dayjs(element.date).isSame(dayjs(currYear))));
+        console.log("currYearTrips: ",currentYearTrips);
+        return currentYearTrips;
+    }
 
+    calcClientTripsYearlyCost(clientId) {
+        let currentTrips = this.filterClientsTripsThisYear(clientId);
+        let totalArray = [];
+        currentTrips.forEach(trip => {
+            totalArray.push( this.calculateOneTripCost(trip.id));
+        })
+        let total = totalArray.reduce((acc, curr) => {
+            acc += curr;
+            return acc;
+        }, 0);
+        return total;
     }
 
     calculateOneTripCost(tripId) {

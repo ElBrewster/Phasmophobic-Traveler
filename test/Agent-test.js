@@ -14,11 +14,11 @@ describe("Agent", () => {
 
     let allTripData = [
         {id: 1, userID: 44, destinationID: 49, travelers: 1, date: "2022/09/16", duration: 8, status: "approved", suggestedActivities: [ ]},
-        {id: 2, userID: 4, destinationID: 25, travelers: 5, date: "2022/10/04", duration: 18, status: "approved", suggestedActivities: [ ]},
+        {id: 2, userID: 4, destinationID: 25, travelers: 5, date: "2023/3/01", duration: 18, status: "approved", suggestedActivities: [ ]},
         {id: 3, userID: 3, destinationID: 22, travelers: 4, date: "2022/05/22", duration: 17, status: "approved", suggestedActivities: [ ]},
         {id: 46, userID: 44, destinationID: 33, travelers: 2, date: "2020/08/24", duration: 11, status: "approved", suggestedActivities: [ ]},
         {id: 48, userID: 44, destinationID: 14, travelers: 6, date: "2021/02/10", duration: 8, status: "pending", suggestedActivities: [ ]},
-        {id: 21, userID: 4, destinationID: 10, travelers: 1, date: "2022/10/04", duration: 18, status: "pending", suggestedActivities: [ ]},
+        {id: 21, userID: 4, destinationID: 10, travelers: 1, date: "2023/1/01", duration: 18, status: "approved", suggestedActivities: [ ]},
         {id: 22, userID: 4,destinationID: 9, travelers: 4, date: "2022/05/01", duration: 19, status: "approved", suggestedActivities: [ ]}
     ];
 
@@ -37,7 +37,11 @@ describe("Agent", () => {
         estimatedFlightCostPerPerson: 950,
         image: "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
         alt: "opera house and city buildings on the water with boats"
-        }];
+        },
+        {id: 10, destination: "New York, New York", estimatedLodgingCostPerDay: 175,
+        estimatedFlightCostPerPerson: 200,
+        image: "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
+        alt: "people crossing the street during the day surrounded by tall buildings and advertisements"}];
 
     let allTravelersData = [
             {id: 1, name: "Ham Leadbeater", travelerType: "relaxer"},
@@ -90,17 +94,17 @@ describe("Agent", () => {
         expect(method1b).to.be.equal(2596);
 //there's got to be so many sad paths for this :grimace:
     });
+    it("Should have a helper method2b to filter a client's trips for the current year", () => {
+        let method2b = agent1.filterClientsTripsThisYear(clientId2);
+        expect(method2b).to.be.deep.equal([
+            {id: 2, userID: 4, destinationID: 25, travelers: 5, date: '2023/3/01', duration: 18, status: 'approved', suggestedActivities: []},
+            {id: 21, userID: 4, destinationID: 10, travelers: 1, date: '2023/1/01', duration: 18, status: 'approved', suggestedActivities: []}])
+    });
 
-    it("Should have a method2 to get the total cost for all trips for a user for one year to display on the dash", () => {
-        let yearStartDate = "2022/01/01";
-        let yearEnd = "2022/31/12";
-        console.log(dayjs().toDate());
-        let method2 = agent1.addClientTripsYearlyCost(clientId2);
-        //call traveler for their trips, call this.getClient
-        //so call method1 on each trip in a user's trip list. Instantiate Traveler to access this list?
-        //method to get total cost for all trips for a user
-//--> get a user's trip list, then calculateOneTripCost on each element in that list
-    })
+    it("Should have a method2 to get the total cost for all trips for a user for this year to display on the dash", () => {
+        let method2 = agent1.calcClientTripsYearlyCost(clientId2);
+        expect(method2).to.be.equal(27225);
+    });
 
     it("Should have a method3 to get the total cost for all trips for all users for the past year to get the agent's yearly income", () => {
         //so call method2 on each traveler to get the total cost for all trips for all users this past year
