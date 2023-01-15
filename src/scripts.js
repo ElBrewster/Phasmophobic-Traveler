@@ -74,10 +74,12 @@ function displayCurrentAndUpcomingTrips(clientId) {
         console.log(trip.status);
     })
 }
+
 function displayExpenses() {
     let dollarText = agent1.calcClientTripsYearlyCost(clientId);
     expensesDisplay.innerText = `Your current expenses: $${dollarText}.00`;
 }
+
 //-----form-functions-----
 
 function getTripsDropdown() {
@@ -104,7 +106,7 @@ function formSubmitHandler(event) {
     const tripForm = new FormData(event.target);
     const makeThisTrip = {
         id: agent1.tripsData.length + 1,
-        userID: 1,
+        userID: clientId,
         //^whatever user is at login, or randomly generated? This needs to be dynamic
         destinationID: Number(tripForm.get("destinations")),
         travelers: tripForm.get("numberTravelers"),
