@@ -22,6 +22,8 @@ class Traveler {
         let alltripslist = alltrips.filterOneClientTrips(this.id);
         return alltripslist;
     }
+
+    
 }
 
 export default Traveler;

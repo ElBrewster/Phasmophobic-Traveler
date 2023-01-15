@@ -103,7 +103,7 @@ main {
   display: flex;
   flex-direction: column;
 }
-
+//-----glide-nonsense-----
 .glide-display{
   height: 100vh;
   width: 100%;
@@ -121,6 +121,8 @@ main {
 .glide_bullets {
   position: relative;
 }
+//-----^--glide-nonsense--^-----
+
 .side-piece {
   height: 50%;
   width: 100%;
@@ -133,6 +135,7 @@ main {
   width: 20%;
 }
 
+/* --->>--------accordion nonsense--------------<<------------------------------- */
 .the-whole-accordion {
   height:100%;
   width: 80%;
@@ -140,7 +143,6 @@ main {
   /* have a pretty canvas for when there's no populated buttons? */
 }
 
-/* --->>--------accordion nonsense--------------<<------------------------------- */
 .accordion {
   background-color: $cornflower;
   color: $brown;

@@ -15,6 +15,10 @@ class Agent {
         return new Traveler(clientId, this.clientsData, this.tripsData);
     }
 
+    addClientTripsYearlyCost(clientId) {
+        let client = this.getClient(clientId);
+        console.log(client.tripsList);
+    }
 
     calculateOneTripCost(tripId) {
         let trip1 = new Trip(tripId, this.tripsData);
