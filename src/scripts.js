@@ -14,6 +14,7 @@ let myDropDown = document.querySelector("#select-destinations");
 let numTraveling = document.querySelector("#numTravelers");
 let numDays = document.querySelector("#numDays");
 let tripDate = document.querySelector("#travelDate");
+let costEstimatePrint = document.querySelector("#costEstimate");
 
 
 //-----event-Listeners-----
@@ -46,6 +47,7 @@ function estimatedCost() {
         console.log("estimate: ", estimate)
         // console.log("friends: ", numTraveling.value);
         // console.log("destination: ", myDropDown.value);
+        costEstimatePrint.innerHTML = `These trip selections tally at $${estimate}.`
 
     }
 }

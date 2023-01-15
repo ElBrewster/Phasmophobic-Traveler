@@ -14,10 +14,12 @@
   <title>Webpack Starter Kit</title>
 </head>
 <body>
+
   <header class="travelAgency" id="travelAgency">the Phasmophobic Traveler
     <!-- do a span on the 'the'? ^^ --> 
     <section class="news-ticker" id="newsTicker"></section>
   </header>
+
   <main>
     <div class="flexDisplay">
 
@@ -80,33 +82,38 @@
         </div>
 
     </div>
+
     <aside class="aside-bar" id="asideBar">
+
       <section class="form-container" id="formContainer">
         <section class="form-section" id="forms">
           <form method="post" id="tripForm">
             <!-- <form action="URL"> -->
             <legend>Let's set up your trip!</legend>
-            <label for="destinations">Choose your destination:</label>
-            <select class="select-destination" id="select-destinations" name="destinations">
-              <option value="" disabled selected hidden>choose your destination</option>
-            </select>
-
             <label for="number-traveling">How many travelers do you have in your party?
               <input type="number" min="1" max="500" name="numberTravelers" id="numTravelers">
-            </label>
-            <label for="date">What day do you want to leave?
-              <input type="date" name="date" id="travelDate">
             </label>
             <label for="trip-duration">How many days does this trip take?
               <input type="number" min="1" max="365" name="numberDays" id="numDays">
             </label>
+            <label for="destinations">Choose your destination:</label>
+            <select class="select-destination" id="select-destinations" name="destinations">
+              <option value="" disabled selected hidden>choose your destination</option>
+            </select>
+            <label for="date">What day do you want to leave?
+              <input type="date" name="date" id="travelDate">
+            </label>
+            <p id="costEstimate"></p>
             <button>Submit</button>
           </form>
-
         </section>
-        <section class="money-tracker" id="moneyTracker"></section>
       </section>
+
+      <section class="money-tracker" id="moneyTracker"></section>
     </aside>
+     
+    <section class="margin-right"></section>
+
   </main>
   <footer class="logo-links" id="logoLinks"></footer>
   <!-- <img src="./images/turing-logo.png" alt="turing logo"> -->
