@@ -196,8 +196,7 @@ main {
 }
 
 form,
-.form-section {
-  display: flex;
+.form-section {  display: flex;
   flex-direction: column;
   font-family: $font-stack;
   width: 100%;
@@ -213,6 +212,29 @@ option[value=""][disabled] {
 option {
   color: $brown;
 }
+
+.numTrav,
+.tripDur,
+.destNation,
+.datePicker,
+.costEstimate {
+  margin: 1em;
+  display: flex;
+  flex-direction: column;
+}
+
+.num-days,
+.num-travelers {
+  width: 5em;
+  height: 2em;
+  padding: 1em;
+  margin: .5em;
+  display: inline-block;
+  box-sizing: border-box;
+  border-radius: .4em;
+  border: $softYellow;
+}
+
 footer {
   width: 100%;
   height: 10%;

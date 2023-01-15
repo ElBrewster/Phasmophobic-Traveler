@@ -90,17 +90,17 @@
           <form method="post" id="tripForm">
             <!-- <form action="URL"> -->
             <legend>Let's set up your trip!</legend>
-            <label for="number-traveling">How many travelers do you have in your party?
-              <input type="number" min="1" max="500" name="numberTravelers" id="numTravelers">
+            <label class="numTrav" for="number-traveling">How many travelers do you have in your party?
+              <input type="number" min="1" max="500" name="numberTravelers" class="num-travelers" id="numTravelers">
             </label>
-            <label for="trip-duration">How many days does this trip take?
-              <input type="number" min="1" max="365" name="numberDays" id="numDays">
+            <label class="tripDur" for="trip-duration">How many days does this trip take?
+              <input type="number" min="1" max="365" name="numberDays" class="num-days" id="numDays">
             </label>
-            <label for="destinations">Choose your destination:</label>
+            <label class="destNation" for="destinations">Choose your destination:</label>
             <select class="select-destination" id="select-destinations" name="destinations">
               <option value="" disabled selected hidden>choose your destination</option>
             </select>
-            <label for="date">What day do you want to leave?
+            <label class="datePicker" for="date">What day do you want to leave?
               <input type="date" name="date" id="travelDate">
             </label>
             <p id="costEstimate"></p>
