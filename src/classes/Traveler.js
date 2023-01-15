@@ -18,12 +18,10 @@ class Traveler {
     }
 
     askForTripList(tripsData) {
-        let alltrips = new AllTrips(tripsData);
-        let alltripslist = alltrips.filterOneClientTrips(this.id);
-        return alltripslist;
+        let allTrips = new AllTrips(tripsData);
+        let allTripsList = allTrips.filterOneClientTrips(this.id);
+        return allTripsList;
     }
-
-    
 }
 
 export default Traveler;

@@ -73,7 +73,6 @@ describe("Agent", () => {
 
     it("Should have a method0 to instantiate the Traveler to hand that client to the DOM", () => {
         let method0 = agent1.getClient(clientId);
-        console.log("method0, traveler: ", method0);
         expect(method0).to.be.an.instanceOf(Traveler);
         expect(method0).to.be.deep.equal({
             id: 3,
@@ -106,7 +105,7 @@ describe("Agent", () => {
         expect(method2).to.be.equal(27225);
     });
 
-    it("Should have a helper method to get display info for one trip", () => {
+    it("Should have a display method3 to get display info for one trip", () => {
         let method3b = agent1.provide1TripDisplayData(tripId1);
         let tripDisplayObject = {location_name: 'Sydney, Austrailia', date: '2023/3/01', trip_length: 18, group_size: 5,
             url: 'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
@@ -115,29 +114,47 @@ describe("Agent", () => {
           };
         expect(method3b).to.be.deep.equal(tripDisplayObject);
     });
+
+    it("Should have a method4 to filter a client's trips before the current year to do memories display", () => {
+        let method4 = agent1.filterClientsTripsBeforeThisYear(clientId);
+        console.log("method4: ", method4);
+        expect(method4).to.be.deep.equal([
+            {
+              id: 3,
+              userID: 3,
+              destinationID: 22,
+              travelers: 4,
+              date: '2022/05/22',
+              duration: 17,
+              status: 'approved',
+              suggestedActivities: []
+            }
+          ]);
+    })
+
 //client.askfortriplist, then for each get the display info
-    it("Should have a method3 to get the total cost for all trips for all users for the past year to get the agent's yearly income", () => {
+    it("Should have a method5 to get the total cost for all trips for all users for the past year to get the agent's yearly income", () => {
         //so call method2 on each traveler to get the total cost for all trips for all users this past year
     });
 
-    it("Should have a method4 to get all pending trips for agent's display", () => {
+    it("Should have a method6 to get all pending trips for agent's display", () => {
 
     });
 
-    it("Should have a method5 to get all travelers on trips 'today' for display", () => {
+    it("Should have a method7 to get all travelers on trips 'today' for display", () => {
 
     });
 
-    it("Should have a method6 to approve a user's trip", () => {
+    it("Should have a method8 to approve a user's trip", () => {
 //make sure "Agent" doesn't make the change, but that the right class does this!
 // change trip status to "approve"
     });
 
-    it("Should have a method7 to delete a user's upcoming trip", () => {
+    it("Should have a method9 to delete a user's upcoming trip", () => {
 //what does delete mean, remove from data set? remove from traveler's list? attach to button click?
     });
 
-    it("Should have a method to search by AllTravelers by name and return the id to instantiate the Traveler", () => {
+    it("Should have a method10 to search by AllTravelers by name and return the id to instantiate the Traveler", () => {
 //do we need just the id, or the whole object? is this just for login? or pageload?
     });
 })

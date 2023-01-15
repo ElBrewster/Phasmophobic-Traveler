@@ -4,13 +4,12 @@ import Agent from "./classes/Agent";
 import Glide from '@glidejs/glide';
 import { callForData, makeTrip } from "./api";
 // import { makeTrip } from './api';
-import { locale } from 'dayjs';
 import dayjs from 'dayjs';
 
 // import './images/turing-logo.png'
 
 let agent1;
-let clientId = 3;
+let clientId = 44;
 let tripId3 = 4;
 //^make this dynamic and delete!
 //-----query-Selectors-----
@@ -49,17 +48,20 @@ Promise.all([callForData("travelers"), callForData("trips"), callForData("destin
 })
 .catch(error => console.log(error));
 
-function pageLoad () {
+function pageLoad() {
     dateSpot.innerText = dayjs().toDate();
-    console.log(dayjs().toDate());
+}
 
+function getClient(clientId) {
+    let currUser = agent1.getClient(clientId);
 }
 
 function displayATrip() {
+    console.log(tripId3);
     let display = agent1.provide1TripDisplayData(tripId3);
+    console.log("display: ", display);
     testerBox.innerText = `You made memories on ${display.date}.`
     testerBox.innerHTML = `<img src="${display.url}" alt="${display.urlAlt}">`
-    console.log(display);
 
 }
 
@@ -68,6 +70,12 @@ function displayExpenses() {
     expensesDisplay.innerText = `Your current expenses: $${dollarText}.00`
 }
 //-----form-functions-----
+
+function getTripsDropdown() {
+    agent1.placesData.forEach(place => {
+        myDropDown.innerHTML += `<option id="some${place.id}" value="${place.id}">${place.destination}</option>`;
+    })
+}
 
 function estimatedCost() {
     if(numDays.value && numTraveling.value && myDropDown.value) {
@@ -80,12 +88,6 @@ function estimatedCost() {
         costEstimatePrint.innerHTML = `These trip selections tally at $${estimate}.`
 
     }
-}
-
-function getTripsDropdown() {
-    agent1.placesData.forEach(place => {
-        myDropDown.innerHTML += `<option id="some${place.id}" value="${place.id}">${place.destination}</option>`;
-    })
 }
 
 function formSubmitHandler(event) {
@@ -110,6 +112,7 @@ function formSubmitHandler(event) {
 const config = {
     type: "carousel",
     perView: 3,
+    peek: { before: 100, after: 50 },
     breakpoints: {
         1024: {
             perView: 2
