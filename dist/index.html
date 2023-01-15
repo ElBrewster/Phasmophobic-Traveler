@@ -14,10 +14,12 @@
   <title>Webpack Starter Kit</title>
 </head>
 <body>
-  <header class="travelAgency" id="travelAgency">the Phasmophobic Traveler
+
+  <header class="travelAgency" id="travelAgency"><span class="italics">the</span>&nbspPhasmophobic Traveler
     <!-- do a span on the 'the'? ^^ --> 
     <section class="news-ticker" id="newsTicker"></section>
   </header>
+
   <main>
     <div class="flexDisplay">
 
@@ -33,8 +35,8 @@
             </div>
 
             <div class="glide__arrows" data-glide-el="controls">
-              <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
-              <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
+              <button class="glide__arrow glide__arrow--left" data-glide-dir="<">&nbsp<<&nbsp</button>
+              <button class="glide__arrow glide__arrow--right" data-glide-dir=">">&nbsp>>&nbsp</button>
               <!-- ^maybe change prev and next text to icons? -->
             </div>
 
@@ -80,35 +82,42 @@
         </div>
 
     </div>
+
     <aside class="aside-bar" id="asideBar">
+
       <section class="form-container" id="formContainer">
         <section class="form-section" id="forms">
           <form method="post" id="tripForm">
             <!-- <form action="URL"> -->
             <legend>Let's set up your trip!</legend>
-            <label for="destinations">Choose your destination:</label>
+            <label class="numTrav" for="number-traveling">How many travelers do you have in your party?
+              <input type="number" min="1" max="500" name="numberTravelers" class="num-travelers" id="numTravelers">
+            </label>
+            <label class="tripDur" for="trip-duration">How many days does this trip take?
+              <input type="number" min="1" max="365" name="numberDays" class="num-days" id="numDays">
+            </label>
+            <label class="destNation" for="destinations">Choose your destination:</label>
             <select class="select-destination" id="select-destinations" name="destinations">
               <option value="" disabled selected hidden>choose your destination</option>
             </select>
-
-            <label for="number-traveling">How many travelers do you have in your party?
-              <input type="number" min="1" max="500" name="numberTravelers">
+            <label class="datePicker" for="date">What day do you want to leave?
+              <input type="date" name="date" id="travelDate">
             </label>
-            <label for="date">What day do you want to leave?
-              <input type="date" name="date">
-            </label>
-            <label for="trip-duration">How many days does this trip take?
-              <input type="number" min="1" max="365" name="numberDays">
-            </label>
+            <p id="costEstimate"></p>
             <button>Submit</button>
           </form>
-
         </section>
-        <section class="money-tracker" id="moneyTracker"></section>
       </section>
+
+      <section class="money-tracker" id="moneyTracker"></section>
     </aside>
+
+    <section class="margin-right"></section>
+
   </main>
-  <footer class="logo-links" id="logoLinks"></footer>
+  <footer class="logo-links" id="logoLinks">
+    <section class="color-fix"></section>
+  </footer>
   <!-- <img src="./images/turing-logo.png" alt="turing logo"> -->
   
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
