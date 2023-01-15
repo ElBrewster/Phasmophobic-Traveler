@@ -1,6 +1,7 @@
 import chai from 'chai';
 const expect = chai.expect;
-
+//Wishlist:
+//1. use <optgroup> tag for dropdown to let user select a continent, have function to filter destinations into continent groups
 describe('See if the tests are running', function() {
   it('should return true', function() {
     expect(true).to.equal(true);

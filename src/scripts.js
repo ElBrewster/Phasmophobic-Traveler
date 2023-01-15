@@ -1,54 +1,98 @@
-// This is the JavaScript entry file - your code begins here
-// Do not delete or rename this file ********
-
-// An example of how you tell webpack to use a CSS (-->SCSS) file
 import './css/styles.scss';
 import "./data/ghost-facts";
-import Swiper from 'swiper/bundle';
-import 'swiper/scss';
-const swiper = new Swiper('.swiper', {
-    // Optional parameters
-    direction: 'vertical',
-    loop: true,
-  
-    // If we need pagination
-    pagination: {
-      el: '.swiper-pagination',
-    },
-  
-    // Navigation arrows
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-  
-    // And if we need scrollbar
-    scrollbar: {
-      el: '.swiper-scrollbar',
-    },
-  });
-// An example of how you tell webpack to use an image (also need to link to it in the index.html)
-import './images/turing-logo.png'
+import Agent from "./classes/Agent";
+import Glide from '@glidejs/glide';
+import { callForData } from "./api";
+import { makeTrip } from './api';
+import { locale } from 'dayjs';
+// import './images/turing-logo.png'
 
+let agent1;
+//-----query-Selectors-----
+let form = document.querySelector("#tripForm");
+let myDropDown = document.querySelector("#select-destinations");
+
+
+//-----event-Listeners-----
+form.addEventListener("submit", formSubmitHandler);
+
+//-----functions-----
+
+Promise.all([callForData("travelers"), callForData("trips"), callForData("destinations")])
+.then((promisedData) => {
+    let allTravelersData = promisedData[0].travelers;
+    let allTripsData = promisedData[1].trips;
+    let allDestinationData = promisedData[2].destinations;
+    agent1 = new Agent(allDestinationData, allTripsData, allTravelersData);
+    getTripsDropdown();
+
+})
+.catch(error => console.log(error));
+
+
+function getTripsDropdown() {
+    agent1.placesData.forEach(place => {
+        myDropDown.innerHTML += `<option id="some${place.id}" value="${place.id}">${place.destination}</option>`;
+    })
+}
+
+function formSubmitHandler(event) {
+    event.preventDefault();
+    const tripForm = new FormData(event.target);
+    const makeThisTrip = {
+        id: agent1.tripsData.length + 1,
+        userID: 1,
+        //^whatever user is at login, or randomly generated? This needs to be dynamic
+        destinationID: Number(tripForm.get("destinations")),
+        travelers: tripForm.get("numberTravelers"),
+        date: tripForm.get("date").replaceAll("-", "/"),
+        duration: tripForm.get("numberDays"),
+        status: "pending",
+        suggestedActivities: []
+    }
+    makeTrip(makeThisTrip);
+    event.target.reset();
+}
+
+//-----glide?
+let glide = new Glide('.glide');
+glide.mount()
+//-----glide^?
+
+//----news-ticker?-----
 // const windowLoad = document.addEventListener("load", newsTicker);
 
 // const newsTicker = () => {
 //     ghostFacts.forEach(fact => console.log(fact));
 // }
-console.log('This is the JavaScript entry file - your code begins here.');
-// -->w3 schools script for accordion buttions:
-// var acc = document.getElementsByClassName("accordion");
-// var i;
+//----accordion?-----
+// let acc = document.getElementsByClassName("accordion");
+// let i;
+// let panel = this.nextElementSibling;
 
-// for (i = 0; i < acc.length; i++) {
-//   acc[i].addEventListener("click", function() {
-//     this.classList.toggle("active");
-//     var panel = this.nextElementSibling;
-//     if (panel.style.maxHeight) {
-//       panel.style.maxHeight = null;
-//     } else {
-//       panel.style.maxHeight = panel.scrollHeight + "px";
-//     } 
-//   });
-// }
+//     for (i = 0; i < acc.length; i++) {
+//         acc[i].addEventListener("click", function() {
+//             this.classList.toggle("active");
+//         if (panel.style.display === "block") {
+//             panel.style.display = "none";
+//         } else {
+//             panel.style.display = "block";
+//         }
+//       });
+//     }
+
+
+
+//  for (i = 0; i < acc.length; i++) {
+//     acc[i].addEventListener("click", function() {
+//             this.classList.toggle("active");
+//         if (panel.style.maxHeight) {
+//             panel.style.maxHeight = null;
+//         } else {
+//             panel.style.maxHeight = panel.scrollHeight + "px";
+//         }
+//       });
+//     }
+
+
 

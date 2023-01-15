@@ -4,8 +4,11 @@ import Traveler from "../src/classes/Traveler";
 
 describe("Agent", () => {
     let agent1;
+    let traveler1;
+    let clientId = 3;
     let tripId1 = 2;
     let tripId2 = 1;
+
     let allTripData = [
         {id: 1, userID: 44, destinationID: 49, travelers: 1, date: "2022/09/16", duration: 8, status: "approved", suggestedActivities: [ ]},
         {id: 2, userID: 35, destinationID: 25, travelers: 5, date: "2022/10/04", duration: 18, status: "approved", suggestedActivities: [ ]},
@@ -28,8 +31,15 @@ describe("Agent", () => {
         alt: "opera house and city buildings on the water with boats"
         }];
 
+    let allTravelersData = [
+            {id: 1, name: "Ham Leadbeater", travelerType: "relaxer"},
+            {id: 2, name: "Rachael Vaughten", travelerType: "thrill-seeker"},
+            {id: 3, name: "Sibby Dawidowitsch", travelerType: "shopper"},
+            {id: 4, name: "Leila Thebeaud", travelerType: "photographer"},
+            {id: 5, name: "Tiffy Grout", travelerType: "thrill-seeker"}];
+
     beforeEach(function() {
-        agent1 = new Agent(allDestinationData, allTripData);
+        agent1 = new Agent(allDestinationData, allTripData, allTravelersData);
     });
 
     it("Should be a function and instantiate our good friend the Agent", () => {
@@ -43,7 +53,25 @@ describe("Agent", () => {
 
     it("Should have a property to store all trip data", () => {
         expect(agent1.tripsData).to.be.deep.equal(allTripData);
-    })
+    });
+
+    it("Should have a property to store all their client's data", () => {
+        expect(agent1.clientsData).to.be.deep.equal(allTravelersData);
+    });
+
+    it("Should have a method0 to instantiate the Traveler to hand that client to the DOM", () => {
+        let method0 = agent1.getClient(clientId);
+        console.log("method0, traveler: ", method0);
+        expect(method0).to.be.an.instanceOf(Traveler);
+        expect(method0).to.be.deep.equal({
+            id: 3,
+            object: { id: 3, name: 'Sibby Dawidowitsch', travelerType: 'shopper' },
+            name: 'Sibby Dawidowitsch',
+            vibe: 'shopper',
+            tripsList: [
+              {id: 3, userID: 3, destinationID: 22, travelers: 4, date: '2022/05/22', 
+              duration: 17, status: 'approved', suggestedActivities: []}]});
+    });
 
     it("Should have a method1 to get the total cost for one trip for a user passing their id as an argument", () => {
         //(an agent would handle totals for the user)

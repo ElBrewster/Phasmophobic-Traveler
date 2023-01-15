@@ -1,12 +1,20 @@
+import AllDestinations from "./AllDestinations";
 import Destination from "./Destination";
+import Traveler from "./Traveler";
 import Trip from "./Trip";
 
 //this is my class highway 
 class Agent {
-    constructor(allDestinationData, allTripData) {
+    constructor(allDestinationData, allTripData, allTravelersData, localeId, tripId, clientId) {
         this.placesData = allDestinationData;
         this.tripsData = allTripData;
+        this.clientsData = allTravelersData;
     }
+
+    getClient(clientId) {
+        return new Traveler(clientId, this.clientsData, this.tripsData);
+    }
+
 
     calculateOneTripCost(tripId) {
         let trip1 = new Trip(tripId, this.tripsData);
@@ -17,7 +25,6 @@ class Agent {
         let oneTravelerCost = lodgingCost + flightCost;
         let tripCost = oneTravelerCost * trip1.travelerCount;
         let totalTripCost = tripCost + (tripCost / 10);
-        console.log("totalTripCost: ", totalTripCost);
         return totalTripCost;
 
     }
