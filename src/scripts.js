@@ -2,22 +2,31 @@ import './css/styles.scss';
 import "./data/ghost-facts";
 import Agent from "./classes/Agent";
 import Glide from '@glidejs/glide';
-import { callForData } from "./api";
-import { makeTrip } from './api';
-import { locale } from 'dayjs';
+import { callForData, makeTrip } from "./api";
+// import { makeTrip } from './api';
+import dayjs from 'dayjs';
+
 // import './images/turing-logo.png'
 
 let agent1;
+let clientId = 44;
+let tripId3 = 4;
+//^make this dynamic and delete!
 //-----query-Selectors-----
+let dateSpot = document.querySelector("#todaysDate")
 let form = document.querySelector("#tripForm");
 let myDropDown = document.querySelector("#select-destinations");
 let numTraveling = document.querySelector("#numTravelers");
 let numDays = document.querySelector("#numDays");
 let tripDate = document.querySelector("#travelDate");
 let costEstimatePrint = document.querySelector("#costEstimate");
+let expensesDisplay = document.querySelector("#moneyTracker");
+let testerBox = document.querySelector("#smallTopLeft");
+let glideSlides = document.querySelector("#glideSlides");
 
 
 //-----event-Listeners-----
+window.addEventListener("load", pageLoad)
 form.addEventListener("submit", formSubmitHandler);
 form.addEventListener("change", estimatedCost)
 numDays.addEventListener("change", console.log);
@@ -33,11 +42,40 @@ Promise.all([callForData("travelers"), callForData("trips"), callForData("destin
     let allDestinationData = promisedData[2].destinations;
     agent1 = new Agent(allDestinationData, allTripsData, allTravelersData);
     getTripsDropdown();
-
+    displayExpenses(clientId);
+    getClientDisplay(clientId);
+    startGlide();
 })
 .catch(error => console.log(error));
 
+function pageLoad() {
+    dateSpot.innerText = dayjs().toDate();
+}
+
+function getClientDisplay(clientId) {
+    glideSlides.innerHTML = "";
+    let currUser = agent1.getClient(clientId);
+    //innerText function to say hellow to user
+    let oldTrips = agent1.filterClientsTripsBeforeThisYear(currUser.id);
+    console.log("oldTrips: ", oldTrips);
+    oldTrips.forEach(trip => {
+        let display = agent1.provide1TripDisplayData(trip.id);
+        glideSlides.innerHTML += `<li class="glide__slide">You made memories on ${display.date} at ${display.location_name}.<img class="one-slide" src="${display.url}" alt="${display.urlAlt}" width="400" height="275"></li>`;
+    })
+}
+// clear innerHTML if you need to at the beginning of functions?
+
+function displayExpenses() {
+    let dollarText = agent1.calcClientTripsYearlyCost(clientId);
+    expensesDisplay.innerText = `Your current expenses: $${dollarText}.00`;
+}
 //-----form-functions-----
+
+function getTripsDropdown() {
+    agent1.placesData.forEach(place => {
+        myDropDown.innerHTML += `<option id="some${place.id}" value="${place.id}">${place.destination}</option>`;
+    })
+}
 
 function estimatedCost() {
     if(numDays.value && numTraveling.value && myDropDown.value) {
@@ -50,12 +88,6 @@ function estimatedCost() {
         costEstimatePrint.innerHTML = `These trip selections tally at $${estimate}.`
 
     }
-}
-
-function getTripsDropdown() {
-    agent1.placesData.forEach(place => {
-        myDropDown.innerHTML += `<option id="some${place.id}" value="${place.id}">${place.destination}</option>`;
-    })
 }
 
 function formSubmitHandler(event) {
@@ -77,32 +109,21 @@ function formSubmitHandler(event) {
 }
 
 //-----glide?
-const config = {
-    type: "carousel",
-    perView: 3,
-    breakpoints: {
-        1024: {
-            perView: 2
+//this needs to happen after we fetch
+function startGlide() {
+    const config = {
+        type: "carousel",
+        perView: 3,
+        peek: { before: 100, after: 50 },
+        breakpoints: {
+            1024: {perView: 2},
+            800: {perView: 2}
         },
-        800: {
-            perView: 2
-        }
+        focusAt: 1,
+        keyboard: true
+      }
+      new Glide(".glide", config).mount();
     }
-  }
-  new Glide(".glide", config).mount();
-// var glide = new Glide('.glide', {
-//     type: 'carousel',
-//     autoplay: 5000,
-//     hoverpause: false,
-//     perView: 2,
-//     gap: 0,
-//     focusAt: 'center',
-//     animationTimingFunc: 'ease-in-out',
-//     animationDuration: 800,
-//     perTouch: 2,
-//   });
-
-// glide.mount()
 //-----glide^?
 
 //----news-ticker?-----
