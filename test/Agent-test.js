@@ -84,6 +84,8 @@ describe("Agent", () => {
     });
 
     it("Should have a method2 to get the total cost for all trips for a user for one year to display on the dash", () => {
+        let method2 = agent1.addClientTripsYearlyCost(clientId);
+        //call traveler for their trips, call this.getClient
         //so call method1 on each trip in a user's trip list. Instantiate Traveler to access this list?
         //method to get total cost for all trips for a user
 //--> get a user's trip list, then calculateOneTripCost on each element in that list
