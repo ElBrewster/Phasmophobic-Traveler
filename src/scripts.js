@@ -20,8 +20,9 @@ let numTraveling = document.querySelector("#numTravelers");
 let numDays = document.querySelector("#numDays");
 let tripDate = document.querySelector("#travelDate");
 let costEstimatePrint = document.querySelector("#costEstimate");
-let expensesDisplay = document.querySelector("#moneyTracker")
-let testerBox = document.querySelector("#smallTopLeft")
+let expensesDisplay = document.querySelector("#moneyTracker");
+let testerBox = document.querySelector("#smallTopLeft");
+let glideSlides = document.querySelector("#glideSlides");
 
 
 //-----event-Listeners-----
@@ -43,6 +44,7 @@ Promise.all([callForData("travelers"), callForData("trips"), callForData("destin
     getTripsDropdown();
     displayExpenses(clientId);
     displayATrip();
+    getClientDisplay(clientId);
 
 
 })
@@ -52,22 +54,28 @@ function pageLoad() {
     dateSpot.innerText = dayjs().toDate();
 }
 
-function getClient(clientId) {
+function getClientDisplay(clientId) {
     let currUser = agent1.getClient(clientId);
+    //innerText function to say hellow to user
+    let oldTrips = agent1.filterClientsTripsBeforeThisYear(currUser.id);
+    console.log("oldTrips: ", oldTrips);
+    //this function isn't returning anything yet. I want it to display username and old trips for now
 }
+// clear innerHTML if you need to at the beginning of functions?
+// for each trip insert into Glide "glide__track" `<li class="glide__slide"><img src="${img url}" alt="${img alt} /></li>`
 
 function displayATrip() {
     console.log(tripId3);
     let display = agent1.provide1TripDisplayData(tripId3);
     console.log("display: ", display);
-    testerBox.innerText = `You made memories on ${display.date}.`
-    testerBox.innerHTML = `<img src="${display.url}" alt="${display.urlAlt}">`
-
+    testerBox.innerText = `You made memories on ${display.date}.`;
+    testerBox.innerHTML = `<img class="tester-box" src="${display.url}" alt="${display.urlAlt}">`;
+    // glideSlides.innerHTML = `<li class="glide__slide"><img class="one-slide" src="${display.url}" alt="${display.urlAlt}"></li>`;
 }
 
 function displayExpenses() {
     let dollarText = agent1.calcClientTripsYearlyCost(clientId);
-    expensesDisplay.innerText = `Your current expenses: $${dollarText}.00`
+    expensesDisplay.innerText = `Your current expenses: $${dollarText}.00`;
 }
 //-----form-functions-----
 

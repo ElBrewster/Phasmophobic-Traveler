@@ -117,7 +117,6 @@ describe("Agent", () => {
 
     it("Should have a method4 to filter a client's trips before the current year to do memories display", () => {
         let method4 = agent1.filterClientsTripsBeforeThisYear(clientId);
-        console.log("method4: ", method4);
         expect(method4).to.be.deep.equal([
             {
               id: 3,

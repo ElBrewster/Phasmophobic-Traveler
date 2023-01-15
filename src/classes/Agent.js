@@ -28,7 +28,6 @@ class Agent {
         let currYear = "2023/01/01";
         let client = this.getClient(clientId);
         let previousYearsTrips = client.tripsList.filter(element => dayjs(element.date).isBefore(dayjs(currYear)));
-        console.log("previousYearsTrips", previousYearsTrips);
         return previousYearsTrips;
     }
 
