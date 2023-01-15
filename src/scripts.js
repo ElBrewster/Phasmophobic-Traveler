@@ -54,24 +54,26 @@ function pageLoad() {
 }
 
 function getClientDisplay(clientId) {
+    glideSlides.innerHTML = "";
     let currUser = agent1.getClient(clientId);
     //innerText function to say hellow to user
     let oldTrips = agent1.filterClientsTripsBeforeThisYear(currUser.id);
     console.log("oldTrips: ", oldTrips);
-    //this function isn't returning anything yet. I want it to display username and old trips for now
+    oldTrips.forEach(trip => {
+        let display = agent1.provide1TripDisplayData(trip.id);
+        glideSlides.innerHTML += `<li class="glide__slide">You made memories on ${display.date} at ${display.location_name}.<img class="one-slide" src="${display.url}" alt="${display.urlAlt}" width="400" height="275"></li>`;
+        displayATrip()
+    })
 }
 // clear innerHTML if you need to at the beginning of functions?
-// for each trip insert into Glide "glide__track" `<li class="glide__slide"><img src="${img url}" alt="${img alt} /></li>`
+
 
 function displayATrip() {
     console.log(tripId3);
     let display = agent1.provide1TripDisplayData(tripId3);
     console.log("display: ", display);
-    console.log(testerBox.innerText = `You made memories on ${display.date}.`);
-    testerBox.innerHTML = `<img class="tester-box" src="${display.url}" alt="${display.urlAlt}">`;
-    // glideSlides.innerHTML = `<li class="glide__slide"><img class="one-slide" src="${display.url}" alt="${display.urlAlt}"></li>`;
-    console.log(display.location_name)
-    glideSlides.innerHTML = `<li class="glide__slide">You made memories on ${display.date} at ${display.location_name}.<img class="one-slide" src="${display.url}" alt="${display.urlAlt}" width="400" height="275"></li>`;
+    // testerBox.innerHTML = `<img class="tester-box" src="${display.url}" alt="${display.urlAlt}">`;
+    glideSlides.innerHTML += `<li class="glide__slide">You made memories on ${display.date} at ${display.location_name}.<img class="one-slide" src="${display.url}" alt="${display.urlAlt}" width="400" height="275"></li>`;
 }
 
 // {/* <div class="swiper-slide" id="${destination.id}"><img alt="${destination.alt}" src="${destination.image}" width="400" height="275"></div> */}
