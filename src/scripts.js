@@ -10,6 +10,8 @@ import dayjs from 'dayjs';
 // import './images/turing-logo.png'
 
 let agent1;
+let clientId = 3;
+//^make this dynamic and delete!
 //-----query-Selectors-----
 let dateSpot = document.querySelector("#todaysDate")
 let form = document.querySelector("#tripForm");
@@ -18,6 +20,7 @@ let numTraveling = document.querySelector("#numTravelers");
 let numDays = document.querySelector("#numDays");
 let tripDate = document.querySelector("#travelDate");
 let costEstimatePrint = document.querySelector("#costEstimate");
+let expensesDisplay = document.querySelector("#moneyTracker")
 
 
 //-----event-Listeners-----
@@ -41,12 +44,18 @@ Promise.all([callForData("travelers"), callForData("trips"), callForData("destin
 })
 .catch(error => console.log(error));
 
-//-----form-functions-----
 function pageLoad () {
     dateSpot.innerText = dayjs().toDate();
     console.log(dayjs().toDate());
 
 }
+
+function displayExpenses() {
+    let dollarText = agent1.calcClientTripsYearlyCost(clientId);
+    expensesDisplay.innerText = `Your current expenses: $${dollarText}.00`
+}
+//-----form-functions-----
+
 function estimatedCost() {
     if(numDays.value && numTraveling.value && myDropDown.value) {
         console.log("Here is numDays: friends: destination:", numDays.value, numTraveling.value, myDropDown.value);
