@@ -3,7 +3,6 @@ import "./data/ghost-facts";
 import Agent from "./classes/Agent";
 import Glide from '@glidejs/glide';
 import { callForData, makeTrip } from "./api";
-// import { makeTrip } from './api';
 import dayjs from 'dayjs';
 
 // import './images/turing-logo.png'
@@ -36,21 +35,24 @@ numTraveling.addEventListener("change", console.log);
 myDropDown.addEventListener("change", console.log);
 //-----functions-----
 
-Promise.all([callForData("travelers"), callForData("trips"), callForData("destinations")])
-.then((promisedData) => {
-    let allTravelersData = promisedData[0].travelers;
-    let allTripsData = promisedData[1].trips;
-    let allDestinationData = promisedData[2].destinations;
-    agent1 = new Agent(allDestinationData, allTripsData, allTravelersData);
-    getTripsDropdown();
-    displayExpenses(clientId);
-    getClientDisplay(clientId);
-    startGlide();
-})
-.catch(error => console.log(error));
+function doPromise() {
+    Promise.all([callForData("travelers"), callForData("trips"), callForData("destinations")])
+    .then((promisedData) => {
+        let allTravelersData = promisedData[0].travelers;
+        let allTripsData = promisedData[1].trips;
+        let allDestinationData = promisedData[2].destinations;
+        agent1 = new Agent(allDestinationData, allTripsData, allTravelersData);
+        getTripsDropdown();
+        displayExpenses(clientId);
+        getClientDisplay(clientId);
+        startGlide();
+    })
+    .catch(error => console.log(error));
+}
 
 function pageLoad() {
     dateSpot.innerText = dayjs().toDate();
+    doPromise();
 }
 
 function getClientDisplay(clientId) {
@@ -77,7 +79,7 @@ function displayCurrentAndUpcomingTrips(clientId) {
 
 function displayExpenses() {
     let dollarText = agent1.calcClientTripsYearlyCost(clientId);
-    expensesDisplay.innerText = `Your current expenses: $${dollarText}.00`;
+    expensesDisplay.innerText = `Your current expenses this year: $${dollarText}.00`;
 }
 
 //-----form-functions-----
@@ -116,6 +118,7 @@ function formSubmitHandler(event) {
         suggestedActivities: []
     }
     makeTrip(makeThisTrip);
+    doPromise();
     event.target.reset();
 }
 
