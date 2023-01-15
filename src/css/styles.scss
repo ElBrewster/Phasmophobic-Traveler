@@ -81,14 +81,29 @@ header {
   justify-content: center;
   align-items: center;
 }
+.date-divider {
+  height: 100%;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+}
+
 .italics {
   font-style: italic;
   font-weight: 100;
 }
-.news-ticker {
-  height: 100%;
-  width: 60%;
+.todays-date{
+  height: 25%;
+  display: flex;
+  align-content: flex-end;
+  align-items: center;
+  font-size: small;
 }
+
+.news-ticker {
+  height: 75%;
+}
+
 main {
   height: 90%;
   width: 100%;

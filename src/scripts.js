@@ -5,10 +5,13 @@ import Glide from '@glidejs/glide';
 import { callForData } from "./api";
 import { makeTrip } from './api';
 import { locale } from 'dayjs';
+import dayjs from 'dayjs';
+
 // import './images/turing-logo.png'
 
 let agent1;
 //-----query-Selectors-----
+let dateSpot = document.querySelector("#todaysDate")
 let form = document.querySelector("#tripForm");
 let myDropDown = document.querySelector("#select-destinations");
 let numTraveling = document.querySelector("#numTravelers");
@@ -18,6 +21,7 @@ let costEstimatePrint = document.querySelector("#costEstimate");
 
 
 //-----event-Listeners-----
+window.addEventListener("load", pageLoad)
 form.addEventListener("submit", formSubmitHandler);
 form.addEventListener("change", estimatedCost)
 numDays.addEventListener("change", console.log);
@@ -38,7 +42,11 @@ Promise.all([callForData("travelers"), callForData("trips"), callForData("destin
 .catch(error => console.log(error));
 
 //-----form-functions-----
+function pageLoad () {
+    dateSpot.innerText = dayjs().toDate();
+    console.log(dayjs().toDate());
 
+}
 function estimatedCost() {
     if(numDays.value && numTraveling.value && myDropDown.value) {
         console.log("Here is numDays: friends: destination:", numDays.value, numTraveling.value, myDropDown.value);

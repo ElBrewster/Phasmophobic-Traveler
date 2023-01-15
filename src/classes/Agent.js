@@ -2,6 +2,8 @@ import AllDestinations from "./AllDestinations";
 import Destination from "./Destination";
 import Traveler from "./Traveler";
 import Trip from "./Trip";
+import dayjs from 'dayjs';
+
 
 //this is my class highway 
 class Agent {
@@ -18,6 +20,7 @@ class Agent {
     addClientTripsYearlyCost(clientId) {
         let client = this.getClient(clientId);
         console.log(client.tripsList);
+
     }
 
     calculateOneTripCost(tripId) {

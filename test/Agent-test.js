@@ -1,18 +1,26 @@
 import { expect } from "chai";
 import Agent from "../src/classes/Agent";
 import Traveler from "../src/classes/Traveler";
+import dayjs from 'dayjs';
+
 
 describe("Agent", () => {
     let agent1;
     let traveler1;
     let clientId = 3;
+    let clientId2 = 4;
     let tripId1 = 2;
     let tripId2 = 1;
 
     let allTripData = [
         {id: 1, userID: 44, destinationID: 49, travelers: 1, date: "2022/09/16", duration: 8, status: "approved", suggestedActivities: [ ]},
-        {id: 2, userID: 35, destinationID: 25, travelers: 5, date: "2022/10/04", duration: 18, status: "approved", suggestedActivities: [ ]},
-        {id: 3, userID: 3, destinationID: 22, travelers: 4, date: "2022/05/22", duration: 17, status: "approved", suggestedActivities: [ ]}];
+        {id: 2, userID: 4, destinationID: 25, travelers: 5, date: "2022/10/04", duration: 18, status: "approved", suggestedActivities: [ ]},
+        {id: 3, userID: 3, destinationID: 22, travelers: 4, date: "2022/05/22", duration: 17, status: "approved", suggestedActivities: [ ]},
+        {id: 46, userID: 44, destinationID: 33, travelers: 2, date: "2020/08/24", duration: 11, status: "approved", suggestedActivities: [ ]},
+        {id: 48, userID: 44, destinationID: 14, travelers: 6, date: "2021/02/10", duration: 8, status: "pending", suggestedActivities: [ ]},
+        {id: 21, userID: 4, destinationID: 10, travelers: 1, date: "2022/10/04", duration: 18, status: "pending", suggestedActivities: [ ]},
+        {id: 22, userID: 4,destinationID: 9, travelers: 4, date: "2022/05/01", duration: 19, status: "approved", suggestedActivities: [ ]}
+    ];
 
     let allDestinationData = [{
         id: 1, destination: "Lima, Peru", estimatedLodgingCostPerDay: 70,
@@ -84,7 +92,10 @@ describe("Agent", () => {
     });
 
     it("Should have a method2 to get the total cost for all trips for a user for one year to display on the dash", () => {
-        let method2 = agent1.addClientTripsYearlyCost(clientId);
+        let yearStartDate = "2022/01/01";
+        let yearEnd = "2022/31/12";
+        console.log(dayjs().toDate());
+        let method2 = agent1.addClientTripsYearlyCost(clientId2);
         //call traveler for their trips, call this.getClient
         //so call method1 on each trip in a user's trip list. Instantiate Traveler to access this list?
         //method to get total cost for all trips for a user
