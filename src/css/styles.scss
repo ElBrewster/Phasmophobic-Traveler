@@ -193,6 +193,8 @@ main {
 .form-container {
   width: 100%;
   height: 80%;
+  background-color: $cornflower;
+  box-shadow: inset 0 0 20px $ltYellow;
 }
 
 form,
@@ -229,12 +231,19 @@ option {
   height: 2em;
   padding: 1em;
   margin: .5em;
+  cursor: pointer;
   display: inline-block;
   box-sizing: border-box;
   border-radius: .4em;
   border: $softYellow;
 }
 
+.select-destinations {
+  display: inline-block;
+  box-sizing: border-box;
+  border-radius: .4em;
+  border: $softYellow;
+}
 footer {
   width: 100%;
   height: 10%;
