@@ -62,14 +62,18 @@ function getClientDisplay(clientId) {
         let glideDisplay = agent1.provide1TripDisplayData(trip.id);
         glideSlides.innerHTML += `<li class="glide__slide">You made memories on ${glideDisplay.date} at ${glideDisplay.location_name}.<img class="one-slide" src="${glideDisplay.url}" alt="${glideDisplay.urlAlt}" width="400" height="275"></li>`;
     })
+    displayCurrentAndUpcomingTrips(currUser.id);
 }
 // clear innerHTML if you need to at the beginning of functions?
-// function displayCurrentAndUpcomingTrips() {
-//     let currentTrips = agent1.filterClientsTripsThisYear();
-//     currentTrips.forEach(trip => {
 
-//     })
-// }
+function displayCurrentAndUpcomingTrips(clientId) {
+    let currentTrips = agent1.filterClientsTripsThisYear(clientId);
+    currentTrips.forEach(trip => {
+        currentUpcomingTrips.innerText += `Your upcoming trip on ${trip.date} is ${trip.status}.`
+        console.log(trip.date);
+        console.log(trip.status);
+    })
+}
 function displayExpenses() {
     let dollarText = agent1.calcClientTripsYearlyCost(clientId);
     expensesDisplay.innerText = `Your current expenses: $${dollarText}.00`;

@@ -308,10 +308,16 @@ footer {
 
 .money-tracker {
   width: 100%;
-  height: 20%;
+  height: 10%;
 
 }
-
+.current-and-upcoming {
+  width: 100%;
+  height: 10%;
+  font-size: xx-small;
+  display: flex;
+  flex-direction: column;
+}
 .margin-right{
   height: 100%;
   width: 10%;
