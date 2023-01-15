@@ -43,7 +43,6 @@ Promise.all([callForData("travelers"), callForData("trips"), callForData("destin
     agent1 = new Agent(allDestinationData, allTripsData, allTravelersData);
     getTripsDropdown();
     displayExpenses(clientId);
-    displayATrip();
     getClientDisplay(clientId);
     startGlide();
 })
@@ -62,21 +61,9 @@ function getClientDisplay(clientId) {
     oldTrips.forEach(trip => {
         let display = agent1.provide1TripDisplayData(trip.id);
         glideSlides.innerHTML += `<li class="glide__slide">You made memories on ${display.date} at ${display.location_name}.<img class="one-slide" src="${display.url}" alt="${display.urlAlt}" width="400" height="275"></li>`;
-        displayATrip()
     })
 }
 // clear innerHTML if you need to at the beginning of functions?
-
-
-function displayATrip() {
-    console.log(tripId3);
-    let display = agent1.provide1TripDisplayData(tripId3);
-    console.log("display: ", display);
-    // testerBox.innerHTML = `<img class="tester-box" src="${display.url}" alt="${display.urlAlt}">`;
-    glideSlides.innerHTML += `<li class="glide__slide">You made memories on ${display.date} at ${display.location_name}.<img class="one-slide" src="${display.url}" alt="${display.urlAlt}" width="400" height="275"></li>`;
-}
-
-// {/* <div class="swiper-slide" id="${destination.id}"><img alt="${destination.alt}" src="${destination.image}" width="400" height="275"></div> */}
 
 function displayExpenses() {
     let dollarText = agent1.calcClientTripsYearlyCost(clientId);
