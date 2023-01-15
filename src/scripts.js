@@ -79,7 +79,15 @@ function formSubmitHandler(event) {
 //-----glide?
 const config = {
     type: "carousel",
-    perView: 2
+    perView: 3,
+    breakpoints: {
+        1024: {
+            perView: 2
+        },
+        800: {
+            perView: 2
+        }
+    }
   }
   new Glide(".glide", config).mount();
 // var glide = new Glide('.glide', {
