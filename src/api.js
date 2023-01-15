@@ -20,6 +20,7 @@ const makeTrip = (makeThisTrip) => {
         .then(data => console.log(data))
         //call api again to refetch data
         //call 'callForData'
+        //is this where Sara said she put her method for display?
         .catch((err) => {
             console.log(err);
         })

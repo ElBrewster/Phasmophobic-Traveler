@@ -42,7 +42,7 @@ function formSubmitHandler(event) {
     const makeThisTrip = {
         id: agent1.tripsData.length + 1,
         userID: 1,
-        //whatever user is at login, or randomly generated?
+        //^whatever user is at login, or randomly generated? This needs to be dynamic
         destinationID: Number(tripForm.get("destinations")),
         travelers: tripForm.get("numberTravelers"),
         date: tripForm.get("date").replaceAll("-", "/"),
