@@ -21,6 +21,7 @@ class Agent {
         let currYear = "2023/01/01";
         let client = this.getClient(clientId);
         let currentYearTrips = client.tripsList.filter(element => (dayjs(element.date).isAfter(dayjs(currYear))) || (dayjs(element.date).isSame(dayjs(currYear))));
+        console.log("currentYearTrips: ", currentYearTrips);
         return currentYearTrips;
     }
 

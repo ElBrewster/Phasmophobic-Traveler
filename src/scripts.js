@@ -23,6 +23,7 @@ let costEstimatePrint = document.querySelector("#costEstimate");
 let expensesDisplay = document.querySelector("#moneyTracker");
 let testerBox = document.querySelector("#smallTopLeft");
 let glideSlides = document.querySelector("#glideSlides");
+let currentUpcomingTrips = document.querySelector("#currentAndUpcoming");
 
 
 //-----event-Listeners-----
@@ -57,14 +58,18 @@ function getClientDisplay(clientId) {
     let currUser = agent1.getClient(clientId);
     //innerText function to say hellow to user
     let oldTrips = agent1.filterClientsTripsBeforeThisYear(currUser.id);
-    console.log("oldTrips: ", oldTrips);
     oldTrips.forEach(trip => {
-        let display = agent1.provide1TripDisplayData(trip.id);
-        glideSlides.innerHTML += `<li class="glide__slide">You made memories on ${display.date} at ${display.location_name}.<img class="one-slide" src="${display.url}" alt="${display.urlAlt}" width="400" height="275"></li>`;
+        let glideDisplay = agent1.provide1TripDisplayData(trip.id);
+        glideSlides.innerHTML += `<li class="glide__slide">You made memories on ${glideDisplay.date} at ${glideDisplay.location_name}.<img class="one-slide" src="${glideDisplay.url}" alt="${glideDisplay.urlAlt}" width="400" height="275"></li>`;
     })
 }
 // clear innerHTML if you need to at the beginning of functions?
+// function displayCurrentAndUpcomingTrips() {
+//     let currentTrips = agent1.filterClientsTripsThisYear();
+//     currentTrips.forEach(trip => {
 
+//     })
+// }
 function displayExpenses() {
     let dollarText = agent1.calcClientTripsYearlyCost(clientId);
     expensesDisplay.innerText = `Your current expenses: $${dollarText}.00`;
@@ -111,6 +116,7 @@ function formSubmitHandler(event) {
 //-----glide?
 //this needs to happen after we fetch
 function startGlide() {
+    // might need a  ---> glideInstance.destroy(); somewhere 
     const config = {
         type: "carousel",
         perView: 3,
