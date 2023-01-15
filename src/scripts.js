@@ -77,8 +77,24 @@ function formSubmitHandler(event) {
 }
 
 //-----glide?
-let glide = new Glide('.glide');
-glide.mount()
+const config = {
+    type: "carousel",
+    perView: 2
+  }
+  new Glide(".glide", config).mount();
+// var glide = new Glide('.glide', {
+//     type: 'carousel',
+//     autoplay: 5000,
+//     hoverpause: false,
+//     perView: 2,
+//     gap: 0,
+//     focusAt: 'center',
+//     animationTimingFunc: 'ease-in-out',
+//     animationDuration: 800,
+//     perTouch: 2,
+//   });
+
+// glide.mount()
 //-----glide^?
 
 //----news-ticker?-----

@@ -73,9 +73,22 @@ body {
 header {
   height: 10%;
   width: 100%;
-  background-color: rgb(213, 94, 0);
+  background-color: $purpleBrown;
+  color: $ltBlueGreen;
+  font-size: xx-large;
+  font-weight: 900;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
+.italics {
+  font-style: italic;
+  font-weight: 100;
+}
+.news-ticker {
+  height: 100%;
+  width: 60%;
+}
 main {
   height: 90%;
   width: 100%;
@@ -92,11 +105,18 @@ main {
 }
 
 .glide-display{
-  height: 50%;
+  height: 100%;
   width: 100%;
   background-color: #ffe7d4;
 }
-
+.glide_slides {
+  height: 100%;
+}
+.glide_track,
+.glide_arrows,
+.glide_bullets {
+  position: relative;
+}
 .side-piece {
   height: 50%;
   width: 100%;
