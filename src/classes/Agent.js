@@ -15,9 +15,6 @@ class Agent {
         return new Traveler(clientId, this.clientsData, this.tripsData);
     }
 
-    // handleDestinationNames() {
-
-    // }
 
     calculateOneTripCost(tripId) {
         let trip1 = new Trip(tripId, this.tripsData);

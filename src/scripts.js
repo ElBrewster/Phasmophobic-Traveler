@@ -2,12 +2,14 @@ import './css/styles.scss';
 import "./data/ghost-facts";
 import Agent from "./classes/Agent";
 import Glide from '@glidejs/glide';
-import { callForData, makeTrip } from "./api";
+import { callForData } from "./api";
+import { makeTrip } from './api';
+import { locale } from 'dayjs';
 // import './images/turing-logo.png'
 
 let agent1;
 //-----query-Selectors-----
-let form = document.querySelector("#tripForm")
+let form = document.querySelector("#tripForm");
 let myDropDown = document.querySelector("#select-destinations");
 
 
@@ -26,11 +28,11 @@ Promise.all([callForData("travelers"), callForData("trips"), callForData("destin
 
 })
 .catch(error => console.log(error));
-    //-->figure out how to do error handling on the DOM so user know's what's going on, not just a console.log in the console
+
 
 function getTripsDropdown() {
     agent1.placesData.forEach(place => {
-        myDropDown.innerHTML += `<option name="${place.id}" value="${place.id}">${place.destination}</option>`;
+        myDropDown.innerHTML += `<option id="some${place.id}" value="${place.id}">${place.destination}</option>`;
     })
 }
 
@@ -38,14 +40,12 @@ function formSubmitHandler(event) {
     event.preventDefault();
     const tripForm = new FormData(event.target);
     const makeThisTrip = {
-        id: 1,
-        //trip id array.length +1
-        userId: 1,
+        id: agent1.tripsData.length + 1,
+        userID: 1,
         //whatever user is at login, or randomly generated?
-        destinationID: tripForm.get(`${place.id}`),
-        //^does this work?
+        destinationID: Number(tripForm.get("destinations")),
         travelers: tripForm.get("numberTravelers"),
-        date: tripForm.get("date"),
+        date: tripForm.get("date").replaceAll("-", "/"),
         duration: tripForm.get("numberDays"),
         status: "pending",
         suggestedActivities: []
