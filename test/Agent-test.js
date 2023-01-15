@@ -22,8 +22,8 @@ describe("Agent", () => {
         {id: 22, userID: 4,destinationID: 9, travelers: 4, date: "2022/05/01", duration: 19, status: "approved", suggestedActivities: [ ]}
     ];
 
-    let allDestinationData = [{
-        id: 1, destination: "Lima, Peru", estimatedLodgingCostPerDay: 70,
+    let allDestinationData = [
+        {id: 1, destination: "Lima, Peru", estimatedLodgingCostPerDay: 70,
         estimatedFlightCostPerPerson: 400,
         image: "https://images.unsplash.com/photo-1489171084589-9b5031ebcf9b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80",
         alt: "overview of city buildings with a clear sky"
@@ -106,6 +106,16 @@ describe("Agent", () => {
         expect(method2).to.be.equal(27225);
     });
 
+    it("Should have a helper method to get display info for one trip", () => {
+        let method3b = agent1.provide1TripDisplayData(tripId1);
+        let tripDisplayObject = {location_name: 'Sydney, Austrailia', date: '2023/3/01', trip_length: 18, group_size: 5,
+            url: 'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
+            urlAlt: 'opera house and city buildings on the water with boats',
+            status: 'approved'
+          };
+        expect(method3b).to.be.deep.equal(tripDisplayObject);
+    });
+//client.askfortriplist, then for each get the display info
     it("Should have a method3 to get the total cost for all trips for all users for the past year to get the agent's yearly income", () => {
         //so call method2 on each traveler to get the total cost for all trips for all users this past year
     });

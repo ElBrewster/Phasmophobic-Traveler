@@ -2,8 +2,8 @@ import './css/styles.scss';
 import "./data/ghost-facts";
 import Agent from "./classes/Agent";
 import Glide from '@glidejs/glide';
-import { callForData } from "./api";
-import { makeTrip } from './api';
+import { callForData, makeTrip } from "./api";
+// import { makeTrip } from './api';
 import { locale } from 'dayjs';
 import dayjs from 'dayjs';
 
@@ -11,6 +11,7 @@ import dayjs from 'dayjs';
 
 let agent1;
 let clientId = 3;
+let tripId3 = 4;
 //^make this dynamic and delete!
 //-----query-Selectors-----
 let dateSpot = document.querySelector("#todaysDate")
@@ -21,6 +22,7 @@ let numDays = document.querySelector("#numDays");
 let tripDate = document.querySelector("#travelDate");
 let costEstimatePrint = document.querySelector("#costEstimate");
 let expensesDisplay = document.querySelector("#moneyTracker")
+let testerBox = document.querySelector("#smallTopLeft")
 
 
 //-----event-Listeners-----
@@ -40,6 +42,9 @@ Promise.all([callForData("travelers"), callForData("trips"), callForData("destin
     let allDestinationData = promisedData[2].destinations;
     agent1 = new Agent(allDestinationData, allTripsData, allTravelersData);
     getTripsDropdown();
+    displayExpenses(clientId);
+    displayATrip();
+
 
 })
 .catch(error => console.log(error));
@@ -47,6 +52,14 @@ Promise.all([callForData("travelers"), callForData("trips"), callForData("destin
 function pageLoad () {
     dateSpot.innerText = dayjs().toDate();
     console.log(dayjs().toDate());
+
+}
+
+function displayATrip() {
+    let display = agent1.provide1TripDisplayData(tripId3);
+    testerBox.innerText = `You made memories on ${display.date}.`
+    testerBox.innerHTML = `<img src="${display.url}" alt="${display.urlAlt}">`
+    console.log(display);
 
 }
 
