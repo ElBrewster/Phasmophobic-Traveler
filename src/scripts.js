@@ -3,7 +3,6 @@ import "./data/ghost-facts";
 import Agent from "./classes/Agent";
 import Glide from '@glidejs/glide';
 import { callForData, makeTrip } from "./api";
-// import { makeTrip } from './api';
 import dayjs from 'dayjs';
 
 // import './images/turing-logo.png'
@@ -23,6 +22,7 @@ let costEstimatePrint = document.querySelector("#costEstimate");
 let expensesDisplay = document.querySelector("#moneyTracker");
 let testerBox = document.querySelector("#smallTopLeft");
 let glideSlides = document.querySelector("#glideSlides");
+let currentUpcomingTrips = document.querySelector("#currentAndUpcoming");
 
 
 //-----event-Listeners-----
@@ -35,21 +35,24 @@ numTraveling.addEventListener("change", console.log);
 myDropDown.addEventListener("change", console.log);
 //-----functions-----
 
-Promise.all([callForData("travelers"), callForData("trips"), callForData("destinations")])
-.then((promisedData) => {
-    let allTravelersData = promisedData[0].travelers;
-    let allTripsData = promisedData[1].trips;
-    let allDestinationData = promisedData[2].destinations;
-    agent1 = new Agent(allDestinationData, allTripsData, allTravelersData);
-    getTripsDropdown();
-    displayExpenses(clientId);
-    getClientDisplay(clientId);
-    startGlide();
-})
-.catch(error => console.log(error));
+function doPromise() {
+    Promise.all([callForData("travelers"), callForData("trips"), callForData("destinations")])
+    .then((promisedData) => {
+        let allTravelersData = promisedData[0].travelers;
+        let allTripsData = promisedData[1].trips;
+        let allDestinationData = promisedData[2].destinations;
+        agent1 = new Agent(allDestinationData, allTripsData, allTravelersData);
+        getTripsDropdown();
+        displayExpenses(clientId);
+        getClientDisplay(clientId);
+        startGlide();
+    })
+    .catch(error => console.log(error));
+}
 
 function pageLoad() {
     dateSpot.innerText = dayjs().toDate();
+    doPromise();
 }
 
 function getClientDisplay(clientId) {
@@ -57,18 +60,28 @@ function getClientDisplay(clientId) {
     let currUser = agent1.getClient(clientId);
     //innerText function to say hellow to user
     let oldTrips = agent1.filterClientsTripsBeforeThisYear(currUser.id);
-    console.log("oldTrips: ", oldTrips);
     oldTrips.forEach(trip => {
-        let display = agent1.provide1TripDisplayData(trip.id);
-        glideSlides.innerHTML += `<li class="glide__slide">You made memories on ${display.date} at ${display.location_name}.<img class="one-slide" src="${display.url}" alt="${display.urlAlt}" width="400" height="275"></li>`;
+        let glideDisplay = agent1.provide1TripDisplayData(trip.id);
+        glideSlides.innerHTML += `<li class="glide__slide">You made memories on ${glideDisplay.date} at ${glideDisplay.location_name}.<img class="one-slide" src="${glideDisplay.url}" alt="${glideDisplay.urlAlt}" width="400" height="275"></li>`;
     })
+    displayCurrentAndUpcomingTrips(currUser.id);
 }
 // clear innerHTML if you need to at the beginning of functions?
 
+function displayCurrentAndUpcomingTrips(clientId) {
+    let currentTrips = agent1.filterClientsTripsThisYear(clientId);
+    currentTrips.forEach(trip => {
+        currentUpcomingTrips.innerText += `Your upcoming trip on ${trip.date} is ${trip.status}.`
+        console.log(trip.date);
+        console.log(trip.status);
+    })
+}
+
 function displayExpenses() {
     let dollarText = agent1.calcClientTripsYearlyCost(clientId);
-    expensesDisplay.innerText = `Your current expenses: $${dollarText}.00`;
+    expensesDisplay.innerText = `Your current expenses this year: $${dollarText}.00`;
 }
+
 //-----form-functions-----
 
 function getTripsDropdown() {
@@ -95,7 +108,7 @@ function formSubmitHandler(event) {
     const tripForm = new FormData(event.target);
     const makeThisTrip = {
         id: agent1.tripsData.length + 1,
-        userID: 1,
+        userID: clientId,
         //^whatever user is at login, or randomly generated? This needs to be dynamic
         destinationID: Number(tripForm.get("destinations")),
         travelers: tripForm.get("numberTravelers"),
@@ -105,12 +118,14 @@ function formSubmitHandler(event) {
         suggestedActivities: []
     }
     makeTrip(makeThisTrip);
+    doPromise();
     event.target.reset();
 }
 
 //-----glide?
 //this needs to happen after we fetch
 function startGlide() {
+    // might need a  ---> glideInstance.destroy(); somewhere 
     const config = {
         type: "carousel",
         perView: 3,
