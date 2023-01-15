@@ -11,11 +11,18 @@ let agent1;
 //-----query-Selectors-----
 let form = document.querySelector("#tripForm");
 let myDropDown = document.querySelector("#select-destinations");
+let numTraveling = document.querySelector("#numTravelers");
+let numDays = document.querySelector("#numDays");
+let tripDate = document.querySelector("#travelDate");
 
 
 //-----event-Listeners-----
 form.addEventListener("submit", formSubmitHandler);
-
+form.addEventListener("change", estimatedCost)
+numDays.addEventListener("change", console.log);
+tripDate.addEventListener("change", console.log);
+numTraveling.addEventListener("change", console.log);
+myDropDown.addEventListener("change", console.log);
 //-----functions-----
 
 Promise.all([callForData("travelers"), callForData("trips"), callForData("destinations")])
@@ -29,6 +36,19 @@ Promise.all([callForData("travelers"), callForData("trips"), callForData("destin
 })
 .catch(error => console.log(error));
 
+//-----form-functions-----
+
+function estimatedCost() {
+    if(numDays.value && numTraveling.value && myDropDown.value) {
+        console.log("Here is numDays: friends: destination:", numDays.value, numTraveling.value, myDropDown.value);
+        let estimate = agent1.calculateOneTripCost(109);
+        //this sets the id, so it's not dynamic after the first pass. Needs to ignore the id?
+        console.log("estimate: ", estimate)
+        // console.log("friends: ", numTraveling.value);
+        // console.log("destination: ", myDropDown.value);
+
+    }
+}
 
 function getTripsDropdown() {
     agent1.placesData.forEach(place => {
