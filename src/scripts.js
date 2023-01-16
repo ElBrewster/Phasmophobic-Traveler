@@ -33,6 +33,36 @@ numDays.addEventListener("change", console.log);
 tripDate.addEventListener("change", console.log);
 numTraveling.addEventListener("change", console.log);
 myDropDown.addEventListener("change", console.log);
+
+function setFormMessage(formElement, type, message) {
+    const messageElement = formElement.querySelector(".form__message");
+    messageElement.textContent = message;
+    messageElement.classList.remove("form__message--success", "form__message--error");
+    messageElement.classList.add(`form__message--${type}`);
+}
+
+function setInputError(inputElement, message) {
+    inputElement.classList.add("form__input--error");
+    inputElement.parentElement.querySelector(".form__input-error-message").textContent = message;
+}
+document.addEventListener("DOMContentLoaded", () => {
+    const loginForm = document.querySelector("login");
+
+    loginForm.addEventListener("submit", e => {
+        e.preventDefault();
+        //here perform the fetch login
+        setFormMessage(loginForm, "error", "Invalid username/password combo");
+    });
+    
+    document.querySelectorAll(".form__input").forEach(inputElement => {
+        inputElement.addEventListener("blur", e=> {
+            if(e.target.id === "singupUsername" && e.target.value.length > 0 && e.target.value.length < 9) {
+                setInputError(inputElement, "Username must be more than 8 characters")
+            }
+
+        })
+    })
+});
 //-----functions-----
 
 function doPromise() {

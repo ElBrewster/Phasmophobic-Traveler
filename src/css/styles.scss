@@ -92,6 +92,9 @@ header {
   background: $ltYellow;
   font: 500 1rem $font-stack;
 }
+.form--hidden {
+  display: none;
+}
 .login-form > *:first-child {
   margin-top: 0;
 }
@@ -132,6 +135,40 @@ header {
 .form__input--error {
   color: $kitchenTileBlue;
   border-color: $kitchenTileBlue;
+}
+.form__input-error-message {
+  margin-top: 0.5em;
+  font-size: 0.85em;
+  color: $kitchenTileBlue;
+}
+.form__button {
+  width: 100%;
+  padding: 1rem 2rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: $yellowMint;
+  border: none;
+  border-radius: 0.1rem;
+  outline: none;
+  cursor: pointer;
+  background: $cornflower;
+}
+.form__button:hover {
+  color: $couchPurple;
+}
+.form__button:active {
+  transform: scale(0.98);
+}
+.form__text {
+  text-align: center;
+}
+.form__link {
+  color: $ltBlueGreen;
+  text-decoration: none;
+  cursor: pointer;
+}
+.form__link:hover {
+  text-decoration: underline;
 }
 .date-divider {
   height: 100%;
