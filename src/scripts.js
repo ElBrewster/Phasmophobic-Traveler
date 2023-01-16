@@ -45,8 +45,13 @@ function setInputError(inputElement, message) {
     inputElement.classList.add("form__input--error");
     inputElement.parentElement.querySelector(".form__input-error-message").textContent = message;
 }
+function clearInputError(inputElement) {
+    inputElement.classList.remove("form__input--error");
+    inputElement.parentElement.querySelector(".form__input-error-message").textContent = "";
+
+}
 document.addEventListener("DOMContentLoaded", () => {
-    const loginForm = document.querySelector("login");
+    const loginForm = document.querySelector("#login");
 
     loginForm.addEventListener("submit", e => {
         e.preventDefault();
@@ -55,12 +60,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     
     document.querySelectorAll(".form__input").forEach(inputElement => {
-        inputElement.addEventListener("blur", e=> {
-            if(e.target.id === "singupUsername" && e.target.value.length > 0 && e.target.value.length < 9) {
-                setInputError(inputElement, "Username must be more than 8 characters")
+        inputElement.addEventListener("blur", e => {
+            if(e.target.id === "signupUsername" && e.target.value.length > 0 && e.target.value.length < 4) {
+                setInputError(inputElement, "Username must be more than 4 characters")
             }
 
-        })
+        });
+        inputElement.addEventListener("input", e => {
+            clearInputError(inputElement);
+        });
     })
 });
 //-----functions-----
