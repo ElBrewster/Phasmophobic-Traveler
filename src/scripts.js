@@ -65,9 +65,9 @@ function getClientDisplay(clientId) {
     glideSlides.innerHTML = "";
     let currUser = agent1.getClient(clientId);
     //innerText function to say hellow to user
-    let randomNum = getRandomArbitrary();
     let oldTrips = agent1.filterClientsTripsBeforeThisYear(currUser.id);
     oldTrips.forEach(trip => {
+        let randomNum = getRandomArbitrary();
         let glideDisplay = agent1.provide1TripDisplayData(trip.id);
         glideSlides.innerHTML += `<li class="glide__slide">You made memories on ${glideDisplay.date} at ${glideDisplay.location_name} and saw ${randomNum} ghosts!<img class="one-slide" src="${glideDisplay.url}" alt="${glideDisplay.urlAlt}" width="400" height="275"></li>`;
     })
