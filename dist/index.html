@@ -15,40 +15,30 @@
 </head>
 <body>
 
-  <header class="travelAgency" id="travelAgency"><span class="italics">the</span>&nbspPhasmophobic Traveler
+  <header class="travelAgency" id="travelAgency">
+    <h1 class="h1-title">
+      <span class="italics">the</span>&nbspPhasmophobic Traveler:&nbsp&nbsp&nbsp
+      <p class="user-name" id="userName"></p>
+    </h1>
     <div class="date-divider" id="dateDivider">
       <section class="todays-date" id="todaysDate"></section>
       <section class="news-ticker" id="newsTicker"></section>
+      <!-- ^add a tab index for this if it's implemented -->
     </div>
   </header>
 
   <main>
     <div class="flexDisplay">
-
         <section class="glide-display" id="glideDisplay">
          <div class="glide">
-
             <div class="glide__track" data-glide-el="track">
               <ul class="glide__slides" id="glideSlides">
-                <!-- <li class="glide__slide"><img class="tester-glide-image" src="Phasmophobic-Traveler/src/images/turing-logo.png" alt="turing logo"></li> -->
-                <!-- <li class="glide__slide">image 1</li>
-                <li class="glide__slide">image 2</li>
-                <li class="glide__slide">image 3</li> -->
               </ul>
             </div>
-
             <div class="glide__arrows" data-glide-el="controls">
               <button class="glide__arrow glide__arrow--left" data-glide-dir="<">&nbsp<<&nbsp</button>
               <button class="glide__arrow glide__arrow--right" data-glide-dir=">">&nbsp>>&nbsp</button>
-              <!-- ^maybe change prev and next text to icons? -->
             </div>
-
-            <div class="glide__bullets" data-glide-el="controls[nav]">
-              <button class="glide__bullet" data-glide-dir="=0"></button>
-              <button class="glide__bullet" data-glide-dir="=1"></button>
-              <button class="glide__bullet" data-glide-dir="=2"></button>
-            </div>
-
           </div>
         </section>
 
@@ -60,29 +50,12 @@
             <section class="small-bottom-left" id="smallBottomLeft"></section>
           </section>
 
-          <section class="the-whole-accordion" id="theWholeAccordion">
-            <button class="accordion" id="accordionBtn">oh heck</button>
-            <section class="p-panel" id="pPanel">
-              <p>what's here!</p>
-            </section>
-            <button class="accordion" id="accordionBtn">oh heck</button>
-
-            <section class="p-panel" id="pPanel">
-              <p>what's here!</p>
-            </section>
-            <button class="accordion" id="accordionBtn">oh heck</button>
-
-            <section class="p-panel" id="pPanel">
-              <p>what's here!</p>
-            </section>
-            <button class="accordion" id="accordionBtn">oh heck</button>
-
-            <section class="p-panel" id="pPanel">
-              <p>what's here!</p>
-            </section>
-            <button class="accordion" id="accordionBtn">oh heck</button>
-
-
+          <section class="new-trips-section" id="newTripsSection">
+            <div class="new-trips-div" id="newTripsDiv">
+              <h2>Upcoming Trips</h2>
+              <section class="upcoming-trip" id="upcomingTrip"></section>
+            </div>
+          </section>
         </div>
 
     </div>
@@ -91,21 +64,22 @@
 
       <section class="form-container" id="formContainer">
         <section class="form-section" id="forms">
+          <h3>Trip Planner</h3>
           <form method="post" id="tripForm">
             <!-- <form action="URL"> -->
             <legend>Let's set up your next trip!</legend>
-            <label class="numTrav" for="number-traveling">How many travelers do you have in your party?
+            <label for="numTravelers" class="numTrav">How many travelers do you have in your party?
               <input type="number" min="1" max="500" name="numberTravelers" class="num-travelers" id="numTravelers">
             </label>
-            <label class="tripDur" for="trip-duration">How many days does this trip take?
+            <label for="numDays" class="number-of-days" id="numberOfDays">How many days does this trip take?
               <input type="number" min="1" max="365" name="numberDays" class="num-days" id="numDays">
             </label>
-            <label class="destNation" for="destinations">Choose your destination:</label>
+            <label for="destinations" class="destNation">Choose your destination:</label>
             <select class="select-destination" id="select-destinations" name="destinations">
               <option value="" disabled selected hidden>choose your destination</option>
             </select>
-            <label class="datePicker" for="date">What day do you want to leave?
-              <input type="date" name="date" id="travelDate">
+            <label for="travelDate" class="date-picker" id="datePicker">What day do you want to leave?
+              <input for="date-picker" type="date" name="date" id="travelDate">
             </label>
             <p id="costEstimate"></p>
             <button>Submit</button>
@@ -114,7 +88,7 @@
       </section>
 
       <section class="money-tracker" id="moneyTracker"></section>
-      <section class="current-and-upcoming" id="currentAndUpcoming">Where will you go?</section>
+      <!-- <section class="current-and-upcoming" id="currentAndUpcoming">Where will you go?</section> -->
     </aside>
 
     <section class="margin-right"></section>

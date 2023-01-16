@@ -22,7 +22,10 @@ let costEstimatePrint = document.querySelector("#costEstimate");
 let expensesDisplay = document.querySelector("#moneyTracker");
 let testerBox = document.querySelector("#smallTopLeft");
 let glideSlides = document.querySelector("#glideSlides");
-let currentUpcomingTrips = document.querySelector("#currentAndUpcoming");
+// let currentUpcomingTrips = document.querySelector("#currentAndUpcoming");
+let newUserName = document.querySelector("#userName");
+let slideText = document.querySelector("#slideText");
+let upcomingTrips = document.querySelector("#upcomingTrip");
 
 
 //-----event-Listeners-----
@@ -35,6 +38,11 @@ numTraveling.addEventListener("change", console.log);
 myDropDown.addEventListener("change", console.log);
 //-----functions-----
 
+function pageLoad() {
+    dateSpot.innerText = dayjs().toDate();
+    doPromise();
+}
+
 function doPromise() {
     Promise.all([callForData("travelers"), callForData("trips"), callForData("destinations")])
     .then((promisedData) => {
@@ -43,51 +51,64 @@ function doPromise() {
         let allDestinationData = promisedData[2].destinations;
         agent1 = new Agent(allDestinationData, allTripsData, allTravelersData);
         getTripsDropdown();
-        displayExpenses(clientId);
         getClientDisplay(clientId);
         startGlide();
     })
     .catch(error => console.log(error));
 }
 
-function pageLoad() {
-    dateSpot.innerText = dayjs().toDate();
-    doPromise();
+function getClientDisplay(clientId) {
+    glideSlides.innerHTML = "";
+    let currUser = agent1.getClient(clientId);
+    console.log("currUser: ", currUser);
+    console.log("curr.name", currUser.name);
+    displayClientName(currUser);
+    showOldTrips(currUser.id);
+    displayCurrentAndUpcomingTrips(currUser.id);
+    displayExpenses(currUser.id);
 }
 
+function showOldTrips(clientId) {
+    let oldTrips = agent1.filterClientsTripsBeforeThisYear(clientId);
+    console.log("oldTrips", oldTrips)
+    oldTrips.forEach(trip => {
+        let randomNum = getRandomArbitrary();
+        let glideDisplay = agent1.provide1TripDisplayData(trip.id);
+        console.log("glideDisplay", glideDisplay)
+        glideSlides.innerHTML += `<li class="glide__slide"><p class="slideText" id="slideText">You made memories on ${glideDisplay.date} at ${glideDisplay.location_name} and saw ${randomNum} ghosts!</p><img class="one-slide" src="${glideDisplay.url}" alt="${glideDisplay.urlAlt}" width="400" height="275"></li>`;
+        console.log(trip)
+    })
+}
+//for each oldTrips.id, if it matches === glideDisplay.url,
+//if glideDisplay.url matches the destination id
 function getRandomArbitrary() {
     const min = 0;
     const max = 9;
     return Math.floor(Math.random() * (max - min) + min);
-  }
-
-function getClientDisplay(clientId) {
-    glideSlides.innerHTML = "";
-    let currUser = agent1.getClient(clientId);
-    //innerText function to say hellow to user
-    let randomNum = getRandomArbitrary();
-    let oldTrips = agent1.filterClientsTripsBeforeThisYear(currUser.id);
-    oldTrips.forEach(trip => {
-        let glideDisplay = agent1.provide1TripDisplayData(trip.id);
-        glideSlides.innerHTML += `<li class="glide__slide">You made memories on ${glideDisplay.date} at ${glideDisplay.location_name} and saw ${randomNum} ghosts!<img class="one-slide" src="${glideDisplay.url}" alt="${glideDisplay.urlAlt}" width="400" height="275"></li>`;
-    })
-    displayCurrentAndUpcomingTrips(currUser.id);
 }
-// clear innerHTML if you need to at the beginning of functions?
+
+function displayExpenses() {
+    let dollarText = agent1.calcClientTripsYearlyCost(clientId);
+    let dollarTextFormat = new Intl.NumberFormat().format(dollarText);
+    expensesDisplay.innerText = `Your current expenses this year: $${dollarTextFormat}.00`;
+}
+
+function displayClientName(currUser) {
+    let username = currUser.name;
+    console.log("username", username)
+    newUserName.innerText = `Hello there, ${username}`;
+}
 
 function displayCurrentAndUpcomingTrips(clientId) {
     let currentTrips = agent1.filterClientsTripsThisYear(clientId);
     currentTrips.forEach(trip => {
-        currentUpcomingTrips.innerText += `Your upcoming trip on ${trip.date} is ${trip.status}.`
+        // currentUpcomingTrips.innerText += `Your upcoming trip on ${trip.date} is ${trip.status}.`
+        upcomingTrips.innerHTML += `<p class="upcoming">Your upcoming trip on ${trip.date} is ${trip.status}.</p>`
         console.log(trip.date);
         console.log(trip.status);
     })
 }
 
-function displayExpenses() {
-    let dollarText = agent1.calcClientTripsYearlyCost(clientId);
-    expensesDisplay.innerText = `Your current expenses this year: $${dollarText}.00`;
-}
 
 //-----form-functions-----
 
@@ -103,10 +124,7 @@ function estimatedCost() {
         let estimate = agent1.calculateOneTripCost(109);
         //this sets the id, so it's not dynamic after the first pass. Needs to ignore the id?
         console.log("estimate: ", estimate)
-        // console.log("friends: ", numTraveling.value);
-        // console.log("destination: ", myDropDown.value);
         costEstimatePrint.innerHTML = `These trip selections tally at $${estimate}.`
-
     }
 }
 
@@ -155,33 +173,24 @@ function startGlide() {
 //     ghostFacts.forEach(fact => console.log(fact));
 // }
 //----accordion?-----
-// let acc = document.getElementsByClassName("accordion");
-// let i;
-// let panel = this.nextElementSibling;
 
-//     for (i = 0; i < acc.length; i++) {
-//         acc[i].addEventListener("click", function() {
-//             this.classList.toggle("active");
-//         if (panel.style.display === "block") {
-//             panel.style.display = "none";
-//         } else {
-//             panel.style.display = "block";
-//         }
-//       });
-//     }
+const accordionBits = document.getElementsByClassName("accordion-element");
+// const accordionBits = document.getElementById("#accordionBtn");
+let i;
+for (i = 0; i < accordionBits.length; i++) {
+    accordionBits[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+    })
+    console.log("element sibling?", this.nextElementSibling);
 
+    let panel = this.nextElementSibling;
+    if(panel.style.maxHeight) {
+        panel.style.maxHeight = "null";
+    } else {
+        panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+}
 
-
-//  for (i = 0; i < acc.length; i++) {
-//     acc[i].addEventListener("click", function() {
-//             this.classList.toggle("active");
-//         if (panel.style.maxHeight) {
-//             panel.style.maxHeight = null;
-//         } else {
-//             panel.style.maxHeight = panel.scrollHeight + "px";
-//         }
-//       });
-//     }
 
 
 
