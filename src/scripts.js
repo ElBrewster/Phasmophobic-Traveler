@@ -39,7 +39,9 @@ tripDate.addEventListener("change", console.log);
 numTraveling.addEventListener("change", console.log);
 myDropDown.addEventListener("change", console.log);
 
-loginSubmitbtn.addEventListener("")
+// loginSubmitbtn.addEventListener("")
+// ^^^^DO THIS
+
 //-----login-page-----
 function setFormMessage(formElement, type, message) {
     const messageElement = formElement.querySelector(".form__message");
@@ -58,34 +60,31 @@ function clearInputError(inputElement) {
     inputElement.parentElement.querySelector(".form__input-error-message").textContent = "";
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    const loginForm = document.querySelector("#login");
+// document.addEventListener("DOMContentLoaded", () => {
+//     const loginForm = document.querySelector("#login");
 
-    loginForm.addEventListener("submit", e => {
-        e.preventDefault();
-        //here perform the fetch login
-        setFormMessage(loginForm, "error", "Invalid username/password combo");
-    });
+//     loginForm.addEventListener("submit", e => {
+//         e.preventDefault();
+//         //here perform the fetch login
+//         setFormMessage(loginForm, "error", "Invalid username/password combo");
+//     });
     
-    document.querySelectorAll(".form__input").forEach(inputElement => {
-        inputElement.addEventListener("blur", e => {
-            if(e.target.id === "signupUsername" && e.target.value.length > 0 && e.target.value.length < 4) {
-                setInputError(inputElement, "Username must be more than 4 characters")
-            }
+//     document.querySelectorAll(".form__input").forEach(inputElement => {
+//         inputElement.addEventListener("blur", e => {
+//             if(e.target.id === "signupUsername" && e.target.value.length > 0 && e.target.value.length < 4) {
+//                 setInputError(inputElement, "Username must be more than 4 characters")
+//             }
 
-        });
-        inputElement.addEventListener("input", e => {
-            clearInputError(inputElement);
-        });
-    })
-});
+//         });
+//         inputElement.addEventListener("input", e => {
+//             clearInputError(inputElement);
+//         });
+//     })
+// });
 
 //-----functions-----
 
-function pageLoad() {
-    dateSpot.innerText = dayjs().toDate();
-    doPromise();
-}
+
 
 function doPromise() {
     Promise.all([callForData("travelers"), callForData("trips"), callForData("destinations")])
