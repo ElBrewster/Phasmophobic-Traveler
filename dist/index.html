@@ -15,16 +15,17 @@
 </head>
 <body>
 
-  <header class="travelAgency" id="travelAgency"><span class="italics">the</span>&nbspPhasmophobic Traveler
+  <header class="travelAgency" id="travelAgency" tabindex="0"><span class="italics">the</span>&nbspPhasmophobic Traveler
     <div class="date-divider" id="dateDivider">
-      <section class="todays-date" id="todaysDate"></section>
+      <section class="todays-date" id="todaysDate" tabindex="1"></section>
       <section class="news-ticker" id="newsTicker"></section>
+      <!-- ^add a tab index for this if it's implemented -->
     </div>
   </header>
 
   <main>
     <div class="flexDisplay">
-
+<!-- tab this section last to interpolate tabs for the slides with numbers after -->
         <section class="glide-display" id="glideDisplay">
          <div class="glide">
 
@@ -91,24 +92,24 @@
 
       <section class="form-container" id="formContainer">
         <section class="form-section" id="forms">
-          <form method="post" id="tripForm">
+          <form method="post" id="tripForm"tabindex="3">
             <!-- <form action="URL"> -->
             <legend>Let's set up your next trip!</legend>
             <label class="numTrav" for="number-traveling">How many travelers do you have in your party?
-              <input type="number" min="1" max="500" name="numberTravelers" class="num-travelers" id="numTravelers">
+              <input type="number" min="1" max="500" name="numberTravelers" class="num-travelers" id="numTravelers" tabindex="4">
             </label>
             <label class="tripDur" for="trip-duration">How many days does this trip take?
-              <input type="number" min="1" max="365" name="numberDays" class="num-days" id="numDays">
+              <input type="number" min="1" max="365" name="numberDays" class="num-days" id="numDays" tabindex="5">
             </label>
             <label class="destNation" for="destinations">Choose your destination:</label>
-            <select class="select-destination" id="select-destinations" name="destinations">
+            <select class="select-destination" id="select-destinations" name="destinations" tabindex="6">
               <option value="" disabled selected hidden>choose your destination</option>
             </select>
             <label class="datePicker" for="date">What day do you want to leave?
-              <input type="date" name="date" id="travelDate">
+              <input type="date" name="date" id="travelDate" tabindex="7">
             </label>
             <p id="costEstimate"></p>
-            <button>Submit</button>
+            <button tabindex="8">Submit</button>
           </form>
         </section>
       </section>
