@@ -23,6 +23,7 @@ let expensesDisplay = document.querySelector("#moneyTracker");
 // let testerBox = document.querySelector("#smallTopLeft");
 let glideSlides = document.querySelector("#glideSlides");
 let currentUpcomingTrips = document.querySelector("#currentAndUpcoming");
+let newUserName = document.querySelector("#userName");
 
 
 //-----event-Listeners-----
@@ -48,7 +49,6 @@ function doPromise() {
         let allDestinationData = promisedData[2].destinations;
         agent1 = new Agent(allDestinationData, allTripsData, allTravelersData);
         getTripsDropdown();
-        // displayExpenses(clientId);
         getClientDisplay(clientId);
         startGlide();
     })
@@ -58,7 +58,9 @@ function doPromise() {
 function getClientDisplay(clientId) {
     glideSlides.innerHTML = "";
     let currUser = agent1.getClient(clientId);
-    //innerText function to say hellow to user
+    console.log("currUser: ", currUser);
+    console.log("curr.name", currUser.name);
+    displayClientName(currUser);
     let oldTrips = agent1.filterClientsTripsBeforeThisYear(currUser.id);
     oldTrips.forEach(trip => {
         let randomNum = getRandomArbitrary();
@@ -79,8 +81,11 @@ function displayExpenses() {
     let dollarText = agent1.calcClientTripsYearlyCost(clientId);
     expensesDisplay.innerText = `Your current expenses this year: $${dollarText}.00`;
 }
-
-// clear innerHTML if you need to at the beginning of functions?
+function displayClientName(currUser) {
+    let username = currUser.name;
+    console.log("username", username)
+    newUserName.innerText = `Hello there, ${username}`;
+}
 
 function displayCurrentAndUpcomingTrips(clientId) {
     let currentTrips = agent1.filterClientsTripsThisYear(clientId);
@@ -157,18 +162,20 @@ function startGlide() {
 //----accordion?-----
 
 const accordionBits = document.getElementsByClassName("accordion-element");
+// const accordionBits = document.getElementById("#accordionBtn");
 let i;
 for (i = 0; i < accordionBits.length; i++) {
     accordionBits[i].addEventListener("click", function() {
         this.classList.toggle("active");
     })
+    console.log("element sibling?", this.nextElementSibling);
 
-    let panel = this.nextElementSibling;
-    if(panel.style.maxHeight) {
-        panel.style.maxHeight = "null";
-    } else {
-        panel.style.maxHeight = panel.scrollHeight + "px";
-    }
+    // let panel = this.nextElementSibling;
+    // if(panel.style.maxHeight) {
+    //     panel.style.maxHeight = "null";
+    // } else {
+    //     panel.style.maxHeight = panel.scrollHeight + "px";
+    // }
 }
 
 

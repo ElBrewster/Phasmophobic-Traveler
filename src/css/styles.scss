@@ -68,9 +68,8 @@ body {
   background-size: cover;
   // background-color: rgb(181,221,216, .2);
 }
-
-header,
-.h1-title {
+.h1-title,
+header {
   height: 10%;
   width: 100%;
   background-color: rgb(128,87,112, .6);
@@ -81,6 +80,7 @@ header,
   justify-content: center;
   align-items: center;
 }
+
 .date-divider {
   height: 100%;
   width: 60%;
@@ -214,9 +214,9 @@ main {
   position: relative;
   // margin: 1em 1em;
 }
-.accordion-console .accordion-btn {
-  position: relative;
-}
+// .accordion-console .accordion-btn {
+//   position: relative;
+// }
 
 
 .accordion-btn {
