@@ -18,16 +18,14 @@ const makeTrip = (makeThisTrip) => {
             return response.json();
         })
         .then(data => console.log(data))
-        //call api again to refetch data
-        //call 'callForData'
-        //is this where Sara said she put her method for display?
+
         .catch((err) => {
             console.log(err);
         })
 
 }
 // Feedback from Cass on fitlit: Consider in future projects making sure users can’t add negative numbers in forms and consider blocking dates that don’t make sense for a user to be able to add. For example, a user probably shouldn’t be able to add data to a day that hasn’t yet occurred.
-
+// right now I can reselect a trip for the same date as a user
 
 
 

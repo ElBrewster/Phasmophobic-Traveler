@@ -70,6 +70,7 @@ body {
   background-size: cover;
   background-color: rgb(128,87,112, .6);
 }
+
 .h1-title,
 header {
   height: 10%;
@@ -82,6 +83,100 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.login-form {
+  --color-primary: $chillGreen;
+  --color-primary-dark: $ltBlueGreen;
+  --color-secondary: $cornflower;
+  --color-error: $coffeeShopPurple;
+  --color-success: $yellowMint;
+  --border-radius: 4px;
+  width: 400px;
+  max-width: 400px;
+  margin: 1em;
+  padding: 2em;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+  background: $ltYellow;
+  font: 500 1rem $font-stack;
+}
+.form--hidden {
+  display: none;
+}
+.login-form > *:first-child {
+  margin-top: 0;
+}
+.login-form > *:last-child {
+  margin-bottom: 0;
+}
+.form__title {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.form__message {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.form__message--success {
+  color:#906388;
+}
+.form__message--error {
+  color:#9bd2e1;
+}
+.form__input-group {
+  margin-bottom: 1rem;
+}
+.form__input {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  box-sizing: border-box;
+  border-radius: .1em;
+  border: 1px $kitchenTileBlue;
+  background: $ltBlueGreen;
+  transition: background 0.2s, border-color 0.2s;
+}
+.form__input:focus{
+  border-color: $brown;
+  background: $yellowMint
+}
+.form__input--error {
+  color: $kitchenTileBlue;
+  border-color: $kitchenTileBlue;
+}
+.form__input-error-message {
+  margin-top: 0.5em;
+  font-size: 0.85em;
+  color: $kitchenTileBlue;
+}
+.form__button {
+  width: 100%;
+  padding: 1rem 2rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 0.1rem;
+  outline: none;
+  cursor: pointer;
+  background-color: $cornflower;
+  color: $yellowMint;
+}
+.form__button:hover {
+  color: $couchPurple;
+}
+.form__button:active {
+  transform: scale(0.98);
+}
+.form__text {
+  text-align: center;
+}
+.form__link {
+  color: $ltBlueGreen;
+  text-decoration: none;
+  cursor: pointer;
+}
+.form__link:hover {
+  text-decoration: underline;
 }
 
 h2 {

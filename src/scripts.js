@@ -20,13 +20,15 @@ let numDays = document.querySelector("#numDays");
 let tripDate = document.querySelector("#travelDate");
 let costEstimatePrint = document.querySelector("#costEstimate");
 let expensesDisplay = document.querySelector("#moneyTracker");
-let testerBox = document.querySelector("#smallTopLeft");
+// let testerBox = document.querySelector("#smallTopLeft");
 let glideSlides = document.querySelector("#glideSlides");
 // let currentUpcomingTrips = document.querySelector("#currentAndUpcoming");
 let newUserName = document.querySelector("#userName");
 let slideText = document.querySelector("#slideText");
 let upcomingTrips = document.querySelector("#upcomingTrip");
 
+let loginSubmitbtn = document.querySelector("#loginSubmit")
+let hideDisplay = document.getElementById("travelAgency", "mainSection", "#logoLinks")
 
 //-----event-Listeners-----
 window.addEventListener("load", pageLoad)
@@ -36,6 +38,48 @@ numDays.addEventListener("change", console.log);
 tripDate.addEventListener("change", console.log);
 numTraveling.addEventListener("change", console.log);
 myDropDown.addEventListener("change", console.log);
+
+loginSubmitbtn.addEventListener("")
+//-----login-page-----
+function setFormMessage(formElement, type, message) {
+    const messageElement = formElement.querySelector(".form__message");
+    messageElement.textContent = message;
+    messageElement.classList.remove("form__message--success", "form__message--error");
+    messageElement.classList.add(`form__message--${type}`);
+}
+
+function setInputError(inputElement, message) {
+    inputElement.classList.add("form__input--error");
+    inputElement.parentElement.querySelector(".form__input-error-message").textContent = message;
+}
+
+function clearInputError(inputElement) {
+    inputElement.classList.remove("form__input--error");
+    inputElement.parentElement.querySelector(".form__input-error-message").textContent = "";
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const loginForm = document.querySelector("#login");
+
+    loginForm.addEventListener("submit", e => {
+        e.preventDefault();
+        //here perform the fetch login
+        setFormMessage(loginForm, "error", "Invalid username/password combo");
+    });
+    
+    document.querySelectorAll(".form__input").forEach(inputElement => {
+        inputElement.addEventListener("blur", e => {
+            if(e.target.id === "signupUsername" && e.target.value.length > 0 && e.target.value.length < 4) {
+                setInputError(inputElement, "Username must be more than 4 characters")
+            }
+
+        });
+        inputElement.addEventListener("input", e => {
+            clearInputError(inputElement);
+        });
+    })
+});
+
 //-----functions-----
 
 function pageLoad() {
@@ -56,6 +100,13 @@ function doPromise() {
     })
     .catch(error => console.log(error));
 }
+
+
+function pageLoad() {
+    dateSpot.innerText = dayjs().toDate();
+    doPromise();
+}
+//this pageload function should be attached to the submit login event instead, and the pageload should load the login
 
 function getClientDisplay(clientId) {
     glideSlides.innerHTML = "";

@@ -14,12 +14,34 @@
   <title>Webpack Starter Kit</title>
 </head>
 <body>
+  <section class="login-page">
+    <div class="login">
+      <form class="login-form" id="login">
+        <h1 class="form__title">Login</h1>
+        <div class="form__message form__message--error"></div>
+        <div class="form__input-group">
+          <input type="text" id="signupUsername" class="form__input" autofocus placeholder="Traveler ID">
+          <div class="form__input-error-message">Error! oops!</div>
+        </div>
+        <div class="form__input-group">
+          <input type="password" class="form__input" autofocus placeholder="Password">
+          <div class="form__input-error-message"></div>
+        </div>
+        <button class="form__button" type="submit" id="loginSubmit">Submit</button>
+        <p class="form__text">
+          <a href="#" class="form__link">Forgot your password?</a>
+        </p>
+      </form>
+    </div>
+  </section>
+
 
   <header class="travelAgency" id="travelAgency">
     <h1 class="h1-title">
       <span class="italics">the</span>&nbspPhasmophobic Traveler:&nbsp&nbsp&nbsp
       <p class="user-name" id="userName"></p>
     </h1>
+
     <div class="date-divider" id="dateDivider">
       <section class="todays-date" id="todaysDate"></section>
       <section class="news-ticker" id="newsTicker"></section>
@@ -27,7 +49,8 @@
     </div>
   </header>
 
-  <main>
+
+  <main id="mainSection">
     <div class="flexDisplay">
         <section class="glide-display" id="glideDisplay">
          <div class="glide">
