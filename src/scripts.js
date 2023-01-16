@@ -22,7 +22,7 @@ let costEstimatePrint = document.querySelector("#costEstimate");
 let expensesDisplay = document.querySelector("#moneyTracker");
 let testerBox = document.querySelector("#smallTopLeft");
 let glideSlides = document.querySelector("#glideSlides");
-let currentUpcomingTrips = document.querySelector("#currentAndUpcoming");
+// let currentUpcomingTrips = document.querySelector("#currentAndUpcoming");
 let newUserName = document.querySelector("#userName");
 let slideText = document.querySelector("#slideText");
 let upcomingTrips = document.querySelector("#upcomingTrip");
@@ -102,7 +102,7 @@ function displayClientName(currUser) {
 function displayCurrentAndUpcomingTrips(clientId) {
     let currentTrips = agent1.filterClientsTripsThisYear(clientId);
     currentTrips.forEach(trip => {
-        currentUpcomingTrips.innerText += `Your upcoming trip on ${trip.date} is ${trip.status}.`
+        // currentUpcomingTrips.innerText += `Your upcoming trip on ${trip.date} is ${trip.status}.`
         upcomingTrips.innerHTML += `<p class="upcoming">Your upcoming trip on ${trip.date} is ${trip.status}.</p>`
         console.log(trip.date);
         console.log(trip.status);

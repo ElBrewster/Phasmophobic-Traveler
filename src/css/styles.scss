@@ -65,10 +65,10 @@ body {
   display: flex;
   flex-direction: column;
   font-family: 'Open Sans', sans-serif;
-  background: radial-gradient(circle, $softBlue 0%, $warmPurple 100%);
+  // background: radial-gradient(circle, $softBlue 0%, $warmPurple 100%);
   background-image: url("../images/pexels-ekaterina-astakhova-3123980.jpg");
   background-size: cover;
-  // background-color: rgb(181,221,216, .2);
+  background-color: rgb(128,87,112, .6);
 }
 .h1-title,
 header {
@@ -76,6 +76,7 @@ header {
   width: 100%;
   background-color: rgb(128,87,112, .6);
   color: $ltBlueGreen;
+  font-family: $font-stack;
   font-size: xx-large;
   font-weight: 900;
   display: flex;
@@ -85,6 +86,9 @@ header {
 
 h2 {
   color: $ltBlueGreen;
+  font-size: large;
+  font-weight: bold;
+  padding: 1em;
 }
 
 .date-divider {
@@ -115,7 +119,6 @@ main {
   width: 100%;
   display: flex;
   flex-direction: row;
-  // background-color: rgb(229, 246, 255);
 }
 
 .flexDisplay {
@@ -132,7 +135,8 @@ main {
   justify-content: center;
   align-items: center;
   padding: 1em;
-  // background-color: #ffe7d4;
+  font-weight: 900;
+  background-color: rbg(70,53,58,.8);
   color: $ltBlueGreen;
 }
 .glide_slides {
@@ -177,6 +181,7 @@ main {
 .glide__arrow {
   background-color: rgb(245,243,193, .8);
   color: $brown;
+  border-color: $brown;
   font-weight: 900;
 }
 //-----^--glide-nonsense--^-----
@@ -214,13 +219,14 @@ h3 {
   font-size: large;
   font-weight: bold;
   padding: 1em;
-  color: $ltBlueGreen;
+  color: $brown;
 }
 .new-trips-section {
   // background-color: rgb(126,178,228, .6);
   height:100%;
   width: 80%;
   background-color: rgb(70,53,58,.2);
+  overflow: auto;
 }
 .upcoming {
   background-color: rgb(181,221,216, 6);
@@ -408,14 +414,25 @@ footer {
 .money-tracker {
   width: 100%;
   height: 10%;
-}
-.current-and-upcoming {
-  width: 100%;
-  height: 10%;
-  font-size: xx-small;
+  font-family: $font-stack;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(181,221,216, 4);
+  border-radius: .4em;
+  padding: .2em;
+  color: $brown;
 }
+// .current-and-upcoming {
+//   width: 100%;
+//   height: 10%;
+//   font-size: 2em;
+//   display: flex;
+//   flex-direction: column;
+//   font-family: $font-stack;
+//   color: $brown;
+// }
+
 .margin-right{
   height: 100%;
   width: 10%;
