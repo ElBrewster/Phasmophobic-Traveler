@@ -65,7 +65,6 @@ body {
   display: flex;
   flex-direction: column;
   font-family: 'Open Sans', sans-serif;
-  // background: radial-gradient(circle, $softBlue 0%, $warmPurple 100%);
   background-image: url("../images/pexels-ekaterina-astakhova-3123980.jpg");
   background-size: cover;
   background-color: rgb(128,87,112, .6);
@@ -85,6 +84,7 @@ header {
   align-items: center;
 }
 
+//-----login-form-----
 .login-form {
   --color-primary: $chillGreen;
   --color-primary-dark: $ltBlueGreen;
@@ -100,6 +100,7 @@ header {
   background: $ltYellow;
   font: 500 1rem $font-stack;
 }
+
 .form--hidden {
   display: none;
 }
@@ -178,6 +179,7 @@ header {
 .form__link:hover {
   text-decoration: underline;
 }
+//--^^---login-form---^^--
 
 h2 {
   color: $ltBlueGreen;
