@@ -61,14 +61,18 @@ function getClientDisplay(clientId) {
     console.log("currUser: ", currUser);
     console.log("curr.name", currUser.name);
     displayClientName(currUser);
-    let oldTrips = agent1.filterClientsTripsBeforeThisYear(currUser.id);
+    showOldTrips(currUser.id);
+    displayCurrentAndUpcomingTrips(currUser.id);
+    displayExpenses(currUser.id);
+}
+
+function showOldTrips(clientId) {
+    let oldTrips = agent1.filterClientsTripsBeforeThisYear(clientId);
     oldTrips.forEach(trip => {
         let randomNum = getRandomArbitrary();
         let glideDisplay = agent1.provide1TripDisplayData(trip.id);
         glideSlides.innerHTML += `<li class="glide__slide">You made memories on ${glideDisplay.date} at ${glideDisplay.location_name} and saw ${randomNum} ghosts!<img class="one-slide" src="${glideDisplay.url}" alt="${glideDisplay.urlAlt}" width="400" height="275"></li>`;
     })
-    displayCurrentAndUpcomingTrips(currUser.id);
-    displayExpenses(currUser.id);
 }
 
 function getRandomArbitrary() {
@@ -82,6 +86,7 @@ function displayExpenses() {
     let dollarTextFormat = new Intl.NumberFormat().format(dollarText);
     expensesDisplay.innerText = `Your current expenses this year: $${dollarTextFormat}.00`;
 }
+
 function displayClientName(currUser) {
     let username = currUser.name;
     console.log("username", username)
