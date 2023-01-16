@@ -15,7 +15,10 @@
 </head>
 <body>
 
-  <header class="travelAgency" id="travelAgency" tabindex="0"><span class="italics">the</span>&nbspPhasmophobic Traveler
+  <header class="travelAgency" id="travelAgency" tabindex="0">
+    <h1 class="h1-title">
+      <span class="italics">the</span>&nbspPhasmophobic Traveler
+    </h1>
     <div class="date-divider" id="dateDivider">
       <section class="todays-date" id="todaysDate" tabindex="1"></section>
       <section class="news-ticker" id="newsTicker"></section>
@@ -62,8 +65,30 @@
           </section>
 
           <section class="the-whole-accordion" id="theWholeAccordion">
-            <button class="accordion" id="accordionBtn">oh heck</button>
-            <section class="p-panel" id="pPanel">
+            <div class="accordion-console">
+              <!-- console is just "accordion" -->
+              <h2>Accordion Text</h2>
+              <hr>
+              <div class="accordion-element">
+                <!-- each element is a containter -->
+                <button class="accordion-btn" id="accordionBtn">oh heck</button>
+                <!-- each button is a label -->
+                <section class="p-panel" id="pPanel">
+                  <p class="inner-panel">what's here!</p>
+                </section>
+              </div>
+              <hr>
+              <div class="accordion-element">
+                <button class="accordion-btn" id="accordionBtn">oh heck</button>
+                <section class="p-panel" id="pPanel">
+                  <p class="inner-panel">I am having a weird error for my post request. The error is 404 but I have checked the url many times and for some reason it is still not working please help</p>
+                </section>
+              </div>
+            </div>
+
+            <!-- <button class="accordion" id="accordionBtn">oh heck</button> -->
+
+            <!-- <section class="p-panel" id="pPanel">
               <p>what's here!</p>
             </section>
             <button class="accordion" id="accordionBtn">oh heck</button>
@@ -76,12 +101,7 @@
             <section class="p-panel" id="pPanel">
               <p>what's here!</p>
             </section>
-            <button class="accordion" id="accordionBtn">oh heck</button>
-
-            <section class="p-panel" id="pPanel">
-              <p>what's here!</p>
-            </section>
-            <button class="accordion" id="accordionBtn">oh heck</button>
+            <button class="accordion" id="accordionBtn">oh heck</button> -->
 
 
         </div>
@@ -92,6 +112,7 @@
 
       <section class="form-container" id="formContainer">
         <section class="form-section" id="forms">
+          <h3>Trip Planner</h3>
           <form method="post" id="tripForm"tabindex="3">
             <!-- <form action="URL"> -->
             <legend>Let's set up your next trip!</legend>

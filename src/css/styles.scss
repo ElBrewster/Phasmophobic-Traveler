@@ -69,7 +69,8 @@ body {
   // background-color: rgb(181,221,216, .2);
 }
 
-header {
+header,
+.h1-title {
   height: 10%;
   width: 100%;
   background-color: rgb(128,87,112, .6);
@@ -202,32 +203,71 @@ main {
   height:100%;
   width: 80%;
   background-color: rgb(70,53,58,.2);
-  /* have a pretty canvas for when there's no populated buttons? */
 }
 
-.accordion {
+.the-whole-accordion .accordion-console {
+  position: relative;
+  margin: 1em 1em;
+}
+
+.accordion-console .accordion-element {
+  position: relative;
+  // margin: 1em 1em;
+}
+.accordion-console .accordion-btn {
+  position: relative;
+}
+
+
+.accordion-btn {
   background-color: $cornflower;
   color: $brown;
   cursor: pointer;
   padding: 18px;
+  // padding: 10px 0;
   width: 100%;
   text-align: left;
   border: none;
+  border-radius: .15em;
   outline: none;
   font-size: 1em;
   transition: 0.4s;
 }
 
-.p-panel {
-  background-color: rgb(0, 0, 0, 0);
-  color: $ltBlueGreen;
-}
-
-.active, .accordion:hover {
+.active, .accordion-btn:hover {
   background-color: $lavender;
 }
+
+.accordion-console .accordion-btn::before {
+  // content: "+";
+  color: $brown;
+  position: absolute;
+  top: 50%;
+  right: -.5em;
+  font-size: 1em;
+  transform: translateY(-50%);
+}
+
+.accordion-console .p-panel {
+  position: relative;
+  background: $chillGreen;
+  height: 0;
+  font-size: .75em;
+  text-align: justify;
+  width: 80%;
+  // width: 780px;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+// .accordion-console 
+hr {
+  width: 100;
+  margin-left: 0;
+  border: 1px $purpleBrown;
+}
 /* --> need to add the .active class with js */
-.accordion:after {
+.accordion-btn::before {
   content: '\02795'; /* Unicode character for "plus" sign (+) */
   font-size: 13px;
   color: $brown;
@@ -235,14 +275,27 @@ main {
   margin-left: 5px;
 }
 
-.active:after {
+.active::after {
   content: "\2796"; /* Unicode character for "minus" sign (-) */
 }
 
-.panel {
+.accordion-console .accordion-element .active .p-panel {
+  height: 3em;
+}
+// .accordion-console .accordion-element .active .accordion-btn::before {
+//   content: '\02795'; /* Unicode character for "plus" sign (+) */
+//   font-size: 1em;
+//   float: right;
+//   color: $brown;
+//   margin-left: 1em;
+// }
+
+.p-panel {
   padding: 0 18px;
-  display: none;
+  // display: none;
+  max-height: 0;
   background-color: $softBlue;
+  color: $brown;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
 }

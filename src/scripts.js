@@ -20,7 +20,7 @@ let numDays = document.querySelector("#numDays");
 let tripDate = document.querySelector("#travelDate");
 let costEstimatePrint = document.querySelector("#costEstimate");
 let expensesDisplay = document.querySelector("#moneyTracker");
-let testerBox = document.querySelector("#smallTopLeft");
+// let testerBox = document.querySelector("#smallTopLeft");
 let glideSlides = document.querySelector("#glideSlides");
 let currentUpcomingTrips = document.querySelector("#currentAndUpcoming");
 
@@ -35,6 +35,11 @@ numTraveling.addEventListener("change", console.log);
 myDropDown.addEventListener("change", console.log);
 //-----functions-----
 
+function pageLoad() {
+    dateSpot.innerText = dayjs().toDate();
+    doPromise();
+}
+
 function doPromise() {
     Promise.all([callForData("travelers"), callForData("trips"), callForData("destinations")])
     .then((promisedData) => {
@@ -43,23 +48,12 @@ function doPromise() {
         let allDestinationData = promisedData[2].destinations;
         agent1 = new Agent(allDestinationData, allTripsData, allTravelersData);
         getTripsDropdown();
-        displayExpenses(clientId);
+        // displayExpenses(clientId);
         getClientDisplay(clientId);
         startGlide();
     })
     .catch(error => console.log(error));
 }
-
-function pageLoad() {
-    dateSpot.innerText = dayjs().toDate();
-    doPromise();
-}
-
-function getRandomArbitrary() {
-    const min = 0;
-    const max = 9;
-    return Math.floor(Math.random() * (max - min) + min);
-  }
 
 function getClientDisplay(clientId) {
     glideSlides.innerHTML = "";
@@ -72,7 +66,20 @@ function getClientDisplay(clientId) {
         glideSlides.innerHTML += `<li class="glide__slide">You made memories on ${glideDisplay.date} at ${glideDisplay.location_name} and saw ${randomNum} ghosts!<img class="one-slide" src="${glideDisplay.url}" alt="${glideDisplay.urlAlt}" width="400" height="275"></li>`;
     })
     displayCurrentAndUpcomingTrips(currUser.id);
+    displayExpenses(currUser.id);
 }
+
+function getRandomArbitrary() {
+    const min = 0;
+    const max = 9;
+    return Math.floor(Math.random() * (max - min) + min);
+}
+
+function displayExpenses() {
+    let dollarText = agent1.calcClientTripsYearlyCost(clientId);
+    expensesDisplay.innerText = `Your current expenses this year: $${dollarText}.00`;
+}
+
 // clear innerHTML if you need to at the beginning of functions?
 
 function displayCurrentAndUpcomingTrips(clientId) {
@@ -84,10 +91,6 @@ function displayCurrentAndUpcomingTrips(clientId) {
     })
 }
 
-function displayExpenses() {
-    let dollarText = agent1.calcClientTripsYearlyCost(clientId);
-    expensesDisplay.innerText = `Your current expenses this year: $${dollarText}.00`;
-}
 
 //-----form-functions-----
 
@@ -103,10 +106,7 @@ function estimatedCost() {
         let estimate = agent1.calculateOneTripCost(109);
         //this sets the id, so it's not dynamic after the first pass. Needs to ignore the id?
         console.log("estimate: ", estimate)
-        // console.log("friends: ", numTraveling.value);
-        // console.log("destination: ", myDropDown.value);
         costEstimatePrint.innerHTML = `These trip selections tally at $${estimate}.`
-
     }
 }
 
@@ -155,33 +155,22 @@ function startGlide() {
 //     ghostFacts.forEach(fact => console.log(fact));
 // }
 //----accordion?-----
-// let acc = document.getElementsByClassName("accordion");
-// let i;
-// let panel = this.nextElementSibling;
 
-//     for (i = 0; i < acc.length; i++) {
-//         acc[i].addEventListener("click", function() {
-//             this.classList.toggle("active");
-//         if (panel.style.display === "block") {
-//             panel.style.display = "none";
-//         } else {
-//             panel.style.display = "block";
-//         }
-//       });
-//     }
+const accordionBits = document.getElementsByClassName("accordion-element");
+let i;
+for (i = 0; i < accordionBits.length; i++) {
+    accordionBits[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+    })
 
+    let panel = this.nextElementSibling;
+    if(panel.style.maxHeight) {
+        panel.style.maxHeight = "null";
+    } else {
+        panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+}
 
-
-//  for (i = 0; i < acc.length; i++) {
-//     acc[i].addEventListener("click", function() {
-//             this.classList.toggle("active");
-//         if (panel.style.maxHeight) {
-//             panel.style.maxHeight = null;
-//         } else {
-//             panel.style.maxHeight = panel.scrollHeight + "px";
-//         }
-//       });
-//     }
 
 
 
