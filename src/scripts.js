@@ -20,10 +20,12 @@ let numDays = document.querySelector("#numDays");
 let tripDate = document.querySelector("#travelDate");
 let costEstimatePrint = document.querySelector("#costEstimate");
 let expensesDisplay = document.querySelector("#moneyTracker");
-let testerBox = document.querySelector("#smallTopLeft");
+// let testerBox = document.querySelector("#smallTopLeft");
 let glideSlides = document.querySelector("#glideSlides");
 let currentUpcomingTrips = document.querySelector("#currentAndUpcoming");
 
+let loginSubmitbtn = document.querySelector("#loginSubmit")
+let hideDisplay = document.getElementById("travelAgency", "mainSection", "#logoLinks")
 
 //-----event-Listeners-----
 window.addEventListener("load", pageLoad)
@@ -34,6 +36,8 @@ tripDate.addEventListener("change", console.log);
 numTraveling.addEventListener("change", console.log);
 myDropDown.addEventListener("change", console.log);
 
+loginSubmitbtn.addEventListener("")
+//-----login-page-----
 function setFormMessage(formElement, type, message) {
     const messageElement = formElement.querySelector(".form__message");
     messageElement.textContent = message;
@@ -45,11 +49,12 @@ function setInputError(inputElement, message) {
     inputElement.classList.add("form__input--error");
     inputElement.parentElement.querySelector(".form__input-error-message").textContent = message;
 }
+
 function clearInputError(inputElement) {
     inputElement.classList.remove("form__input--error");
     inputElement.parentElement.querySelector(".form__input-error-message").textContent = "";
-
 }
+
 document.addEventListener("DOMContentLoaded", () => {
     const loginForm = document.querySelector("#login");
 
@@ -71,6 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     })
 });
+
 //-----functions-----
 
 function doPromise() {
@@ -92,7 +98,7 @@ function pageLoad() {
     dateSpot.innerText = dayjs().toDate();
     doPromise();
 }
-
+//this pageload function should be attached to the submit login event instead, and the pageload should load the login
 function getClientDisplay(clientId) {
     glideSlides.innerHTML = "";
     let currUser = agent1.getClient(clientId);
