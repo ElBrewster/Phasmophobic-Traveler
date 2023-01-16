@@ -59,10 +59,6 @@ $font-stack: 'Fira Sans', sans-serif;
   outline: $softBlue solid 2px;
 }
 
-// .focus-visible {
-//   outline: $softBlue solid 2px;
-// }
-
 body {
   height: 100vh;
   width: 100vw;
@@ -70,8 +66,6 @@ body {
   flex-direction: column;
   font-family: 'Open Sans', sans-serif;
   background: radial-gradient(circle, $softBlue 0%, $warmPurple 100%);
-  // background-image: url("../images/jesse-bowser-unsplash.jpg");
-  // background-image: url("../images/jan-jakub-nanista-z9hvkSDWMIM-unsplash.jpg");
   background-image: url("../images/pexels-ekaterina-astakhova-3123980.jpg");
   background-size: cover;
   // background-color: rgb(181,221,216, .2);
@@ -87,6 +81,10 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+h2 {
+  color: $ltBlueGreen;
 }
 
 .date-divider {
@@ -194,11 +192,13 @@ main {
   height: 100%;
   width: 20%;
 }
+
 .small-top-left,
 .small-bottom-left {
   width: 100%;
   height: 50%;
 }
+
 .tester-box {
   width: 100%;
   height: 100%;
@@ -210,11 +210,23 @@ main {
 }
 
 // ----fix accordion section to no-accordion  
+h3 {
+  font-size: large;
+  font-weight: bold;
+  padding: 1em;
+  color: $ltBlueGreen;
+}
+.new-trips-section {
+  // background-color: rgb(126,178,228, .6);
+  height:100%;
+  width: 80%;
+  background-color: rgb(70,53,58,.2);
+}
 .upcoming {
-  background-color: rgb(234,240,181, 6);
+  background-color: rgb(181,221,216, 6);
   color: $brown;
   height: 2em;
-  width: 100%;
+  width: 90%;
   padding: .4em;
   margin: .5em;
   border-radius: .15em;
