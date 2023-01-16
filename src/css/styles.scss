@@ -143,11 +143,19 @@ main {
 }
 // ^image of slide
 .glide__slide {
+  filter: blur(6px);
+  opacity: .7;
+  transition: .1s linear;
   height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: baseline;
+}
+
+.glide__slide--active {
+  opacity: 1;
+  filter: none;
 }
 // ^slide content over image?
 .glide__track,
