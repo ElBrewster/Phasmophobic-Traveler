@@ -72,7 +72,7 @@ body {
 header {
   height: 10%;
   width: 100%;
-  // background-color: $redPurpleBrown;
+  background-color: rgb(128,87,112, .6);
   color: $ltBlueGreen;
   font-size: xx-large;
   font-weight: 900;
@@ -265,13 +265,15 @@ main {
   width: 100%;
   height: 80%;
   padding: .2em;
+  border-radius: .15em;
   color: $brown;
   background-color: rgb(126,178,228, .6);
   box-shadow: inset 0 0 20px $ltYellow;
 }
 
 form,
-.form-section {  display: flex;
+.form-section {  
+  display: flex;
   flex-direction: column;
   font-family: $font-stack;
   width: 100%;
