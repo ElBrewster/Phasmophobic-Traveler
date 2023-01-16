@@ -79,7 +79,8 @@ function getRandomArbitrary() {
 
 function displayExpenses() {
     let dollarText = agent1.calcClientTripsYearlyCost(clientId);
-    expensesDisplay.innerText = `Your current expenses this year: $${dollarText}.00`;
+    let dollarTextFormat = new Intl.NumberFormat().format(dollarText);
+    expensesDisplay.innerText = `Your current expenses this year: $${dollarTextFormat}.00`;
 }
 function displayClientName(currUser) {
     let username = currUser.name;
@@ -170,12 +171,12 @@ for (i = 0; i < accordionBits.length; i++) {
     })
     console.log("element sibling?", this.nextElementSibling);
 
-    // let panel = this.nextElementSibling;
-    // if(panel.style.maxHeight) {
-    //     panel.style.maxHeight = "null";
-    // } else {
-    //     panel.style.maxHeight = panel.scrollHeight + "px";
-    // }
+    let panel = this.nextElementSibling;
+    if(panel.style.maxHeight) {
+        panel.style.maxHeight = "null";
+    } else {
+        panel.style.maxHeight = panel.scrollHeight + "px";
+    }
 }
 
 
