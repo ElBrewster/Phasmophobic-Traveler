@@ -15,14 +15,14 @@
 </head>
 <body>
 
-  <header class="travelAgency" id="travelAgency" tabindex="0">
+  <header class="travelAgency" id="travelAgency">
     <h1 class="h1-title">
       <span class="italics">the</span>&nbspPhasmophobic Traveler:&nbsp&nbsp&nbsp
       <p class="user-name" id="userName"></p>
       <!-- Hello There, Username -->
     </h1>
     <div class="date-divider" id="dateDivider">
-      <section class="todays-date" id="todaysDate" tabindex="1"></section>
+      <section class="todays-date" id="todaysDate"></section>
       <section class="news-ticker" id="newsTicker"></section>
       <!-- ^add a tab index for this if it's implemented -->
     </div>
@@ -44,17 +44,17 @@
             </div>
 
             <div class="glide__arrows" data-glide-el="controls">
-              <button class="glide__arrow glide__arrow--left" data-glide-dir="<" tabindex="9">&nbsp<<&nbsp</button>
-              <button class="glide__arrow glide__arrow--right" data-glide-dir=">" tabindex="10">&nbsp>>&nbsp</button>
+              <button class="glide__arrow glide__arrow--left" data-glide-dir="<">&nbsp<<&nbsp</button>
+              <button class="glide__arrow glide__arrow--right" data-glide-dir=">">&nbsp>>&nbsp</button>
               <!-- ^maybe change prev and next text to icons? -->
             </div>
 
-            <div class="glide__bullets" data-glide-el="controls[nav]">
+            <!-- <div class="glide__bullets" data-glide-el="controls[nav]">
               <button role="presentation" class="glide__bullet" data-glide-dir="=0"></button>
               <button role="presentation" class="glide__bullet" data-glide-dir="=1"></button>
               <button role="presentation" class="glide__bullet" data-glide-dir="=2"></button>
-            </div>
-
+            </div> -->
+<!-- interpolate glide bullets based on image number^ -->
           </div>
         </section>
 
@@ -66,46 +66,12 @@
             <section class="small-bottom-left" id="smallBottomLeft"></section>
           </section>
 
-          <section class="the-whole-accordion" id="theWholeAccordion">
-            <div class="accordion-console">
-              <!-- console is just "accordion" -->
+          <section class="accordion-section" id="accordionSection">
+            <div class="accordion-main" id="accordionMain">
               <h2>Accordion Text</h2>
-              <hr>
-              <div class="accordion-element">
-                <!-- each element is a containter -->
-                <button class="accordion-btn" id="accordionBtn">oh heck</button>
-                <!-- each button is a label -->
-                <!-- <section class="p-panel" id="pPanel">what's here!
-                </section> -->
-                <p class="inner-panel">what's here!</p>
-              </div>
-              <hr>
-              <div class="accordion-element">
-                <button class="accordion-btn" id="accordionBtn">oh heck</button>
-                <section class="p-panel" id="pPanel">
-                  <p class="inner-panel">I am having a weird error for my post request. The error is 404 but I have checked the url many times and for some reason it is still not working please help</p>
-                </section>
-              </div>
+              <section class="upcoming-trip" id="upcomingTrip">insertPtag</section>
             </div>
-
-            <!-- <button class="accordion" id="accordionBtn">oh heck</button> -->
-
-            <!-- <section class="p-panel" id="pPanel">
-              <p>what's here!</p>
-            </section>
-            <button class="accordion" id="accordionBtn">oh heck</button>
-
-            <section class="p-panel" id="pPanel">
-              <p>what's here!</p>
-            </section>
-            <button class="accordion" id="accordionBtn">oh heck</button>
-
-            <section class="p-panel" id="pPanel">
-              <p>what's here!</p>
-            </section>
-            <button class="accordion" id="accordionBtn">oh heck</button> -->
-
-
+          </section>
         </div>
 
     </div>
@@ -115,24 +81,24 @@
       <section class="form-container" id="formContainer">
         <section class="form-section" id="forms">
           <h3>Trip Planner</h3>
-          <form method="post" id="tripForm"tabindex="3">
+          <form method="post" id="tripForm">
             <!-- <form action="URL"> -->
             <legend>Let's set up your next trip!</legend>
-            <label class="numTrav" for="number-traveling">How many travelers do you have in your party?
-              <input type="number" min="1" max="500" name="numberTravelers" class="num-travelers" id="numTravelers" tabindex="4">
+            <label for="number-traveling" class="numTrav">How many travelers do you have in your party?
+              <input type="number" min="1" max="500" name="numberTravelers" class="num-travelers" id="numTravelers">
             </label>
-            <label class="tripDur" for="trip-duration">How many days does this trip take?
-              <input type="number" min="1" max="365" name="numberDays" class="num-days" id="numDays" tabindex="5">
+            <label for="trip-duration" class="tripDur">How many days does this trip take?
+              <input type="number" min="1" max="365" name="numberDays" class="num-days" id="numDays">
             </label>
-            <label class="destNation" for="destinations">Choose your destination:</label>
-            <select class="select-destination" id="select-destinations" name="destinations" tabindex="6">
+            <label for="destinations" class="destNation">Choose your destination:</label>
+            <select class="select-destination" id="select-destinations" name="destinations">
               <option value="" disabled selected hidden>choose your destination</option>
             </select>
-            <label class="datePicker" for="date">What day do you want to leave?
-              <input type="date" name="date" id="travelDate" tabindex="7">
+            <label for="date" class="date-picker" id="datePicker">What day do you want to leave?
+              <input for="date-picker" type="date" name="date" id="travelDate">
             </label>
             <p id="costEstimate"></p>
-            <button tabindex="8">Submit</button>
+            <button>Submit</button>
           </form>
         </section>
       </section>

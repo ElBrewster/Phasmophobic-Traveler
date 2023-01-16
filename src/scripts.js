@@ -20,10 +20,12 @@ let numDays = document.querySelector("#numDays");
 let tripDate = document.querySelector("#travelDate");
 let costEstimatePrint = document.querySelector("#costEstimate");
 let expensesDisplay = document.querySelector("#moneyTracker");
-// let testerBox = document.querySelector("#smallTopLeft");
+let testerBox = document.querySelector("#smallTopLeft");
 let glideSlides = document.querySelector("#glideSlides");
 let currentUpcomingTrips = document.querySelector("#currentAndUpcoming");
 let newUserName = document.querySelector("#userName");
+let slideText = document.querySelector("#slideText");
+let upcomingTrips = document.querySelector("#upcomingTrip");
 
 
 //-----event-Listeners-----
@@ -68,13 +70,17 @@ function getClientDisplay(clientId) {
 
 function showOldTrips(clientId) {
     let oldTrips = agent1.filterClientsTripsBeforeThisYear(clientId);
+    console.log("oldTrips", oldTrips)
     oldTrips.forEach(trip => {
         let randomNum = getRandomArbitrary();
         let glideDisplay = agent1.provide1TripDisplayData(trip.id);
-        glideSlides.innerHTML += `<li class="glide__slide">You made memories on ${glideDisplay.date} at ${glideDisplay.location_name} and saw ${randomNum} ghosts!<img class="one-slide" src="${glideDisplay.url}" alt="${glideDisplay.urlAlt}" width="400" height="275"></li>`;
+        console.log("glideDisplay", glideDisplay)
+        glideSlides.innerHTML += `<li class="glide__slide"><p class="slideText" id="slideText">You made memories on ${glideDisplay.date} at ${glideDisplay.location_name} and saw ${randomNum} ghosts!</p><img class="one-slide" src="${glideDisplay.url}" alt="${glideDisplay.urlAlt}" width="400" height="275"></li>`;
+        console.log(trip)
     })
 }
-
+//for each oldTrips.id, if it matches === glideDisplay.url,
+//if glideDisplay.url matches the destination id
 function getRandomArbitrary() {
     const min = 0;
     const max = 9;
@@ -97,6 +103,7 @@ function displayCurrentAndUpcomingTrips(clientId) {
     let currentTrips = agent1.filterClientsTripsThisYear(clientId);
     currentTrips.forEach(trip => {
         currentUpcomingTrips.innerText += `Your upcoming trip on ${trip.date} is ${trip.status}.`
+        upcomingTrips.innerHTML += `<p class="upcoming">Your upcoming trip on ${trip.date} is ${trip.status}.</p>`
         console.log(trip.date);
         console.log(trip.status);
     })

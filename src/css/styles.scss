@@ -150,8 +150,8 @@ main {
   position: relative;
   border: $brown;
   // height: 100vh;
-  width: 100%;
-  height: 100%;
+  width: 13em;
+  height: 8em;
 }
 // ^image of slide
 .glide__slide {
@@ -208,10 +208,17 @@ main {
   width: 50px;
   height: 50px;
 }
-// img {
-//   width: 100%;
-//   height: 100%;
-// }
+
+// ----fix accordion section to no-accordion  
+.upcoming {
+  background-color: rgb(234,240,181, 6);
+  color: $brown;
+  height: 2em;
+  width: 100%;
+  padding: .4em;
+  margin: .5em;
+  border-radius: .15em;
+}
 /* --->>--------accordion nonsense--------------<<------------------------------- */
 .the-whole-accordion {
   height:100%;
@@ -262,24 +269,28 @@ main {
   transform: translateY(-50%);
 }
 
-.accordion-console .p-panel {
-  position: relative;
-  background: $chillGreen;
-  height: 0;
-  font-size: .75em;
-  text-align: justify;
-  width: 80%;
-  // width: 780px;
+// .accordion-console .p-panel {
+//   position: relative;
+//   background: $chillGreen;
+//   height: 0;
+//   font-size: .75em;
+//   text-align: justify;
+//   width: 80%;
+//   // width: 780px;
+//   overflow: hidden;
+//   transition: 0.5s;
+// }
+
+.p-panel {
+  padding: 0 18px;
+  display: none;
+  max-height: 0;
+  background-color: $softBlue;
+  color: $brown;
   overflow: hidden;
-  transition: 0.5s;
+  transition: max-height 0.2s ease-out;
 }
 
-// .accordion-console 
-hr {
-  width: 100;
-  margin-left: 0;
-  border: 1px $purpleBrown;
-}
 /* --> need to add the .active class with js */
 .accordion-btn::before {
   content: '\02795'; /* Unicode character for "plus" sign (+) */
@@ -304,15 +315,6 @@ hr {
 //   margin-left: 1em;
 // }
 
-.p-panel {
-  padding: 0 18px;
-  // display: none;
-  max-height: 0;
-  background-color: $softBlue;
-  color: $brown;
-  overflow: hidden;
-  transition: max-height 0.2s ease-out;
-}
 
 /* -^----------accordion nonsense--------------------------------------------^- */
 
