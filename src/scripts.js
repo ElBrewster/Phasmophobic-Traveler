@@ -22,10 +22,13 @@ let upcomingTrips = document.querySelector("#upcomingTrip");
 let loginSubmitbtn = document.querySelector("#loginSubmit")
 let username1 = document.querySelector("#signupUsername");
 let password1 = document.querySelector("#password");
+let formLink = document.querySelector("#formLink");
 let factsBox = document.querySelector("#smallTopLeft");
 
 form.addEventListener("submit", formSubmitHandler);
 form.addEventListener("change", estimatedCost);
+factsBox.addEventListener("dblclick", displayFact);
+
 loginSubmitbtn.addEventListener("click", function(event) {
     event.preventDefault();
     checkSubmission();
@@ -34,19 +37,14 @@ loginSubmitbtn.addEventListener("click", function(event) {
 
 function checkSubmission() {
     let travelerUserName = username1.value;
-    console.log("username1.value", username1.value)
     checkAgent(travelerUserName);
 
     if((checkPassword(travelerUserName)) && (password1.value === "travel")){
-        console.log("value2?", travelerUserName);
         document.querySelector("#loginPage").classList.add("hidden")
         document.querySelector("#travelAgency").classList.remove("hidden");
         document.querySelector("#mainSection").classList.remove("hidden");
     }
     if((travelerUserName === "agent") && (password1.value === "travel")){
-        console.log("finalagent?", travelerUserName);
-        console.log("passwordavalue?", password1.value)
-
         document.querySelector("#loginPage").classList.add("hidden")
         document.querySelector("#travelAgency").classList.remove("hidden");
         document.querySelector("#mainSection").classList.remove("hidden");
@@ -54,7 +52,6 @@ function checkSubmission() {
 }
 function checkAgent(travelerUserName) {
     if((travelerUserName === "agent")) {
-        console.log("agent?", travelerUserName)
         return travelerUserName;
     } else {
         checkPasswordLength(travelerUserName);
@@ -64,7 +61,6 @@ function checkAgent(travelerUserName) {
 
 function checkPasswordLength(travelerUserName) {
     if((travelerUserName.length === 10)) {
-        console.log("length", travelerUserName.length);
         return travelerUserName;
     } else{
         document.location.reload();
@@ -76,10 +72,10 @@ function checkPassword(travelerUserName) {
     let slicedId = userNameEntry.slice(-2) * 1;
     clientId1 = slicedId;
     if(((typeof(slicedId) === "number") && (slicedId < 51)) && (userNameEntry === `traveler${slicedId}`)) {
-
        return clientId1;
     } else {
-        //add error message?
+        formLink.innerText = "Please enter a good username/password combo";
+        //^this needs a timout
         console.log("Please enter a good username/password combo");
         document.querySelector("#loginPage").classList.remove("hidden")
         document.querySelector("#travelAgency").classList.add("hidden");
@@ -89,7 +85,6 @@ function checkPassword(travelerUserName) {
 
 function pageLoad() {
     dateSpot.innerText = dayjs().toDate();
-    // pageLoad();
     doPromise();
 }
 
@@ -197,9 +192,10 @@ function startGlide() {
     new Glide(".glide", config).mount();
 }
 
-factsBox.addEventListener("ondblclick", displayFact)
-
+let counter = 0;
 function displayFact() {
-    console.log("ghostFact?", ghostFacts[0]);
-    factsBox.innerHTML = `<p>${ghostFacts[0]}</p>`;
+    factsBox.innerHTML = "";
+    console.log("ghostFact?", ghostFacts[counter]);
+    factsBox.innerHTML = `<p>${ghostFacts[counter]}</p>`;
+    counter++;
 }
