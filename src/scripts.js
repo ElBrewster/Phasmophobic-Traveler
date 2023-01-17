@@ -22,6 +22,7 @@ let upcomingTrips = document.querySelector("#upcomingTrip");
 let loginSubmitbtn = document.querySelector("#loginSubmit")
 let username1 = document.querySelector("#signupUsername");
 let password1 = document.querySelector("#password");
+let factsBox = document.querySelector("#smallTopLeft");
 
 form.addEventListener("submit", formSubmitHandler);
 form.addEventListener("change", estimatedCost);
@@ -36,7 +37,6 @@ function checkSubmission() {
     console.log("username1.value", username1.value)
     checkAgent(travelerUserName);
 
-    
     if((checkPassword(travelerUserName)) && (password1.value === "travel")){
         console.log("value2?", travelerUserName);
         document.querySelector("#loginPage").classList.add("hidden")
@@ -64,7 +64,6 @@ function checkAgent(travelerUserName) {
 
 function checkPasswordLength(travelerUserName) {
     if((travelerUserName.length === 10)) {
-        //remove agent line?
         console.log("length", travelerUserName.length);
         return travelerUserName;
     } else{
@@ -198,4 +197,9 @@ function startGlide() {
     new Glide(".glide", config).mount();
 }
 
+factsBox.addEventListener("ondblclick", displayFact)
 
+function displayFact() {
+    console.log("ghostFact?", ghostFacts[0]);
+    factsBox.innerHTML = `<p>${ghostFacts[0]}</p>`;
+}
