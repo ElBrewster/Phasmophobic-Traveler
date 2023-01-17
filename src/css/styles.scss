@@ -77,13 +77,14 @@ body {
   height: 100vh;
   width: 100vh;
 }
+header {
+  background-color: rgb(128,87,112, .6);
 
+}
 .h1-title,
-header,
 .travel-agency {
   height: 10%;
   width: 100%;
-  background-color: rgb(128,87,112, .6);
   color: $ltBlueGreen;
   font-family: $font-stack;
   font-size: x-large;
@@ -213,26 +214,26 @@ h2 {
 }
 
 .todays-date{
-  height: 25%;
+  height: 100%;
   display: flex;
   align-content: flex-end;
   align-items: center;
   font-size: small;
 }
 
-.news-ticker {
-  height: 75%;
-}
+// .news-ticker {
+//   height: 75%;
+// }
 
 main,
 .main-section {
-  height: 80%;
+  height: 90%;
   width: 100%;
   display: flex;
   flex-direction: row;
 }
 
-.flexDisplay {
+.flex-display {
   width: 70%;
   height: 100%;
   display: flex;
@@ -240,14 +241,19 @@ main,
 }
 //-----glide-nonsense-----
 .glide-display {
-  height: 100%;
+  height: 50%;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 1em;
   font-weight: 900;
-  background-color: rbg(70,53,58,.8);
+  margin-left: 0;
+  margin-right: 0;
+  background-color: rgb(208,231,202, .6);
+  box-shadow: inset (208,231,202, .6);
+  // box-shadow: inset 0 0 1em 1em $brown;
+  // background-color: rbg(70,53,58,.8);
   color: $ltBlueGreen;
 }
 .glide_slides {
@@ -269,21 +275,24 @@ li {
 
 .one-slide {
   position: relative;
-  border: $brown;
+  // border: $brown;
   // height: 100vh;
-  width: 13em;
-  height: 8em;
+  width: 100%;
+  height: 100%;
 }
 // ^image of slide
 .glide__slide {
-  // filter: blur(3px);
-  // opacity: .7;
-  // transition: .1s linear;
+  filter: blur(3px);
+  opacity: .7;
+  transition: .1s linear;
   height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: baseline;
+  padding: .2em;
+  box-shadow: inset 0 0 20px $radishPurple;
+
 }
 
 .glide__slide--active {
@@ -309,7 +318,7 @@ li {
 //-----^--glide-nonsense--^-----
 
 .side-piece {
-  height: 50%;
+  height: 100%;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -317,12 +326,12 @@ li {
 
 .left-aside {
   height: 100%;
-  width: 20%;
+  width: 50%;
 }
 
 .small-top-left,
 .small-bottom-left {
-  width: 100%;
+  width: 50%;
   height: 50%;
 }
 
@@ -345,8 +354,9 @@ h3 {
 .new-trips-section {
   // background-color: rgb(126,178,228, .6);
   height:100%;
-  width: 80%;
+  width: 50%;
   background-color: rgb(70,53,58,.2);
+  background-color: rgb(194,227,210, .4);
   overflow: auto;
 }
 .upcoming {
