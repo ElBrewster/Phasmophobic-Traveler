@@ -46,4 +46,4 @@ const ghostFacts = [
     "Some religious views argue that the 'spirits' of those who have died have not 'passed over' and are trapped inside the property where their memories and energy are strong."
 ];
 //This text is taken from the Wikipedia article on "Ghosts" as of January 11, 2023.
-export {ghostFacts};
+export { ghostFacts };
