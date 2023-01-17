@@ -1,11 +1,8 @@
-import AllDestinations from "./AllDestinations";
 import Destination from "./Destination";
 import Traveler from "./Traveler";
 import Trip from "./Trip";
 import dayjs from 'dayjs';
 
-
-//this is my class highway 
 class Agent {
     constructor(allDestinationData, allTripData, allTravelersData, localeId, tripId, clientId) {
         this.placesData = allDestinationData;

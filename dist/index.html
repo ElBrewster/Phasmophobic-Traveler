@@ -4,17 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <!-- <link rel="stylesheet" type="text/css" href="styles.css"> -->
-  <!-- <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.core.min.css"> -->
-  <!-- <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.theme.min.css"> -->
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,400;0,500;0,700;0,800;0,900;1,100;1,600;1,900&display=swap" rel="stylesheet">
   <title>Webpack Starter Kit</title>
 </head>
 <body>
-  <section class="login-page">
+
+  <section class="login-page " id="loginPage">
     <div class="login">
       <form class="login-form" id="login">
         <h1 class="form__title">Login</h1>
@@ -24,7 +21,7 @@
           <div class="form__input-error-message">Error! oops!</div>
         </div>
         <div class="form__input-group">
-          <input type="password" class="form__input" autofocus placeholder="Password">
+          <input type="password" id="password" class="form__input" autofocus placeholder="Password">
           <div class="form__input-error-message"></div>
         </div>
         <button class="form__button" type="submit" id="loginSubmit">Submit</button>
@@ -35,22 +32,18 @@
     </div>
   </section>
 
-
+<div class="hidden-functionality hidden" id="hiddenFunctionality">
   <header class="travelAgency" id="travelAgency">
     <h1 class="h1-title">
       <span class="italics">the</span>&nbspPhasmophobic Traveler:&nbsp&nbsp&nbsp
       <p class="user-name" id="userName"></p>
     </h1>
-
     <div class="date-divider" id="dateDivider">
       <section class="todays-date" id="todaysDate"></section>
       <section class="news-ticker" id="newsTicker"></section>
-      <!-- ^add a tab index for this if it's implemented -->
     </div>
   </header>
-
-
-  <main id="mainSection">
+  <main class="main-section" id="mainSection">
     <div class="flexDisplay">
         <section class="glide-display" id="glideDisplay">
          <div class="glide">
@@ -64,15 +57,12 @@
             </div>
           </div>
         </section>
-
         <div class="side-piece" id="sidePiece">
-
           <section class="left-aside" id="leftAside">
             <section class="small-top-left" id="smallTopLeft">
             </section>
             <section class="small-bottom-left" id="smallBottomLeft"></section>
           </section>
-
           <section class="new-trips-section" id="newTripsSection">
             <div class="new-trips-div" id="newTripsDiv">
               <h2>Upcoming Trips</h2>
@@ -80,16 +70,12 @@
             </div>
           </section>
         </div>
-
     </div>
-
     <aside class="aside-bar" id="asideBar">
-
       <section class="form-container" id="formContainer">
         <section class="form-section" id="forms">
           <h3>Trip Planner</h3>
           <form method="post" id="tripForm">
-            <!-- <form action="URL"> -->
             <legend>Let's set up your next trip!</legend>
             <label for="numTravelers" class="numTrav">How many travelers do you have in your party?
               <input type="number" min="1" max="500" name="numberTravelers" class="num-travelers" id="numTravelers">
@@ -109,20 +95,14 @@
           </form>
         </section>
       </section>
-
       <section class="money-tracker" id="moneyTracker"></section>
-      <!-- <section class="current-and-upcoming" id="currentAndUpcoming">Where will you go?</section> -->
     </aside>
-
     <section class="margin-right"></section>
-
   </main>
   <footer class="logo-links" id="logoLinks">
     <section class="color-fix"></section>
   </footer>
-  <!-- <img src="./images/turing-logo.png" alt="turing logo"> -->
-  
-  <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
- p <script src="bundle.js"></script>
+</div>
+ <script src="bundle.js"></script>
 </body>
 </html>
