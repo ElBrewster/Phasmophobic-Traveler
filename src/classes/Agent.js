@@ -31,21 +31,11 @@ class Agent {
 
     calcClientTripsYearlyCost(clientId) {
         let currentTrips = this.filterClientsTripsThisYear(clientId);
-        // let totalArray = [];
         console.log("currentTrips1: ", currentTrips)
-        // currentTrips.forEach(trip => {
-        //     totalArray.push(this.calculateOneTripCost(trip.id));
-        // })
         let totalTrips = currentTrips.reduce((acc, curr) => {
             acc += this.calculateOneTripCost(curr.duration, curr.travelers, curr.destinationID);
             return acc;
         }, 0);
-
-        // console.log("currentTrips: ", currentTrips)
-        // let total = totalArray.reduce((acc, curr) => {
-        //     acc += curr;
-        //     return acc;
-        // }, 0);
         console.log("totalTrips1: ", totalTrips);
         return totalTrips;
         // return total;
@@ -66,7 +56,6 @@ class Agent {
     }
 
     calculateOneTripCost(tripLength, numberTraveling, destId) {
-        // let trip1 = new Trip(tripId, this.tripsData);
         let destination1 = new Destination(destId, this.placesData);
         console.log("destination1: ", destination1);
         let lodgingCost = destination1.lodgingCost * tripLength;

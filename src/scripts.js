@@ -177,6 +177,7 @@ function formSubmitHandler(event) {
     console.log("makeThisTrip.id", makeThisTrip.id);
     // console.log("destionations", destionationID)
     makeTrip(makeThisTrip);
+    // displayExpenses();
     doPromise();
     event.target.reset();
 }
