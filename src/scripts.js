@@ -20,78 +20,44 @@ let numDays = document.querySelector("#numDays");
 let tripDate = document.querySelector("#travelDate");
 let costEstimatePrint = document.querySelector("#costEstimate");
 let expensesDisplay = document.querySelector("#moneyTracker");
-// let testerBox = document.querySelector("#smallTopLeft");
 let glideSlides = document.querySelector("#glideSlides");
-// let currentUpcomingTrips = document.querySelector("#currentAndUpcoming");
 let newUserName = document.querySelector("#userName");
 let slideText = document.querySelector("#slideText");
 let upcomingTrips = document.querySelector("#upcomingTrip");
 
 let loginSubmitbtn = document.querySelector("#loginSubmit")
-let hideDisplay = document.getElementById("travelAgency", "mainSection", "#logoLinks")
+// let hideDisplay = document.getElementById("travelAgency", "mainSection", "#logoLinks")
 
+let loginForm = document.querySelector("#login");
+let username1 = document.querySelector("#signupUsername");
+let password1 = document.querySelector("#password");
 //-----event-Listeners-----
 window.addEventListener("load", pageLoad)
 form.addEventListener("submit", formSubmitHandler);
 form.addEventListener("change", estimatedCost)
-numDays.addEventListener("change", console.log);
-tripDate.addEventListener("change", console.log);
-numTraveling.addEventListener("change", console.log);
-myDropDown.addEventListener("change", console.log);
+
+
+loginSubmitbtn.addEventListener("click", function(event) {
+    event.preventDefault();
+    checkSubmission();
+})
 
 // loginSubmitbtn.addEventListener("")
 // ^^^^DO THIS
 
 //-----login-page-----
-function setFormMessage(formElement, type, message) {
-    const messageElement = formElement.querySelector(".form__message");
-    messageElement.textContent = message;
-    messageElement.classList.remove("form__message--success", "form__message--error");
-    messageElement.classList.add(`form__message--${type}`);
+
+//if login, then listen to login true validation, displays dash and fetch
+//anonymous function because need "event"
+function checkSubmission() {
+    console.log("username?", username1.value);
+    if((username1.value === "traveler50") && (password1.value === "travel")){
+        document.querySelector("#loginPage").classList.add("hidden")
+        document.querySelector("#hiddenFunctionality").classList.remove("hidden");
+    }
+    // loginForm.addEventListener("input", () => {
+    // });
 }
-
-function setInputError(inputElement, message) {
-    inputElement.classList.add("form__input--error");
-    inputElement.parentElement.querySelector(".form__input-error-message").textContent = message;
-}
-
-function clearInputError(inputElement) {
-    inputElement.classList.remove("form__input--error");
-    inputElement.parentElement.querySelector(".form__input-error-message").textContent = "";
-}
-
-
-document.addEventListener("DOMContentLoaded", () => {
-    let username1 = document.getElementById("#signupUsername").value;
-    let password1 = document.getElementById("#password").value;
-    // let signupUsername = document.querySelector("#signupUsername");
-    // let password = document.querySelector("#password");
-    const loginForm = document.querySelector("#login");
-
-    loginForm.addEventListener("input", e => {
-        if((e.username1 === "traveler50") && (e.password1 === "traveler")){
-            document.getElementById("#hiddenFunctionality").hidden = false;
-            document.getElementById("#loginPage").hidden = true;
-        }
-    });
-
-    loginForm.addEventListener("submit", e => {
-        e.preventDefault();
-        //here perform the fetch login
-        setFormMessage(loginForm, "error", "Invalid username/password combo");
-    });
-    
-    document.querySelectorAll(".form__input").forEach(inputElement => {
-        inputElement.addEventListener("blur", e => {
-            if(e.target.id === "signupUsername" && e.target.value.length > 0 && e.target.value.length < 4) {
-                setInputError(inputElement, "Username must be more than 4 characters")
-            }
-        });
-        inputElement.addEventListener("input", e => {
-            clearInputError(inputElement);
-        });
-    });
-});
 
 
 //-----functions-----
@@ -235,5 +201,53 @@ function startGlide() {
 
 
 
+// function setFormMessage(formElement, type, message) {
+//     const messageElement = formElement.querySelector(".form__message");
+//     messageElement.textContent = message;
+//     messageElement.classList.remove("form__message--success", "form__message--error");
+//     messageElement.classList.add(`form__message--${type}`);
+// }
 
+// function setInputError(inputElement, message) {
+//     inputElement.classList.add("form__input--error");
+//     inputElement.parentElement.querySelector(".form__input-error-message").textContent = message;
+// }
+
+// function clearInputError(inputElement) {
+//     inputElement.classList.remove("form__input--error");
+//     inputElement.parentElement.querySelector(".form__input-error-message").textContent = "";
+// }
+
+
+// document.addEventListener("DOMContentLoaded", () => {
+//     let username1 = document.getElementById("#signupUsername").value;
+//     let password1 = document.getElementById("#password").value;
+//     // let signupUsername = document.querySelector("#signupUsername");
+//     // let password = document.querySelector("#password");
+//     const loginForm = document.querySelector("#login");
+
+//     loginForm.addEventListener("input", e => {
+//         if((username1 === "traveler50") && (password1 === "travel")){
+//             document.getElementById("#hiddenFunctionality").hidden = false;
+//             document.getElementById("#loginPage").hidden = true;
+//         }
+//     });
+
+//     loginForm.addEventListener("submit", e => {
+//         e.preventDefault();
+//         //here perform the fetch login
+//         setFormMessage(loginForm, "error", "Invalid username/password combo");
+//     });
+    
+//     document.querySelectorAll(".form__input").forEach(inputElement => {
+//         inputElement.addEventListener("blur", e => {
+//             if(e.target.id === "signupUsername" && e.target.value.length > 0 && e.target.value.length < 4) {
+//                 setInputError(inputElement, "Username must be more than 4 characters")
+//             }
+//         });
+//         inputElement.addEventListener("input", e => {
+//             clearInputError(inputElement);
+//         });
+//     });
+// });
 
