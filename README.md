@@ -1,94 +1,49 @@
-# Webpack Starter Kit
+# idea-Box
 
-## Clone This Repo
+### `Abstract:`
+Every developer has more ideas than time. As David Allen likes to say “the human brain is for creating ideas, not remembering them.” In this project, we’ll be building an application that records and archives our ideas (good and bad alike).
 
-Push!
+Throughout the project, one of our focuses will be on providing a fluid and responsive client-side interface. To this end, we’ll rely on JavaScript to implement snappy filtering in the browser.
 
-## Setup
+### `Installation Instructions:`
+<!-- 1. [Click To Open Repo](https://github.com/KarrarQ/idea-Box) -->
+2. Click the "Fork" button. (This will create a user copy of the repository.)
+3. Open the Terminal application.
+4. In Terminal, use the "cd" command to navigate to where the local repository will live.
+5. In GitHub, click on the green "Code" dropdown.
+6. User will see three clone options. Select "SSH".
+7. Copy the SSH key.
+8. In Terminal, run "git clone [insert copied SSH key here]".
+9. In Terminal, use the "cd" command to navigate into the newly created directory.
+10. Open the local repository by typing:
+    * VS Code - code .
 
-After one person has gone through the steps of cloning down this repo and editing the remote, everyone should clone down the repo.
+### `Preview of App:`
+<!-- <img width="1234" alt="IdeaBox Screenshot" src="https://user-images.githubusercontent.com/110955503/200425480-0572662b-4c19-4911-8459-38e3e239875b.png"> -->
 
-Then install the library dependencies. Run:
+### `Context:`
+It took our team a few days (~4) to write the code for this project. We just completed our fourth week of Mod 1 at Turing School.
 
-```bash
-npm install
-```
+### `Contributors:`
+1. El Brewster
+    * [GitHub](https://github.com/ElBrewster)
+    * [LinkedIn](https://www.linkedin.com/in/el-brewster-9817b0255/)
 
-To verify that it is setup correctly, run `npm start` in your terminal. Go to `http://localhost:8080/` and you should see a page with the Turing logo image and a beautiful gradient background. If that's the case, you're good to go. Enter `control + c` in your terminal to stop the server at any time.
+### `Learning Goals:`
+1. To use OOP to drive the design of the application and the code
+2. Work with an API to send and receive data
+3. Solidify the code review process
+4. Create a robust test suite that thoroughly tests all functionality of a client-side application
 
-## Where to Add Your Code
+### `Technology Used:`
+The HTML, CSS, and JavaScript for this application was written in VS Code and pushed into GitHub. 
+NPM packages glide.js and day.js, Mocha and Chai, the fetch API.
 
-### JavaScript
+### `Future Additions`
+1. The primary future addition planned for the Idea Box website would be for the user to be able to comment on their ideas.
+2. By favoriting an idea the user is able to in a sense already comment on their idea, but adding the ability to add additional text comments beyond whether they view the idea as a top idea or not would be beneficial.
+3. It would of course be important that this functionality persists beyond a single browser session just like the ideas themselves do.
 
-You have to be very intentional with where you add your feature code. This repo uses a tool called [webpack](https://webpack.js.org/) to combine many JavaScript files into one big file. Webpack enables you to have many, separate JavaScript files to keep your code organized and readable. Webpack expects all of your code files to be in a specific place, or else it doesn't know how to combine them all behind the scenes.
-
-**Create all of your feature code files in the `src` directory.**
-
-Since code is separated into multiple files, you need to use the `import` and `export` syntax to share code across file.
-
-Here is a video that walks through some information about [import and export](https://www.youtube.com/watch?v=_3oSWwapPKQ). There are a lot of resources out there about `import` and `export`, and resources will sometimes call them `ES6 modules`. It's something you will see in React and beyond.
-
-### HTML
-
-Add the HTML you need in the `index.html` file in the `./dist` directory. There is some boilerplate HTML that exists from the start that you can modify.
-
-### Images
-
-Add your image files in the `src/images` directory. Similar to CSS files, you need to `import` image files in the JavaScript entry file (`scripts.js`). Then go into the HTML and add an `img` element with the `src` attribute pointing to the `images` directory. There is an example in the `index.html` file for you to see.
-
-## How to View Your Code in Action
-
-In the terminal, run:
-
-```bash
-npm start
-```
-
-You will see a bunch of lines output to your terminal. One of those lines will be something like:
-
-```bash
-Project is running at http://localhost:8080/
-```
-
-Go to `http://localhost:8080/` in your browser to view your code running in the browser.
-
----
-
-## Test Files Organization
-
-Similar to feature code, your test code needs to be put in a specific place for it to run successfully.
-
-**Put all of your test files in the `test` directory.** As a convention, all test filenames should end with `-test.js`. For instance: `box-test.js`.
-
-## Running Your Tests
-
-Run your test suite using the command:
-
-```bash
-npm test
-```
-
-The test results will output to the terminal.
-
----
-
-## Linting Your Code
-
-Run the command in your terminal `npm run lint` to run the linter on your JavaScript code. There will be errors and warnings right from the start in this starter kit - the linter is still running successfully.
-
-Your linter will look at the JavaScript files you have within the `src` directory and the `test` directory.
-
-## Webpack?
-
-If you look in the `package.json` file, you'll see one of the library dependencies called `webpack`. If you're interested in learning more about what Webpack is and how it works behind the scenes, take a look through the [Webpack configuration documentation](https://webpack.js.org/concepts/).
-
-## Deploying to GitHub Pages
-
-_If you are finished with the functionality and testing of your project_, then you can consider deploying your project to the web! This way anyone can play it without cloning down your repo.
-
-[GitHub Pages](https://pages.github.com/) is a great way to deploy your project to the web. Don't worry about this until your project is free of bugs and well tested!
-
-If you _are_ done, you can follow [this procedure](./gh-pages-procedure.md) to get your project live on GitHub Pages.
 
 ## Resources/Mentions:
 I was thinking about this color scheme article, in particular the iridescent palette in the "Sequential data" section and the second panel in "Sequential schemes":
