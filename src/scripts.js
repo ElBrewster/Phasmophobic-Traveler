@@ -29,15 +29,13 @@ loginSubmitbtn.addEventListener("click", function(event) {
     event.preventDefault();
     checkSubmission();
     pageLoad();
-    // newsTicker();
 });
-//make reset login screen function?
+
 function checkSubmission() {
     let travelerUserName = username1.value;
     console.log("username1.value", username1.value)
     checkAgent(travelerUserName);
-    // checkPasswordLength(travelerUserName);
-    // checkPassword(travelerUserName);
+
     
     if((checkPassword(travelerUserName)) && (password1.value === "travel")){
         console.log("value2?", travelerUserName);
@@ -65,7 +63,7 @@ function checkAgent(travelerUserName) {
 }
 
 function checkPasswordLength(travelerUserName) {
-    if((travelerUserName.length === 10) || (travelerUserName === "agent")) {
+    if((travelerUserName.length === 10)) {
         //remove agent line?
         console.log("length", travelerUserName.length);
         return travelerUserName;
@@ -79,6 +77,7 @@ function checkPassword(travelerUserName) {
     let slicedId = userNameEntry.slice(-2) * 1;
     clientId1 = slicedId;
     if(((typeof(slicedId) === "number") && (slicedId < 51)) && (userNameEntry === `traveler${slicedId}`)) {
+
        return clientId1;
     } else {
         //add error message?
@@ -86,12 +85,12 @@ function checkPassword(travelerUserName) {
         document.querySelector("#loginPage").classList.remove("hidden")
         document.querySelector("#travelAgency").classList.add("hidden");
         document.querySelector("#mainSection").classList.add("hidden");
-        // document.querySelector("#logoLinks").classList.add("hidden");
     }
 }
 
 function pageLoad() {
     dateSpot.innerText = dayjs().toDate();
+    pageLoad();
     doPromise();
 }
 
@@ -179,7 +178,6 @@ function formSubmitHandler(event) {
         suggestedActivities: []
     }
     console.log("makeThisTrip.id", makeThisTrip.id);
-    //calculate actual trip cost and add to pending info
     makeTrip(makeThisTrip);
     doPromise();
     event.target.reset();
@@ -196,16 +194,8 @@ function startGlide() {
         },
         focusAt: 1,
         keyboard: true
-      }
-      new Glide(".glide", config).mount();
     }
+    new Glide(".glide", config).mount();
+}
 
-//----news-ticker?-----
-// const windowLoad = document.addEventListener("load", newsTicker);
-// const newsTicker = () => {
-//     let tickerText = "";
-//     document.querySelector("#scroller").innerText = tickerText;
-//     ghostFacts.forEach(fact => {
-//         tickerText += fact;
-//     });
-// }
+
