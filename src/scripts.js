@@ -28,7 +28,6 @@ let loginForm = document.querySelector("#login");
 let username1 = document.querySelector("#signupUsername");
 let password1 = document.querySelector("#password");
 //-----event-Listeners-----
-window.addEventListener("load", pageLoad)
 form.addEventListener("submit", formSubmitHandler);
 form.addEventListener("change", estimatedCost)
 
@@ -36,7 +35,7 @@ form.addEventListener("change", estimatedCost)
 loginSubmitbtn.addEventListener("click", function(event) {
     event.preventDefault();
     checkSubmission();
-    pageLoad();
+    // pageLoad();
 });
 
 //-----login-page-----
@@ -46,6 +45,7 @@ loginSubmitbtn.addEventListener("click", function(event) {
 function checkSubmission() {
     let password = username1.value;
     checkPassword(password);
+    console.log("clientId1?", clientId1);
     console.log("username?", username1.value);
     if((checkPassword(password) || "agent") && (password1.value === "travel")){
         document.querySelector("#loginPage").classList.add("hidden")
@@ -54,16 +54,19 @@ function checkSubmission() {
     if((username1.value === "agent") && (password1.value === "travel")){
         document.querySelector("#loginPage").classList.add("hidden")
         document.querySelector("#hiddenFunctionality").classList.remove("hidden");
+        pageLoad();
     }
 }
 
 function checkPassword(password) {
-    let password1 = password;
-    let slicedId = password1.slice(-2) * 1;
-    let clientId1 = slicedId;
-    console.log("notSlicerDicerId", clientId1);
-    if((typeof(slicedId) === "number") && (password1 === `traveler${slicedId}`)) {
-       return password1;
+    let userNameEntry = password;
+    console.log("userNameEntry", userNameEntry)
+    let slicedId = userNameEntry.slice(-2) * 1;
+    clientId1 = slicedId;
+    // console.log("notSlicerDicerId", clientId1);
+    if((typeof(slicedId) === "number") && (userNameEntry === `traveler${slicedId}`)) {
+        // console.log(clientId1);
+       return clientId1;
     }
     console.log("slicedId: ", slicedId)
 }
@@ -83,6 +86,7 @@ function doPromise() {
         let allDestinationData = promisedData[2].destinations;
         agent1 = new Agent(allDestinationData, allTripsData, allTravelersData);
         getTripsDropdown();
+        console.log("clientId?", clientId1);
         getClientDisplay(clientId1);
         startGlide();
     })

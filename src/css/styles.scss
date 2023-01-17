@@ -419,13 +419,11 @@ footer,
 .logo-links {
   width: 100%;
   height: 10%;
-  border: solid red;
   display: flex;
   flex-direction: row-reverse;
 }
 
 .money-tracker {
-  border: solid blue;
   width: 100%;
   height: 10%;
   font-family: $font-stack;
