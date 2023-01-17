@@ -40,11 +40,17 @@ function checkSubmission() {
     console.log("username?", username1.value);
     if((checkPassword(password) || "agent") && (password1.value === "travel")){
         document.querySelector("#loginPage").classList.add("hidden")
-        document.querySelector("#hiddenFunctionality").classList.remove("hidden");
+        // document.querySelector("#hiddenFunctionality").classList.remove("hidden");
+        document.querySelector("#travelAgency").classList.remove("hidden");
+        document.querySelector("#mainSection").classList.remove("hidden");
+        document.querySelector("#logoLinks").classList.remove("hidden");
     }
     if((username1.value === "agent") && (password1.value === "travel")){
         document.querySelector("#loginPage").classList.add("hidden")
-        document.querySelector("#hiddenFunctionality").classList.remove("hidden");
+        // document.querySelector("#hiddenFunctionality").classList.remove("hidden");
+        document.querySelector("#travelAgency").classList.remove("hidden");
+        document.querySelector("#mainSection").classList.remove("hidden");
+        document.querySelector("#logoLinks").classList.remove("hidden");
     }
 }
 
@@ -58,7 +64,10 @@ function checkPassword(password) {
     } else {
         console.log("Please enter a good username/password combo");
         document.querySelector("#loginPage").classList.remove("hidden")
-        document.querySelector("#hiddenFunctionality").classList.add("hidden");
+        // document.querySelector("#hiddenFunctionality").classList.add("hidden");
+        document.querySelector("#travelAgency").classList.add("hidden");
+        document.querySelector("#mainSection").classList.add("hidden");
+        document.querySelector("#logoLinks").classList.add("hidden");
     }
     console.log("slicedId: ", slicedId)
 }
