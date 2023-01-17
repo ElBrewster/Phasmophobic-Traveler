@@ -57,6 +57,7 @@ $font-stack: 'Fira Sans', sans-serif;
 
 *:focus {
   outline: $softBlue solid 2px;
+  background-color: $radishPurple;
 }
 
 body {
@@ -253,6 +254,14 @@ main,
   width: 100%;
   overflow: visible;
 }
+
+li {
+  background-color: $brown;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
 .glide__track {
   height: 100%;
   width: 100%;
@@ -267,8 +276,8 @@ main,
 }
 // ^image of slide
 .glide__slide {
-  filter: blur(3px);
-  opacity: .7;
+  // filter: blur(3px);
+  // opacity: .7;
   // transition: .1s linear;
   height: 100%;
   width: 100%;
@@ -283,8 +292,7 @@ main,
 }
 // ^slide content over image?
 .glide__track,
-.glide__arrows,
-.glide__bullets {
+.glide__arrows {
   position: relative;
 }
 
@@ -293,6 +301,10 @@ main,
   color: $brown;
   border-color: $brown;
   font-weight: 900;
+}
+
+.glide__arrow:focus {
+  background-color: $radishPurple;
 }
 //-----^--glide-nonsense--^-----
 
