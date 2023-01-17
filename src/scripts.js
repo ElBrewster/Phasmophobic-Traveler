@@ -5,7 +5,7 @@ import Agent from "./classes/Agent";
 import Glide from '@glidejs/glide';
 import { callForData, makeTrip } from "./api";
 import dayjs from 'dayjs';
-
+import "./images/marker.svg";
 let agent1;
 let clientId1;
 
@@ -175,9 +175,10 @@ function startGlide() {
 
 //----news-ticker?-----
 // const windowLoad = document.addEventListener("load", newsTicker);
-
 const newsTicker = () => {
-    ghostFacts.forEach(fact => console.log(fact));
+    let tickerText = "";
+    ghostFacts.forEach(fact => {
+        tickerText += fact;
+    });
+    document.querySelector("#scroller").innerText = tickerText;
 }
-
-
