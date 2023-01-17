@@ -1,14 +1,14 @@
 import './css/styles.scss';
-import "./data/ghost-facts";
+import { ghostFacts } from "./data/ghost-facts";
+console.log(ghostFacts[0]);
 import Agent from "./classes/Agent";
 import Glide from '@glidejs/glide';
 import { callForData, makeTrip } from "./api";
 import dayjs from 'dayjs';
-
+import "./images/marker.svg";
 let agent1;
 let clientId1;
 
-//-----query-Selectors-----
 let dateSpot = document.querySelector("#todaysDate")
 let form = document.querySelector("#tripForm");
 let myDropDown = document.querySelector("#select-destinations");
@@ -22,35 +22,35 @@ let upcomingTrips = document.querySelector("#upcomingTrip");
 let loginSubmitbtn = document.querySelector("#loginSubmit")
 let username1 = document.querySelector("#signupUsername");
 let password1 = document.querySelector("#password");
-//-----event-Listeners-----
+
 form.addEventListener("submit", formSubmitHandler);
 form.addEventListener("change", estimatedCost);
 loginSubmitbtn.addEventListener("click", function(event) {
     event.preventDefault();
     checkSubmission();
     pageLoad();
+    // newsTicker();
 });
-
-//-----login-page-----
 
 function checkSubmission() {
     let password = username1.value;
     checkPassword(password);
-    console.log("clientId1?", clientId1);
-    console.log("username?", username1.value);
     if((checkPassword(password) || "agent") && (password1.value === "travel")){
         document.querySelector("#loginPage").classList.add("hidden")
-        document.querySelector("#hiddenFunctionality").classList.remove("hidden");
+        document.querySelector("#travelAgency").classList.remove("hidden");
+        document.querySelector("#mainSection").classList.remove("hidden");
+        document.querySelector("#logoLinks").classList.remove("hidden");
     }
     if((username1.value === "agent") && (password1.value === "travel")){
         document.querySelector("#loginPage").classList.add("hidden")
-        document.querySelector("#hiddenFunctionality").classList.remove("hidden");
+        document.querySelector("#travelAgency").classList.remove("hidden");
+        document.querySelector("#mainSection").classList.remove("hidden");
+        document.querySelector("#logoLinks").classList.remove("hidden");
     }
 }
 
 function checkPassword(password) {
     let userNameEntry = password;
-    console.log("userNameEntry", userNameEntry)
     let slicedId = userNameEntry.slice(-2) * 1;
     clientId1 = slicedId;
     if(((typeof(slicedId) === "number") && (slicedId < 51)) && (userNameEntry === `traveler${slicedId}`)) {
@@ -58,12 +58,12 @@ function checkPassword(password) {
     } else {
         console.log("Please enter a good username/password combo");
         document.querySelector("#loginPage").classList.remove("hidden")
-        document.querySelector("#hiddenFunctionality").classList.add("hidden");
+        document.querySelector("#travelAgency").classList.add("hidden");
+        document.querySelector("#mainSection").classList.add("hidden");
+        document.querySelector("#logoLinks").classList.add("hidden");
     }
-    console.log("slicedId: ", slicedId)
 }
 
-//-----functions-----
 function pageLoad() {
     dateSpot.innerText = dayjs().toDate();
     doPromise();
@@ -77,7 +77,6 @@ function doPromise() {
         let allDestinationData = promisedData[2].destinations;
         agent1 = new Agent(allDestinationData, allTripsData, allTravelersData);
         getTripsDropdown();
-        console.log("clientId?", clientId1);
         getClientDisplay(clientId1);
         startGlide();
     })
@@ -135,7 +134,6 @@ function getTripsDropdown() {
 
 function estimatedCost() {
     if(numDays.value && numTraveling.value && myDropDown.value) {
-        console.log("tripId", tripiD)
         let estimate = agent1.calculateOneTripCost(109);
         costEstimatePrint.innerHTML = `These trip selections tally at $${estimate}.`
     }
@@ -154,14 +152,14 @@ function formSubmitHandler(event) {
         status: "pending",
         suggestedActivities: []
     }
+    console.log("makeThisTrip.id", makeThisTrip.id);
+    //calculate actual trip cost and add to pending info
     makeTrip(makeThisTrip);
     doPromise();
     event.target.reset();
 }
 
-//-----glide-----
 function startGlide() {
-    // might need a  ---> glideInstance.destroy(); somewhere 
     const config = {
         type: "carousel",
         perView: 3,
@@ -175,13 +173,13 @@ function startGlide() {
       }
       new Glide(".glide", config).mount();
     }
-//-----glide^-----
 
 //----news-ticker?-----
 // const windowLoad = document.addEventListener("load", newsTicker);
-
 // const newsTicker = () => {
-//     ghostFacts.forEach(fact => console.log(fact));
+//     let tickerText = "";
+//     document.querySelector("#scroller").innerText = tickerText;
+//     ghostFacts.forEach(fact => {
+//         tickerText += fact;
+//     });
 // }
-
-
