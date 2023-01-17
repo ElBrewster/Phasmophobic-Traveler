@@ -85,7 +85,7 @@ header,
   background-color: rgb(128,87,112, .6);
   color: $ltBlueGreen;
   font-family: $font-stack;
-  font-size: xx-large;
+  font-size: x-large;
   font-weight: 900;
   display: flex;
   justify-content: center;
@@ -190,6 +190,9 @@ header,
 //--^^---login-form---^^--
 
 h2 {
+  background-color: #684957;
+  box-shadow: inset 0 0 20px $ltYellow;
+
   color: $ltBlueGreen;
   font-size: large;
   font-weight: bold;
@@ -336,6 +339,8 @@ h3 {
 }
 .upcoming {
   background-color: rgb(181,221,216, 6);
+  box-shadow: inset 0 0 20px $ltYellow;
+
   color: $brown;
   height: 2em;
   width: 90%;
@@ -442,33 +447,33 @@ footer,
   width: 10%;
 }
 
-.td-style {
-  background-color: $yellowMint;
-}
-.marquee-cont {
-  width: 100%;
-  background-color: rbg(70,53,58,.8);
-  font-weight: 700;
-  font-size: 2em;
-  margin-top:10px;
-}
-.marquee-cont marquee {
-  margin-top: 5px;
-}
-#marquee-news {
+// .td-style {
+//   background-color: $yellowMint;
+// }
+// .marquee-cont {
+//   width: 100%;
+//   background-color: rbg(70,53,58,.8);
+//   font-weight: 700;
+//   font-size: 2em;
+//   margin-top:10px;
+// }
+// .marquee-cont marquee {
+//   margin-top: 5px;
+// }
+// #marquee-news {
   
-  background: #1174A8;
-  padding: 5px;
-}
-.ticker-title {
-  border:none;
-  padding:5px 20px;
-  background:#1174A8;
-  color:white;
-}
-.ticker-title:focus {
-  outline:none;
-}
+//   background: #1174A8;
+//   padding: 5px;
+// }
+// .ticker-title {
+//   border:none;
+//   padding:5px 20px;
+//   background:#1174A8;
+//   color:white;
+// }
+// .ticker-title:focus {
+//   outline:none;
+// }
 
 .hidden {
   display: none;
