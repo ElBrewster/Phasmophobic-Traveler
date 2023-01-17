@@ -60,31 +60,41 @@ function clearInputError(inputElement) {
     inputElement.parentElement.querySelector(".form__input-error-message").textContent = "";
 }
 
-// document.addEventListener("DOMContentLoaded", () => {
-//     const loginForm = document.querySelector("#login");
 
-//     loginForm.addEventListener("submit", e => {
-//         e.preventDefault();
-//         //here perform the fetch login
-//         setFormMessage(loginForm, "error", "Invalid username/password combo");
-//     });
+document.addEventListener("DOMContentLoaded", () => {
+    let username1 = document.getElementById("#signupUsername").value;
+    let password1 = document.getElementById("#password").value;
+    // let signupUsername = document.querySelector("#signupUsername");
+    // let password = document.querySelector("#password");
+    const loginForm = document.querySelector("#login");
+
+    loginForm.addEventListener("input", e => {
+        if((e.username1 === "traveler50") && (e.password1 === "traveler")){
+            document.getElementById("#hiddenFunctionality").hidden = false;
+            document.getElementById("#loginPage").hidden = true;
+        }
+    });
+
+    loginForm.addEventListener("submit", e => {
+        e.preventDefault();
+        //here perform the fetch login
+        setFormMessage(loginForm, "error", "Invalid username/password combo");
+    });
     
-//     document.querySelectorAll(".form__input").forEach(inputElement => {
-//         inputElement.addEventListener("blur", e => {
-//             if(e.target.id === "signupUsername" && e.target.value.length > 0 && e.target.value.length < 4) {
-//                 setInputError(inputElement, "Username must be more than 4 characters")
-//             }
+    document.querySelectorAll(".form__input").forEach(inputElement => {
+        inputElement.addEventListener("blur", e => {
+            if(e.target.id === "signupUsername" && e.target.value.length > 0 && e.target.value.length < 4) {
+                setInputError(inputElement, "Username must be more than 4 characters")
+            }
+        });
+        inputElement.addEventListener("input", e => {
+            clearInputError(inputElement);
+        });
+    });
+});
 
-//         });
-//         inputElement.addEventListener("input", e => {
-//             clearInputError(inputElement);
-//         });
-//     })
-// });
 
 //-----functions-----
-
-
 
 function doPromise() {
     Promise.all([callForData("travelers"), callForData("trips"), callForData("destinations")])
@@ -99,7 +109,6 @@ function doPromise() {
     })
     .catch(error => console.log(error));
 }
-
 
 function pageLoad() {
     dateSpot.innerText = dayjs().toDate();
@@ -197,7 +206,7 @@ function formSubmitHandler(event) {
     event.target.reset();
 }
 
-//-----glide?
+//-----glide-----
 //this needs to happen after we fetch
 function startGlide() {
     // might need a  ---> glideInstance.destroy(); somewhere 
@@ -214,7 +223,7 @@ function startGlide() {
       }
       new Glide(".glide", config).mount();
     }
-//-----glide^?
+//-----glide^-----
 
 //----news-ticker?-----
 // const windowLoad = document.addEventListener("load", newsTicker);
@@ -224,22 +233,6 @@ function startGlide() {
 // }
 //----accordion?-----
 
-const accordionBits = document.getElementsByClassName("accordion-element");
-// const accordionBits = document.getElementById("#accordionBtn");
-let i;
-for (i = 0; i < accordionBits.length; i++) {
-    accordionBits[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-    })
-    console.log("element sibling?", this.nextElementSibling);
-
-    let panel = this.nextElementSibling;
-    if(panel.style.maxHeight) {
-        panel.style.maxHeight = "null";
-    } else {
-        panel.style.maxHeight = panel.scrollHeight + "px";
-    }
-}
 
 
 

@@ -11,7 +11,7 @@
 </head>
 <body>
 
-  <section class="login-page">
+  <section class="login-page" id="loginPage">
     <div class="login">
       <form class="login-form" id="login">
         <h1 class="form__title">Login</h1>
@@ -21,7 +21,7 @@
           <div class="form__input-error-message">Error! oops!</div>
         </div>
         <div class="form__input-group">
-          <input type="password" class="form__input" autofocus placeholder="Password">
+          <input type="password" id="password" class="form__input" autofocus placeholder="Password">
           <div class="form__input-error-message"></div>
         </div>
         <button class="form__button" type="submit" id="loginSubmit">Submit</button>
@@ -32,7 +32,7 @@
     </div>
   </section>
 
-<div hidden class="hidden-functionality">
+<div hidden class="hidden-functionality" id="hiddenFunctionality">
   <header class="travelAgency" id="travelAgency">
     <h1 class="h1-title">
       <span class="italics">the</span>&nbspPhasmophobic Traveler:&nbsp&nbsp&nbsp
@@ -41,7 +41,6 @@
     <div class="date-divider" id="dateDivider">
       <section class="todays-date" id="todaysDate"></section>
       <section class="news-ticker" id="newsTicker"></section>
-      <!-- ^add a tab index for this if it's implemented -->
     </div>
   </header>
   <main id="mainSection">
