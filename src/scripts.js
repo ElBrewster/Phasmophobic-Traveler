@@ -139,6 +139,7 @@ function displayClientName(currUser) {
 
 function displayCurrentAndUpcomingTrips(clientId1) {
     let currentTrips = agent1.filterClientsTripsThisYear(clientId1);
+    upcomingTrips.innerHTML = "";
     currentTrips.forEach(trip => {
         upcomingTrips.innerHTML += `<p class="upcoming">Your upcoming trip on ${trip.date} is ${trip.status}.</p>`
     })
