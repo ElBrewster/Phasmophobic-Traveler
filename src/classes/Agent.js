@@ -1,4 +1,3 @@
-import AllDestinations from "./AllDestinations";
 import Destination from "./Destination";
 import Traveler from "./Traveler";
 import Trip from "./Trip";

@@ -14,24 +14,17 @@ let form = document.querySelector("#tripForm");
 let myDropDown = document.querySelector("#select-destinations");
 let numTraveling = document.querySelector("#numTravelers");
 let numDays = document.querySelector("#numDays");
-let tripDate = document.querySelector("#travelDate");
 let costEstimatePrint = document.querySelector("#costEstimate");
 let expensesDisplay = document.querySelector("#moneyTracker");
 let glideSlides = document.querySelector("#glideSlides");
 let newUserName = document.querySelector("#userName");
-let slideText = document.querySelector("#slideText");
 let upcomingTrips = document.querySelector("#upcomingTrip");
-
 let loginSubmitbtn = document.querySelector("#loginSubmit")
-
-let loginForm = document.querySelector("#login");
 let username1 = document.querySelector("#signupUsername");
 let password1 = document.querySelector("#password");
 //-----event-Listeners-----
 form.addEventListener("submit", formSubmitHandler);
-form.addEventListener("change", estimatedCost)
-
-
+form.addEventListener("change", estimatedCost);
 loginSubmitbtn.addEventListener("click", function(event) {
     event.preventDefault();
     checkSubmission();
@@ -40,8 +33,6 @@ loginSubmitbtn.addEventListener("click", function(event) {
 
 //-----login-page-----
 
-//if login, then listen to login true validation, displays dash and fetch
-//anonymous function because need "event"
 function checkSubmission() {
     let password = username1.value;
     checkPassword(password);
@@ -54,7 +45,6 @@ function checkSubmission() {
     if((username1.value === "agent") && (password1.value === "travel")){
         document.querySelector("#loginPage").classList.add("hidden")
         document.querySelector("#hiddenFunctionality").classList.remove("hidden");
-        // pageLoad();
     }
 }
 
@@ -63,10 +53,12 @@ function checkPassword(password) {
     console.log("userNameEntry", userNameEntry)
     let slicedId = userNameEntry.slice(-2) * 1;
     clientId1 = slicedId;
-    // console.log("notSlicerDicerId", clientId1);
-    if((typeof(slicedId) === "number") && (userNameEntry === `traveler${slicedId}`)) {
-        // console.log(clientId1);
+    if(((typeof(slicedId) === "number") && (slicedId < 51)) && (userNameEntry === `traveler${slicedId}`)) {
        return clientId1;
+    } else {
+        console.log("Please enter a good username/password combo");
+        document.querySelector("#loginPage").classList.remove("hidden")
+        document.querySelector("#hiddenFunctionality").classList.add("hidden");
     }
     console.log("slicedId: ", slicedId)
 }
@@ -75,7 +67,6 @@ function checkPassword(password) {
 function pageLoad() {
     dateSpot.innerText = dayjs().toDate();
     doPromise();
-    // checkPassword();
 }
 
 function doPromise() {
@@ -93,10 +84,8 @@ function doPromise() {
     .catch(error => console.log(error));
 }
 
-//this pageload function should be attached to the submit login event instead, and the pageload should load the login
-
 function getClientDisplay(clientId1) {
-    // glideSlides.innerHTML = "";
+    glideSlides.innerHTML = "";
     let currUser = agent1.getClient(clientId1);
     displayClientName(currUser);
     showOldTrips(currUser.id);
@@ -137,9 +126,7 @@ function displayCurrentAndUpcomingTrips(clientId1) {
     })
 }
 
-
 //-----form-functions-----
-
 function getTripsDropdown() {
     agent1.placesData.forEach(place => {
         myDropDown.innerHTML += `<option id="some${place.id}" value="${place.id}">${place.destination}</option>`;
@@ -148,10 +135,8 @@ function getTripsDropdown() {
 
 function estimatedCost() {
     if(numDays.value && numTraveling.value && myDropDown.value) {
-        // console.log("Here is numDays: friends: destination:", numDays.value, numTraveling.value, myDropDown.value);
+        console.log("tripId", tripiD)
         let estimate = agent1.calculateOneTripCost(109);
-        //this sets the id, so it's not dynamic after the first pass. Needs to ignore the id?
-        // console.log("estimate: ", estimate)
         costEstimatePrint.innerHTML = `These trip selections tally at $${estimate}.`
     }
 }
@@ -162,7 +147,6 @@ function formSubmitHandler(event) {
     const makeThisTrip = {
         id: agent1.tripsData.length + 1,
         userID: clientId1,
-        //^whatever user is at login, or randomly generated? This needs to be dynamic
         destinationID: Number(tripForm.get("destinations")),
         travelers: tripForm.get("numberTravelers"),
         date: tripForm.get("date").replaceAll("-", "/"),
@@ -176,7 +160,6 @@ function formSubmitHandler(event) {
 }
 
 //-----glide-----
-//this needs to happen after we fetch
 function startGlide() {
     // might need a  ---> glideInstance.destroy(); somewhere 
     const config = {
@@ -200,57 +183,5 @@ function startGlide() {
 // const newsTicker = () => {
 //     ghostFacts.forEach(fact => console.log(fact));
 // }
-//----accordion?-----
 
-
-
-// function setFormMessage(formElement, type, message) {
-//     const messageElement = formElement.querySelector(".form__message");
-//     messageElement.textContent = message;
-//     messageElement.classList.remove("form__message--success", "form__message--error");
-//     messageElement.classList.add(`form__message--${type}`);
-// }
-
-// function setInputError(inputElement, message) {
-//     inputElement.classList.add("form__input--error");
-//     inputElement.parentElement.querySelector(".form__input-error-message").textContent = message;
-// }
-
-// function clearInputError(inputElement) {
-//     inputElement.classList.remove("form__input--error");
-//     inputElement.parentElement.querySelector(".form__input-error-message").textContent = "";
-// }
-
-
-// document.addEventListener("DOMContentLoaded", () => {
-//     let username1 = document.getElementById("#signupUsername").value;
-//     let password1 = document.getElementById("#password").value;
-//     // let signupUsername = document.querySelector("#signupUsername");
-//     // let password = document.querySelector("#password");
-//     const loginForm = document.querySelector("#login");
-
-//     loginForm.addEventListener("input", e => {
-//         if((username1 === "traveler50") && (password1 === "travel")){
-//             document.getElementById("#hiddenFunctionality").hidden = false;
-//             document.getElementById("#loginPage").hidden = true;
-//         }
-//     });
-
-//     loginForm.addEventListener("submit", e => {
-//         e.preventDefault();
-//         //here perform the fetch login
-//         setFormMessage(loginForm, "error", "Invalid username/password combo");
-//     });
-    
-//     document.querySelectorAll(".form__input").forEach(inputElement => {
-//         inputElement.addEventListener("blur", e => {
-//             if(e.target.id === "signupUsername" && e.target.value.length > 0 && e.target.value.length < 4) {
-//                 setInputError(inputElement, "Username must be more than 4 characters")
-//             }
-//         });
-//         inputElement.addEventListener("input", e => {
-//             clearInputError(inputElement);
-//         });
-//     });
-// });
 
