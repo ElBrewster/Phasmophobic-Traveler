@@ -35,7 +35,7 @@ form.addEventListener("change", estimatedCost)
 loginSubmitbtn.addEventListener("click", function(event) {
     event.preventDefault();
     checkSubmission();
-    // pageLoad();
+    pageLoad();
 });
 
 //-----login-page-----
@@ -54,7 +54,7 @@ function checkSubmission() {
     if((username1.value === "agent") && (password1.value === "travel")){
         document.querySelector("#loginPage").classList.add("hidden")
         document.querySelector("#hiddenFunctionality").classList.remove("hidden");
-        pageLoad();
+        // pageLoad();
     }
 }
 
