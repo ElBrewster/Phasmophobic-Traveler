@@ -29,7 +29,7 @@ loginSubmitbtn.addEventListener("click", function(event) {
     event.preventDefault();
     checkSubmission();
     pageLoad();
-    newsTicker();
+    // newsTicker();
 });
 
 function checkSubmission() {
@@ -134,7 +134,6 @@ function getTripsDropdown() {
 
 function estimatedCost() {
     if(numDays.value && numTraveling.value && myDropDown.value) {
-        console.log("tripId", tripiD)
         let estimate = agent1.calculateOneTripCost(109);
         costEstimatePrint.innerHTML = `These trip selections tally at $${estimate}.`
     }
@@ -153,6 +152,8 @@ function formSubmitHandler(event) {
         status: "pending",
         suggestedActivities: []
     }
+    console.log("makeThisTrip.id", makeThisTrip.id);
+    //calculate actual trip cost and add to pending info
     makeTrip(makeThisTrip);
     doPromise();
     event.target.reset();
@@ -175,10 +176,10 @@ function startGlide() {
 
 //----news-ticker?-----
 // const windowLoad = document.addEventListener("load", newsTicker);
-const newsTicker = () => {
-    let tickerText = "";
-    ghostFacts.forEach(fact => {
-        tickerText += fact;
-    });
-    document.querySelector("#scroller").innerText = tickerText;
-}
+// const newsTicker = () => {
+//     let tickerText = "";
+//     document.querySelector("#scroller").innerText = tickerText;
+//     ghostFacts.forEach(fact => {
+//         tickerText += fact;
+//     });
+// }
