@@ -5,12 +5,9 @@ import Glide from '@glidejs/glide';
 import { callForData, makeTrip } from "./api";
 import dayjs from 'dayjs';
 
-// import './images/turing-logo.png'
-
 let agent1;
-let clientId = 44;
-let tripId3 = 4;
-//^make this dynamic and delete!
+let clientId1;
+
 //-----query-Selectors-----
 let dateSpot = document.querySelector("#todaysDate")
 let form = document.querySelector("#tripForm");
@@ -26,7 +23,6 @@ let slideText = document.querySelector("#slideText");
 let upcomingTrips = document.querySelector("#upcomingTrip");
 
 let loginSubmitbtn = document.querySelector("#loginSubmit")
-// let hideDisplay = document.getElementById("travelAgency", "mainSection", "#logoLinks")
 
 let loginForm = document.querySelector("#login");
 let username1 = document.querySelector("#signupUsername");
@@ -40,18 +36,18 @@ form.addEventListener("change", estimatedCost)
 loginSubmitbtn.addEventListener("click", function(event) {
     event.preventDefault();
     checkSubmission();
-})
-
-// loginSubmitbtn.addEventListener("")
-// ^^^^DO THIS
+    pageLoad();
+});
 
 //-----login-page-----
 
 //if login, then listen to login true validation, displays dash and fetch
 //anonymous function because need "event"
 function checkSubmission() {
+    let password = username1.value;
+    checkPassword(password);
     console.log("username?", username1.value);
-    if((username1.value === "traveler50") && (password1.value === "travel")){
+    if((checkPassword(password) || "agent") && (password1.value === "travel")){
         document.querySelector("#loginPage").classList.add("hidden")
         document.querySelector("#hiddenFunctionality").classList.remove("hidden");
     }
@@ -59,17 +55,25 @@ function checkSubmission() {
         document.querySelector("#loginPage").classList.add("hidden")
         document.querySelector("#hiddenFunctionality").classList.remove("hidden");
     }
-
 }
 
-function checkPassword() {
-    let num = 2
-    console.log("num?", typeof(num))
-    let word = "biscuit";
-    console.log("num?", typeof(word))
+function checkPassword(password) {
+    let password1 = password;
+    let slicedId = password1.slice(-2) * 1;
+    let clientId1 = slicedId;
+    console.log("notSlicerDicerId", clientId1);
+    if((typeof(slicedId) === "number") && (password1 === `traveler${slicedId}`)) {
+       return password1;
+    }
+    console.log("slicedId: ", slicedId)
 }
 
 //-----functions-----
+function pageLoad() {
+    dateSpot.innerText = dayjs().toDate();
+    doPromise();
+    // checkPassword();
+}
 
 function doPromise() {
     Promise.all([callForData("travelers"), callForData("trips"), callForData("destinations")])
@@ -79,43 +83,32 @@ function doPromise() {
         let allDestinationData = promisedData[2].destinations;
         agent1 = new Agent(allDestinationData, allTripsData, allTravelersData);
         getTripsDropdown();
-        getClientDisplay(clientId);
+        getClientDisplay(clientId1);
         startGlide();
     })
     .catch(error => console.log(error));
 }
 
-function pageLoad() {
-    dateSpot.innerText = dayjs().toDate();
-    doPromise();
-    checkPassword();
-}
 //this pageload function should be attached to the submit login event instead, and the pageload should load the login
 
-function getClientDisplay(clientId) {
-    glideSlides.innerHTML = "";
-    let currUser = agent1.getClient(clientId);
-    // console.log("currUser: ", currUser);
-    // console.log("curr.name", currUser.name);
+function getClientDisplay(clientId1) {
+    // glideSlides.innerHTML = "";
+    let currUser = agent1.getClient(clientId1);
     displayClientName(currUser);
     showOldTrips(currUser.id);
     displayCurrentAndUpcomingTrips(currUser.id);
     displayExpenses(currUser.id);
 }
 
-function showOldTrips(clientId) {
-    let oldTrips = agent1.filterClientsTripsBeforeThisYear(clientId);
-    // console.log("oldTrips", oldTrips)
+function showOldTrips(clientId1) {
+    let oldTrips = agent1.filterClientsTripsBeforeThisYear(clientId1);
     oldTrips.forEach(trip => {
         let randomNum = getRandomArbitrary();
         let glideDisplay = agent1.provide1TripDisplayData(trip.id);
-        // console.log("glideDisplay", glideDisplay)
         glideSlides.innerHTML += `<li class="glide__slide"><p class="slideText" id="slideText">You made memories on ${glideDisplay.date} at ${glideDisplay.location_name} and saw ${randomNum} ghosts!</p><img class="one-slide" src="${glideDisplay.url}" alt="${glideDisplay.urlAlt}" width="400" height="275"></li>`;
-        // console.log(trip)
     })
 }
-//for each oldTrips.id, if it matches === glideDisplay.url,
-//if glideDisplay.url matches the destination id
+
 function getRandomArbitrary() {
     const min = 0;
     const max = 9;
@@ -123,24 +116,20 @@ function getRandomArbitrary() {
 }
 
 function displayExpenses() {
-    let dollarText = agent1.calcClientTripsYearlyCost(clientId);
+    let dollarText = agent1.calcClientTripsYearlyCost(clientId1);
     let dollarTextFormat = new Intl.NumberFormat().format(dollarText);
     expensesDisplay.innerText = `Your current expenses this year: $${dollarTextFormat}.00`;
 }
 
 function displayClientName(currUser) {
     let username = currUser.name;
-    // console.log("username", username)
     newUserName.innerText = `Hello there, ${username}`;
 }
 
-function displayCurrentAndUpcomingTrips(clientId) {
-    let currentTrips = agent1.filterClientsTripsThisYear(clientId);
+function displayCurrentAndUpcomingTrips(clientId1) {
+    let currentTrips = agent1.filterClientsTripsThisYear(clientId1);
     currentTrips.forEach(trip => {
-        // currentUpcomingTrips.innerText += `Your upcoming trip on ${trip.date} is ${trip.status}.`
         upcomingTrips.innerHTML += `<p class="upcoming">Your upcoming trip on ${trip.date} is ${trip.status}.</p>`
-        // console.log(trip.date);
-        // console.log(trip.status);
     })
 }
 
@@ -168,7 +157,7 @@ function formSubmitHandler(event) {
     const tripForm = new FormData(event.target);
     const makeThisTrip = {
         id: agent1.tripsData.length + 1,
-        userID: clientId,
+        userID: clientId1,
         //^whatever user is at login, or randomly generated? This needs to be dynamic
         destinationID: Number(tripForm.get("destinations")),
         travelers: tripForm.get("numberTravelers"),
