@@ -1,9 +1,17 @@
-# idea-Box
+# the Phasmophobic Traveler 👻
+
+## Table of Contents
+-[Abstract](#abstract)
+-[Installation Instructios](#installation-instructions)
+-[Preview of App](#preview-of-app)
+-[Context](#context)
+-[Contributors](#contributors)
+-[Learning Goals](#learning-goals)
+-[Technology Used](#technology-used)
+-[Resources & Mentions](#resources--mentions)
 
 ### `Abstract:`
-Every developer has more ideas than time. As David Allen likes to say “the human brain is for creating ideas, not remembering them.” In this project, we’ll be building an application that records and archives our ideas (good and bad alike).
-
-Throughout the project, one of our focuses will be on providing a fluid and responsive client-side interface. To this end, we’ll rely on JavaScript to implement snappy filtering in the browser.
+This kind of application to manages and tracks different trips for users and a travel agency. As a user you can keeps track of the places a visited, get new ideas for a next trip, and connect with an agent to purchase a journey. `the Phasmophobic Traveler` is a travel app best suited to those who prefer sight-seeing of the paranormal.
 
 ### `Installation Instructions:`
 <!-- 1. [Click To Open Repo](https://github.com/KarrarQ/idea-Box) -->
@@ -19,10 +27,10 @@ Throughout the project, one of our focuses will be on providing a fluid and resp
     * VS Code - code .
 
 ### `Preview of App:`
-<!-- <img width="1234" alt="IdeaBox Screenshot" src="https://user-images.githubusercontent.com/110955503/200425480-0572662b-4c19-4911-8459-38e3e239875b.png"> -->
+<img width="" alt="" src="">
 
 ### `Context:`
-It took our team a few days (~4) to write the code for this project. We just completed our fourth week of Mod 1 at Turing School.
+I spent about a week on this project which was meant to assess my understanding of the learning material for Mod 2 at Turing School.
 
 ### `Contributors:`
 1. El Brewster
@@ -30,16 +38,16 @@ It took our team a few days (~4) to write the code for this project. We just com
     * [LinkedIn](https://www.linkedin.com/in/el-brewster-9817b0255/)
 
 ### `Learning Goals:`
-1. To use OOP to drive the design of the application and the code
+1. Use OOP to drive the design of the application and the code
 2. Work with an API to send and receive data
-3. Solidify the code review process
+3. Solidify the code review process using TDD
 4. Create a robust test suite that thoroughly tests all functionality of a client-side application
 
 ### `Technology Used:`
 The HTML, CSS/SCSS, and JavaScript for this application was written in VS Code and pushed into GitHub. 
-NPM packages glide.js and day.js, Mocha and Chai, the fetch API.
+I also used NPM packages glide.js and day.js, did TDD through Mocha and Chai, and implemented the fetch API.
 
-## `Resources/Mentions:`
+## `Resources & Mentions:`
 I was thinking about this color scheme article, in particular the iridescent palette in the "Sequential data" section and the second panel in "Sequential schemes":
 https://cran.r-project.org/web/packages/khroma/vignettes/tol.html
 
