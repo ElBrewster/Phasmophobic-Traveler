@@ -7,7 +7,7 @@ import { callForData, makeTrip } from "./api";
 import dayjs from 'dayjs';
 import "./images/marker.svg";
 let agent1;
-let clientId1;
+let clientId1 = 44;
 
 let dateSpot = document.querySelector("#todaysDate")
 let form = document.querySelector("#tripForm");
@@ -25,12 +25,8 @@ let password1 = document.querySelector("#password");
 
 form.addEventListener("submit", formSubmitHandler);
 form.addEventListener("change", estimatedCost);
-loginSubmitbtn.addEventListener("click", function(event) {
-    event.preventDefault();
-    checkSubmission();
-    pageLoad();
-    // newsTicker();
-});
+
+pageLoad();
 
 function checkSubmission() {
     let password = username1.value;
