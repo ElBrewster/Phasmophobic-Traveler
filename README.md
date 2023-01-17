@@ -36,20 +36,12 @@ It took our team a few days (~4) to write the code for this project. We just com
 4. Create a robust test suite that thoroughly tests all functionality of a client-side application
 
 ### `Technology Used:`
-The HTML, CSS, and JavaScript for this application was written in VS Code and pushed into GitHub. 
+The HTML, CSS/SCSS, and JavaScript for this application was written in VS Code and pushed into GitHub. 
 NPM packages glide.js and day.js, Mocha and Chai, the fetch API.
 
-### `Future Additions`
-1. The primary future addition planned for the Idea Box website would be for the user to be able to comment on their ideas.
-2. By favoriting an idea the user is able to in a sense already comment on their idea, but adding the ability to add additional text comments beyond whether they view the idea as a top idea or not would be beneficial.
-3. It would of course be important that this functionality persists beyond a single browser session just like the ideas themselves do.
-
-
-## Resources/Mentions:
+## `Resources/Mentions:`
 I was thinking about this color scheme article, in particular the iridescent palette in the "Sequential data" section and the second panel in "Sequential schemes":
 https://cran.r-project.org/web/packages/khroma/vignettes/tol.html
 
-fira code
-
-glide.js
-day.js
+Also please note the names in the image files for the background images used, in particular photo by Ekaterina Astakhova:
+// https://www.pexels.com/@octoptimist/ Ekaterina Astakhova
