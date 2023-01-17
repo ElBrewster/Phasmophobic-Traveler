@@ -90,7 +90,7 @@ function checkPassword(travelerUserName) {
 
 function pageLoad() {
     dateSpot.innerText = dayjs().toDate();
-    pageLoad();
+    // pageLoad();
     doPromise();
 }
 
