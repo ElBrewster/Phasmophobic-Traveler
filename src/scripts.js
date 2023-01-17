@@ -31,36 +31,62 @@ loginSubmitbtn.addEventListener("click", function(event) {
     pageLoad();
     // newsTicker();
 });
-
+//make reset login screen function?
 function checkSubmission() {
-    let password = username1.value;
-    checkPassword(password);
-    if((checkPassword(password) || "agent") && (password1.value === "travel")){
+    let travelerUserName = username1.value;
+    console.log("username1.value", username1.value)
+    checkAgent(travelerUserName);
+    // checkPasswordLength(travelerUserName);
+    // checkPassword(travelerUserName);
+    
+    if((checkPassword(travelerUserName)) && (password1.value === "travel")){
+        console.log("value2?", travelerUserName);
         document.querySelector("#loginPage").classList.add("hidden")
         document.querySelector("#travelAgency").classList.remove("hidden");
         document.querySelector("#mainSection").classList.remove("hidden");
-        document.querySelector("#logoLinks").classList.remove("hidden");
     }
-    if((username1.value === "agent") && (password1.value === "travel")){
+    if((travelerUserName === "agent") && (password1.value === "travel")){
+        console.log("finalagent?", travelerUserName);
+        console.log("passwordavalue?", password1.value)
+
         document.querySelector("#loginPage").classList.add("hidden")
         document.querySelector("#travelAgency").classList.remove("hidden");
         document.querySelector("#mainSection").classList.remove("hidden");
-        document.querySelector("#logoLinks").classList.remove("hidden");
+    }
+}
+function checkAgent(travelerUserName) {
+    if((travelerUserName === "agent")) {
+        console.log("agent?", travelerUserName)
+        return travelerUserName;
+    } else {
+        checkPasswordLength(travelerUserName);
+        checkPassword(travelerUserName);
     }
 }
 
-function checkPassword(password) {
-    let userNameEntry = password;
+function checkPasswordLength(travelerUserName) {
+    if((travelerUserName.length === 10) || (travelerUserName === "agent")) {
+        //remove agent line?
+        console.log("length", travelerUserName.length);
+        return travelerUserName;
+    } else{
+        document.location.reload();
+    }
+}
+
+function checkPassword(travelerUserName) {
+    let userNameEntry = travelerUserName;
     let slicedId = userNameEntry.slice(-2) * 1;
     clientId1 = slicedId;
     if(((typeof(slicedId) === "number") && (slicedId < 51)) && (userNameEntry === `traveler${slicedId}`)) {
        return clientId1;
     } else {
+        //add error message?
         console.log("Please enter a good username/password combo");
         document.querySelector("#loginPage").classList.remove("hidden")
         document.querySelector("#travelAgency").classList.add("hidden");
         document.querySelector("#mainSection").classList.add("hidden");
-        document.querySelector("#logoLinks").classList.add("hidden");
+        // document.querySelector("#logoLinks").classList.add("hidden");
     }
 }
 
