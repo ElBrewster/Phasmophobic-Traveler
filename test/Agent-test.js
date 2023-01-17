@@ -86,11 +86,20 @@ describe("Agent", () => {
 
     it("Should have a method1 to get the total cost for one trip for a user passing their id as an argument", () => {
         //(an agent would handle totals for the user)
-//method to get total cost for 1 trip for a user: this is for a trip request
-        let method1 = agent1.calculateOneTripCost(tripId1);
-        let method1b = agent1.calculateOneTripCost(tripId2);
-        expect(method1).to.be.equal(23320);
-        expect(method1b).to.be.equal(2596);
+        let length1 = 1;
+        let numberTrav = 2;
+        let destId = 10;
+//         {id: 10, destination: "New York, New York", estimatedLodgingCostPerDay: 175,
+//         estimatedFlightCostPerPerson: 200,
+//         image: "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
+//         alt: "people crossing the street during the day surrounded by tall buildings and advertisements"}];
+// //method to get total cost for 1 trip for a user: this is for a trip request
+//175
+        let method1 = agent1.calculateOneTripCost(length1, numberTrav, destId);
+        console.log(method1);
+        // let method1b = agent1.calculateOneTripCost(length1, numberTrav, destId);
+        expect(method1).to.be.equal(1265);
+        // expect(method1b).to.be.equal(2596);
 //there's got to be so many sad paths for this :grimace:
     });
     it("Should have a helper method2b to filter a client's trips for the current year", () => {
