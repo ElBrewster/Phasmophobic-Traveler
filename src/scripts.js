@@ -175,6 +175,7 @@ function formSubmitHandler(event) {
         suggestedActivities: []
     }
     console.log("makeThisTrip.id", makeThisTrip.id);
+    // console.log("destionations", destionationID)
     makeTrip(makeThisTrip);
     doPromise();
     event.target.reset();
