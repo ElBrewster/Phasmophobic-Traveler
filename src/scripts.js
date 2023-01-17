@@ -55,10 +55,19 @@ function checkSubmission() {
         document.querySelector("#loginPage").classList.add("hidden")
         document.querySelector("#hiddenFunctionality").classList.remove("hidden");
     }
-    // loginForm.addEventListener("input", () => {
-    // });
+    if((username1.value === "agent") && (password1.value === "travel")){
+        document.querySelector("#loginPage").classList.add("hidden")
+        document.querySelector("#hiddenFunctionality").classList.remove("hidden");
+    }
+
 }
 
+function checkPassword() {
+    let num = 2
+    console.log("num?", typeof(num))
+    let word = "biscuit";
+    console.log("num?", typeof(word))
+}
 
 //-----functions-----
 
@@ -79,14 +88,15 @@ function doPromise() {
 function pageLoad() {
     dateSpot.innerText = dayjs().toDate();
     doPromise();
+    checkPassword();
 }
 //this pageload function should be attached to the submit login event instead, and the pageload should load the login
 
 function getClientDisplay(clientId) {
     glideSlides.innerHTML = "";
     let currUser = agent1.getClient(clientId);
-    console.log("currUser: ", currUser);
-    console.log("curr.name", currUser.name);
+    // console.log("currUser: ", currUser);
+    // console.log("curr.name", currUser.name);
     displayClientName(currUser);
     showOldTrips(currUser.id);
     displayCurrentAndUpcomingTrips(currUser.id);
@@ -95,13 +105,13 @@ function getClientDisplay(clientId) {
 
 function showOldTrips(clientId) {
     let oldTrips = agent1.filterClientsTripsBeforeThisYear(clientId);
-    console.log("oldTrips", oldTrips)
+    // console.log("oldTrips", oldTrips)
     oldTrips.forEach(trip => {
         let randomNum = getRandomArbitrary();
         let glideDisplay = agent1.provide1TripDisplayData(trip.id);
-        console.log("glideDisplay", glideDisplay)
+        // console.log("glideDisplay", glideDisplay)
         glideSlides.innerHTML += `<li class="glide__slide"><p class="slideText" id="slideText">You made memories on ${glideDisplay.date} at ${glideDisplay.location_name} and saw ${randomNum} ghosts!</p><img class="one-slide" src="${glideDisplay.url}" alt="${glideDisplay.urlAlt}" width="400" height="275"></li>`;
-        console.log(trip)
+        // console.log(trip)
     })
 }
 //for each oldTrips.id, if it matches === glideDisplay.url,
@@ -120,7 +130,7 @@ function displayExpenses() {
 
 function displayClientName(currUser) {
     let username = currUser.name;
-    console.log("username", username)
+    // console.log("username", username)
     newUserName.innerText = `Hello there, ${username}`;
 }
 
@@ -129,8 +139,8 @@ function displayCurrentAndUpcomingTrips(clientId) {
     currentTrips.forEach(trip => {
         // currentUpcomingTrips.innerText += `Your upcoming trip on ${trip.date} is ${trip.status}.`
         upcomingTrips.innerHTML += `<p class="upcoming">Your upcoming trip on ${trip.date} is ${trip.status}.</p>`
-        console.log(trip.date);
-        console.log(trip.status);
+        // console.log(trip.date);
+        // console.log(trip.status);
     })
 }
 
@@ -145,10 +155,10 @@ function getTripsDropdown() {
 
 function estimatedCost() {
     if(numDays.value && numTraveling.value && myDropDown.value) {
-        console.log("Here is numDays: friends: destination:", numDays.value, numTraveling.value, myDropDown.value);
+        // console.log("Here is numDays: friends: destination:", numDays.value, numTraveling.value, myDropDown.value);
         let estimate = agent1.calculateOneTripCost(109);
         //this sets the id, so it's not dynamic after the first pass. Needs to ignore the id?
-        console.log("estimate: ", estimate)
+        // console.log("estimate: ", estimate)
         costEstimatePrint.innerHTML = `These trip selections tally at $${estimate}.`
     }
 }
