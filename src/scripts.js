@@ -22,33 +22,29 @@ let upcomingTrips = document.querySelector("#upcomingTrip");
 let loginSubmitbtn = document.querySelector("#loginSubmit")
 let username1 = document.querySelector("#signupUsername");
 let password1 = document.querySelector("#password");
+let formLink = document.querySelector("#formLink");
+let factsBox = document.querySelector("#smallTopLeft");
 
 form.addEventListener("submit", formSubmitHandler);
 form.addEventListener("change", estimatedCost);
+factsBox.addEventListener("dblclick", displayFact);
+
 loginSubmitbtn.addEventListener("click", function(event) {
     event.preventDefault();
     checkSubmission();
     pageLoad();
-    // newsTicker();
 });
-//make reset login screen function?
+
 function checkSubmission() {
     let travelerUserName = username1.value;
-    console.log("username1.value", username1.value)
     checkAgent(travelerUserName);
-    // checkPasswordLength(travelerUserName);
-    // checkPassword(travelerUserName);
-    
+
     if((checkPassword(travelerUserName)) && (password1.value === "travel")){
-        console.log("value2?", travelerUserName);
         document.querySelector("#loginPage").classList.add("hidden")
         document.querySelector("#travelAgency").classList.remove("hidden");
         document.querySelector("#mainSection").classList.remove("hidden");
     }
     if((travelerUserName === "agent") && (password1.value === "travel")){
-        console.log("finalagent?", travelerUserName);
-        console.log("passwordavalue?", password1.value)
-
         document.querySelector("#loginPage").classList.add("hidden")
         document.querySelector("#travelAgency").classList.remove("hidden");
         document.querySelector("#mainSection").classList.remove("hidden");
@@ -56,7 +52,6 @@ function checkSubmission() {
 }
 function checkAgent(travelerUserName) {
     if((travelerUserName === "agent")) {
-        console.log("agent?", travelerUserName)
         return travelerUserName;
     } else {
         checkPasswordLength(travelerUserName);
@@ -65,9 +60,7 @@ function checkAgent(travelerUserName) {
 }
 
 function checkPasswordLength(travelerUserName) {
-    if((travelerUserName.length === 10) || (travelerUserName === "agent")) {
-        //remove agent line?
-        console.log("length", travelerUserName.length);
+    if((travelerUserName.length === 10)) {
         return travelerUserName;
     } else{
         document.location.reload();
@@ -81,12 +74,12 @@ function checkPassword(travelerUserName) {
     if(((typeof(slicedId) === "number") && (slicedId < 51)) && (userNameEntry === `traveler${slicedId}`)) {
        return clientId1;
     } else {
-        //add error message?
+        formLink.innerText = "Please enter a good username/password combo";
+        //^this needs a timout
         console.log("Please enter a good username/password combo");
         document.querySelector("#loginPage").classList.remove("hidden")
         document.querySelector("#travelAgency").classList.add("hidden");
         document.querySelector("#mainSection").classList.add("hidden");
-        // document.querySelector("#logoLinks").classList.add("hidden");
     }
 }
 
@@ -179,7 +172,6 @@ function formSubmitHandler(event) {
         suggestedActivities: []
     }
     console.log("makeThisTrip.id", makeThisTrip.id);
-    //calculate actual trip cost and add to pending info
     makeTrip(makeThisTrip);
     doPromise();
     event.target.reset();
@@ -196,16 +188,14 @@ function startGlide() {
         },
         focusAt: 1,
         keyboard: true
-      }
-      new Glide(".glide", config).mount();
     }
+    new Glide(".glide", config).mount();
+}
 
-//----news-ticker?-----
-// const windowLoad = document.addEventListener("load", newsTicker);
-// const newsTicker = () => {
-//     let tickerText = "";
-//     document.querySelector("#scroller").innerText = tickerText;
-//     ghostFacts.forEach(fact => {
-//         tickerText += fact;
-//     });
-// }
+let counter = 0;
+function displayFact() {
+    factsBox.innerHTML = "";
+    console.log("ghostFact?", ghostFacts[counter]);
+    factsBox.innerHTML = `<p>${ghostFacts[counter]}</p>`;
+    counter++;
+}
