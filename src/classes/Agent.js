@@ -18,7 +18,6 @@ class Agent {
         let currYear = "2023/01/01";
         let client = this.getClient(clientId);
         let currentYearTrips = client.tripsList.filter(element => (dayjs(element.date).isAfter(dayjs(currYear))) || (dayjs(element.date).isSame(dayjs(currYear))));
-        // console.log("currentYearTrips: ", currentYearTrips);
         return currentYearTrips;
     }
 
@@ -31,14 +30,11 @@ class Agent {
 
     calcClientTripsYearlyCost(clientId) {
         let currentTrips = this.filterClientsTripsThisYear(clientId);
-        console.log("currentTrips1: ", currentTrips)
         let totalTrips = currentTrips.reduce((acc, curr) => {
             acc += this.calculateOneTripCost(curr.duration, curr.travelers, curr.destinationID);
             return acc;
         }, 0);
-        console.log("totalTrips1: ", totalTrips);
         return totalTrips;
-        // return total;
     }
 
     provide1TripDisplayData(tripId) {
@@ -57,7 +53,6 @@ class Agent {
 
     calculateOneTripCost(tripLength, numberTraveling, destId) {
         let destination1 = new Destination(destId, this.placesData);
-        console.log("destination1: ", destination1);
         let lodgingCost = destination1.lodgingCost * tripLength;
         let flightCost = destination1.flightCost * 2;
         let oneTravelerCost = lodgingCost + flightCost;

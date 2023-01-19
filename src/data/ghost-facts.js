@@ -45,5 +45,6 @@ const ghostFacts = [
     "However, not all hauntings are at a place of a violent death, or even on violent grounds. Many cultures and religions believe the essence of a being, such as the 'soul', continues to exist.",
     "Some religious views argue that the 'spirits' of those who have died have not 'passed over' and are trapped inside the property where their memories and energy are strong."
 ];
+
 //This text is taken from the Wikipedia article on "Ghosts" as of January 11, 2023.
 export { ghostFacts };

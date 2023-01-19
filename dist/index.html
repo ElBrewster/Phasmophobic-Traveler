@@ -7,10 +7,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,400;0,500;0,700;0,800;0,900;1,100;1,600;1,900&display=swap" rel="stylesheet">
-  <title>Webpack Starter Kit</title>
 </head>
 <body>
-
   <section class="login-page " id="loginPage">
     <div class="login">
       <form class="login-form" id="login">
@@ -18,7 +16,6 @@
         <div class="form__message form__message--error"></div>
         <div class="form__input-group">
           <input type="text" id="signupUsername" class="form__input" autofocus placeholder="Traveler ID">
-          <!-- <div class="form__input-error-message">Error! oops!</div> -->
         </div>
         <div class="form__input-group">
           <input type="password" id="password" class="form__input" autofocus placeholder="Password">
@@ -31,8 +28,6 @@
       </form>
     </div>
   </section>
-
-<!-- <div class="hidden-functionality hidden" id="hiddenFunctionality"> -->
   <header class="travel-agency hidden" id="travelAgency">
     <h1 class="h1-title">
       <span class="italics">the</span>&nbspPhasmophobic Traveler:&nbsp&nbsp&nbsp
@@ -58,7 +53,7 @@
           </div>
         </section>
         <div class="side-piece" id="sidePiece">
-          <section class="right-side-but-left-actually">I'm dyslexic</section>
+          <section class="right-side-but-left-actually"></section>
           <section class="new-trips-section" id="newTripsSection">
             <div class="new-trips-div" id="newTripsDiv">
               <h2>Upcoming Trips</h2>
@@ -68,46 +63,41 @@
           <section class="left-aside" id="leftAside">
             <section class="small-top-left" id="smallTopLeft">double click *here* for ghost facts
             </section>
-            <section class="small-bottom-left" id="smallBottomLeft">empty</section>
+            <section class="small-bottom-left" id="smallBottomLeft"></section>
           </section>
         </div>
-        <footer class="logo-links" id="logoLinks">
-      
-          <section class="marquee-cont" id="marqueeCont">
-            <table width="100%" border="0" cellspacing="0" cellpadding="0">
-              <tr>
-
-                <td id="marquee">
-                  <marquee behavior="slide"onmouseover="this.stop();" onmouseout="this.start();" class="scroller" id="scroll">temp<img src="./images/marker.svg" alt="marker" width="1em" height="2em"/>
-                  </marquee>
-                </td>
-              </tr>
-            </table>
-          </section>
-      
+        <footer class="logo-links" id="logoLinks"> 
         </footer>
     </div>
     <aside class="aside-bar" id="asideBar">
       <section class="form-container" id="formContainer">
         <section class="form-section" id="forms">
           <h3>Trip Planner</h3>
-          <form method="post" id="tripForm">
-            <legend>Let's set up your next trip!</legend>
-            <label for="numTravelers" class="numTrav">How many travelers do you have in your party?
+          <form method="post" class="trip-form" id="tripForm">
+            <legend class="legend">Let's set up your next trip!</legend>
+
+            <label for="numTravelers" class="num-travelers-label">How many travelers do you have in your party?
               <input type="number" min="1" max="500" name="numberTravelers" class="num-travelers" id="numTravelers">
             </label>
+
             <label for="numDays" class="number-of-days" id="numberOfDays">How many days does this trip take?
               <input type="number" min="1" max="365" name="numberDays" class="num-days" id="numDays">
             </label>
-            <label for="destinations" class="destNation">Choose your destination:</label>
-            <select class="select-destination" id="select-destinations" name="destinations">
-              <option value="" disabled selected hidden>choose your destination</option>
-            </select>
+            <div class="destionations-container">
+              <label for="destinations" class="destination">Choose your destination:</label>
+              <select class="select-destination" id="selectDestinations" name="destinations">
+                <option value="" disabled selected hidden>choose your destination</option>
+              </select>
+            </div>
+
             <label for="travelDate" class="date-picker" id="datePicker">What day do you want to leave?
-              <input for="date-picker" type="date" name="date" id="travelDate">
+              <input for="date-picker" type="date" name="date" class="travel-date" id="travelDate">
             </label>
-            <p id="costEstimate"></p>
-            <button>Submit</button>
+
+            <p class="cost-estimate" id="costEstimate"></p>
+
+            <button class="trip-form-submit">Submit</button>
+
           </form>
         </section>
       </section>
