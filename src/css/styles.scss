@@ -19,7 +19,6 @@ $chillGreenRGB: rgb(194,227,210);
 //remove the yellow in the application, it sucks
 $ltBlueGreen: #b5ddd8;
 $ltBlueGreenRGB: rgb(181,221,216);
-
 $kitchenTileBlue: #a8d8dc;
 $kitchenTileBlueRGB: rgb(168,216,220);
 $softBlue: #9bd2e1;
@@ -28,7 +27,6 @@ $softMidBlue: #7bbce7;
 $softMidBlueRGB: rgb(123,188,231);
 $cornflower: #7eb2e4;
 $cornflowerRGB: rgb(126,178,228);
-
 $lavender: #88a5dd;
 $lavenderRGB: rgb(136,165,221);
 $softPurple: #9398d2;
@@ -388,15 +386,11 @@ li {
   padding-top: 1em;
   width: 50%;
 }
+
 //-----trip-fillout-form-----
-//aside-bar
-//form-container
-//form-section
-//h3, trip-form
 .aside-bar {
   align-items: center;
-  background-color: rgb(168,216,220, .3);
-  //blue!
+  background-color:rgb(104,73,87, .4);
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -470,6 +464,7 @@ h3,
 select:required:invalid { 
   color: gray; 
 }
+
 .select-destination,
 .travel-date,
 .trip-form-submit {
@@ -484,13 +479,6 @@ select:required:invalid {
   text-decoration: none;
   width: 80%;
 }
-
-// .select-destinations {
-//   border: $softYellow;
-//   border-radius: .4em;
-//   box-sizing: border-box;
-//   display: inline-block;
-// }
 
 option[value=""][disabled] {
   display: none;
@@ -514,7 +502,6 @@ footer,
 .money-tracker {
   align-items: center;
   background-color: rgb(147,152,210, .4);
-  // background-color: rgb(181,221,216, .4);
   border-radius: .4em;
   color: $brown;
   display: flex;
@@ -526,7 +513,6 @@ footer,
 }
 
 .margin-right{
-  // background-color: rgb(194,227,210, .4);
   background-color:  rgb(136,165,221, .4);
   height: 100%;
   width: 10%;
