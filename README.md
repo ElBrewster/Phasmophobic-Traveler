@@ -11,7 +11,7 @@
 -[Resources & Mentions](#resources--mentions)
 
 ### `Abstract:`
-This kind of application to manages and tracks different trips for users and a travel agency. As a user you can keeps track of the places a visited, get new ideas for a next trip, and connect with an agent to purchase a journey. `the Phasmophobic Traveler` is a travel app best suited to those who prefer sight-seeing of the paranormal.
+This application manages and tracks different trips for users through a travel agency. As a user you can keep track of the places a visited, get new ideas for a next trip, and connect with an agent to purchase a journey. `the Phasmophobic Traveler` is a travel app best suited to those who prefer paranormal-focused sight-seeing.
 
 ### `Installation Instructions:`
 <!-- 1. [Click To Open Repo](https://github.com/KarrarQ/idea-Box) -->
