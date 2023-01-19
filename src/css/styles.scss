@@ -207,7 +207,6 @@ header {
 .form__link:hover {
   text-decoration: underline;
 }
-
 //--^^---login-form---^^--
 
 h2 {
@@ -252,6 +251,17 @@ main,
   flex-direction: column;
   height: 100%;
   width: 70%;
+}
+
+.upcoming {
+  background-color: rgb(181,221,216, 6);
+  border-radius: .15em;
+  box-shadow: inset 0 0 20px $ltYellow;
+  color: $brown;
+  height: 2em;
+  margin: .5em;
+  padding: .4em;
+  width: 90%;
 }
 
 //-----glide-nonsense-----
@@ -435,7 +445,6 @@ h3,
   align-items: flex-start;
 } 
 
-//legend, num-travelers-label, number-of-days, destionations-container, date-picker, cost-estimate, trip-form-submit
 .legend,
 .num-travelers-label,
 .number-of-days,
@@ -503,9 +512,10 @@ footer,
   align-items: center;
   background-color: rgb(147,152,210, .4);
   border-radius: .4em;
-  color: $brown;
+  color: $ltGreen;
   display: flex;
   font-family: $font-stack;
+  font-weight: 700;
   height: 10%;
   justify-content: center;
   padding: .2em;
