@@ -259,7 +259,7 @@ main,
 //-----glide-nonsense-----
 .glide-display {
   align-items: center;
-  background-color: rgb(208,231,202, .3);
+  background-color:rgb(136,165,221, .3);
   box-shadow: inset (208,231,202, .6);
   color: $ltBlueGreen;
   display: flex;
@@ -290,7 +290,10 @@ li {
 }
 
 .one-slide {
-  height: 100%;
+  display: block;
+  object-position: center;
+  object-fit: cover;
+  height: 8em;
   position: relative;
   width: 100%;
 }
@@ -357,7 +360,7 @@ li {
 
 .small-top-left {
   align-items: center;
-  background-color:  rgb(136,165,221, .3);
+  background-color:  rgb(136,165,221, .5);
   color: $ltGreen;
   display: flex;
   font-weight: 700;
@@ -386,7 +389,7 @@ h3 {
 }
 
 .new-trips-section {
-  background-color: rgb(155,138,196 .4);
+  background-color: rgb(155,138,196, .4);
   // background-color: rgb(70,53,58,.2);
   // background-color: rgb(194,227,210, .4);
   height:100%;
@@ -409,7 +412,7 @@ h3 {
 
 .aside-bar {
   align-items: center;
-  background-color: rgb(194,227,210, .3);
+  background-color: rgb(168,216,220, .3);
   //blue!
   display: flex;
   flex-direction: column;
