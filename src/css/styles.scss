@@ -380,12 +380,19 @@ li {
   height: 50px;
   width: 50px;
 }
+
+.new-trips-section {
+  background-color: rgb(155,138,196, .4);
+  height:100%;
+  overflow: auto;
+  padding-top: 1em;
+  width: 50%;
+}
 //-----trip-fillout-form-----
 //aside-bar
 //form-container
 //form-section
 //h3, trip-form
-//legend, num-travelers-label, number-of-days, destionations-container, date-picker, costEstimate, trip-form-submit
 .aside-bar {
   align-items: center;
   background-color: rgb(168,216,220, .3);
@@ -397,6 +404,7 @@ li {
   padding: 1em;
   width: 20%;
 }
+
 .form-container {
   background-color: rgb(126,178,228, .6);
   box-shadow: inset 0 0 20px $ltYellow;
@@ -409,6 +417,7 @@ li {
   padding: .2em;
   width: 100%;
 }
+
 .form-section {  
   display: flex;
   flex-direction: column;
@@ -416,53 +425,15 @@ li {
   height: 100%;
   width: 100%;
 }
+
 h3 {
   color: $brown;
   font-size: large;
   font-weight: bold;
   padding: 1em;
 }
+
 h3,
-.trip-form {
-  display: flex;
-  flex-direction: column;
-}
-
-.legend,
-.num-travelers-label,
-.number-of-days,
-.destionations-container,
-.date-picker,
-.costEstimate,
-.trip-form-submit {
-  display: flex;
-  flex-direction: column;
-}
-
-.new-trips-section {
-  background-color: rgb(155,138,196, .4);
-  // background-color: rgb(70,53,58,.2);
-  // background-color: rgb(194,227,210, .4);
-  height:100%;
-  overflow: auto;
-  padding-top: 1em;
-  width: 50%;
-}
-
-.upcoming {
-  // background-color: rgb(123,188,231);
-  background-color: rgb(181,221,216, .6);
-  border-radius: .15em;
-  box-shadow: inset 0 0 20px $ltYellow;
-  color: $brown;
-  height: 2em;
-  margin: .5em;
-  padding: .4em;
-  width: 90%;
-}
-
-
-
 .trip-form {
   display: flex;
   flex-direction: column;
@@ -470,32 +441,14 @@ h3,
   align-items: flex-start;
 } 
 
-
-select:required:invalid { 
-  color: gray; 
-}
-
-.select-destination {
-  color: $brown;
-  display: flex;
-  align-items: center;
-  width: 80%;
-}
-
-
-option[value=""][disabled] {
-  display: none;
-}
-
-option {
-  color: $brown;
-}
-
+//legend, num-travelers-label, number-of-days, destionations-container, date-picker, cost-estimate, trip-form-submit
+.legend,
 .num-travelers-label,
-.tripDur,
-.destNation,
+.number-of-days,
+.destionations-container,
 .date-picker,
-.costEstimate {
+.cost-estimate,
+.trip-form-submit {
   display: flex;
   flex-direction: column;
   margin: 1em;
@@ -512,14 +465,41 @@ option {
   margin: .5em;
   padding: 1em;
   width: 5em;
-}
+} 
 
-.select-destinations {
+select:required:invalid { 
+  color: gray; 
+}
+.select-destination,
+.travel-date,
+.trip-form-submit {
+  align-items: center;
   border: $softYellow;
   border-radius: .4em;
   box-sizing: border-box;
-  display: inline-block;
+  color: $brown;
+  display: flex;
+  margin-top: .5em;
+  padding: .3em;
+  text-decoration: none;
+  width: 80%;
 }
+
+// .select-destinations {
+//   border: $softYellow;
+//   border-radius: .4em;
+//   box-sizing: border-box;
+//   display: inline-block;
+// }
+
+option[value=""][disabled] {
+  display: none;
+}
+
+option {
+  color: $brown;
+}
+
 //-----^-trip-form-destination-^-----
 
 footer,
