@@ -4,7 +4,6 @@ const callForData = (urlPath) => {
 }
 
 const makeTrip = (makeThisTrip) => {
-    console.log(makeThisTrip);
     fetch("http://localhost:3001/api/v1/trips", {
         method: "POST",
         headers: {"Content-type": "application/json"

@@ -157,7 +157,6 @@ function getTripsDropdown() {
 
 function estimatedCost() {
     if(numDays.value && numTraveling.value && myDropDown.value) {
-        console.log("myDropdown.value", myDropDown.value);
         let tripLength = numDays.value;
         let numberTraveling = numTraveling.value;
         let estimate = agent1.calculateOneTripCost(tripLength, numberTraveling, (+myDropDown.value));
