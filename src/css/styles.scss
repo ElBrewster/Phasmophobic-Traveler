@@ -61,140 +61,157 @@ $font-stack: 'Fira Sans', sans-serif;
 }
 
 body {
-  height: 100vh;
-  width: 100vw;
+  background-color: rgb(128,87,112, .6);
+  background-image: url("../images/pexels-ekaterina-astakhova-3123980.jpg");
+  background-size: cover;
   display: flex;
   flex-direction: column;
   font-family: 'Open Sans', sans-serif;
-  background-image: url("../images/pexels-ekaterina-astakhova-3123980.jpg");
-  background-size: cover;
-  background-color: rgb(128,87,112, .6);
-  padding: 0;
+  height: 100vh;
   margin: 0;
+  padding: 0;
+  width: 100vw;
 }
 
 .hiddenFunctionality {
   height: 100vh;
   width: 100vh;
 }
+
 header {
   background-color: rgb(128,87,112, .6);
-
 }
+
 .h1-title,
 .travel-agency {
-  height: 10%;
-  width: 100%;
+  align-items: center;
   color: $ltBlueGreen;
+  display: flex;
   font-family: $font-stack;
   font-size: x-large;
   font-weight: 900;
-  display: flex;
+  height: 10%;
   justify-content: center;
-  align-items: center;
+  width: 100%;
 }
 
 //-----login-form-----
 .login-form {
+  background: $ltYellow;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+  --border-radius: 4px;
+  --color-error: $coffeeShopPurple;
   --color-primary: $chillGreen;
   --color-primary-dark: $ltBlueGreen;
   --color-secondary: $cornflower;
-  --color-error: $coffeeShopPurple;
   --color-success: $yellowMint;
-  --border-radius: 4px;
-  width: 400px;
-  max-width: 400px;
-  margin: 1em;
-  padding: 2em;
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
-  background: $ltYellow;
   font: 500 1rem $font-stack;
+  margin: 1em;
+  max-width: 400px;
+  padding: 2em;
+  width: 400px;
 }
 
 .form--hidden {
   display: none;
 }
+
 .login-form > *:first-child {
   margin-top: 0;
 }
+
 .login-form > *:last-child {
   margin-bottom: 0;
 }
+
 .form__title {
   margin-bottom: 2rem;
   text-align: center;
 }
+
 .form__message {
   text-align: center;
   margin-bottom: 1rem;
 }
+
 .form__message--success {
   color:#906388;
 }
+
 .form__message--error {
   color:#9bd2e1;
 }
 .form__input-group {
   margin-bottom: 1rem;
 }
+
 .form__input {
-  display: block;
-  width: 100%;
-  padding: 0.75rem;
-  box-sizing: border-box;
-  border-radius: .1em;
-  border: 1px $kitchenTileBlue;
   background: $ltBlueGreen;
+  border: 1px $kitchenTileBlue;
+  border-radius: .1em;
+  box-sizing: border-box;
+  display: block;
+  padding: 0.75rem;
   transition: background 0.2s, border-color 0.2s;
-}
-.form__input:focus{
-  border-color: $brown;
-  background: $yellowMint
-}
-.form__input--error {
-  color: $kitchenTileBlue;
-  border-color: $kitchenTileBlue;
-}
-.form__input-error-message {
-  margin-top: 0.5em;
-  font-size: 0.85em;
-  color: $kitchenTileBlue;
-}
-.form__button {
   width: 100%;
-  padding: 1rem 2rem;
-  font-weight: bold;
-  font-size: 1.1rem;
+}
+
+.form__input:focus{
+  background: $yellowMint;
+  border-color: $brown;
+}
+
+.form__input--error {
+  border-color: $kitchenTileBlue;
+  color: $kitchenTileBlue;
+}
+
+.form__input-error-message {
+  color: $kitchenTileBlue;
+  font-size: 0.85em;
+  margin-top: 0.5em;
+}
+
+.form__button {
+  background-color: $cornflower;
   border: none;
   border-radius: 0.1rem;
-  outline: none;
-  cursor: pointer;
-  background-color: $cornflower;
   color: $yellowMint;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: bold;
+  outline: none;
+  padding: 1rem 2rem;
+  width: 100%;
 }
+
 .form__button:hover {
   color: $couchPurple;
 }
+
 .form__button:active {
   transform: scale(0.98);
 }
+
 .form__text {
   text-align: center;
 }
+
 .form__link {
   color: $ltBlueGreen;
-  text-decoration: none;
   cursor: pointer;
+  text-decoration: none;
 }
+
 .form__link:hover {
   text-decoration: underline;
 }
+
 //--^^---login-form---^^--
 
 h2 {
   background-color: #684957;
   box-shadow: inset 0 0 20px $ltYellow;
-
   color: $ltBlueGreen;
   font-size: large;
   font-weight: bold;
@@ -202,10 +219,10 @@ h2 {
 }
 
 .date-divider {
-  height: 100%;
-  width: 60%;
   display: flex;
   flex-direction: column;
+  height: 100%;
+  width: 60%;
 }
 
 .italics {
@@ -214,53 +231,53 @@ h2 {
 }
 
 .todays-date{
-  height: 100%;
-  display: flex;
   align-content: flex-end;
   align-items: center;
+  display: flex;
   font-size: small;
+  height: 100%;
 }
 
 main,
 .main-section {
-  height: 90%;
-  width: 100%;
   display: flex;
   flex-direction: row;
+  height: 90%;
+  width: 100%;
 }
 
 .flex-display {
-  width: 70%;
-  height: 100%;
   display: flex;
   flex-direction: column;
+  height: 100%;
+  width: 70%;
 }
+
 //-----glide-nonsense-----
 .glide-display {
-  height: 50%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
   align-items: center;
-  padding: 1em;
-  font-weight: 900;
-  margin-left: 0;
-  margin-right: 0;
   background-color: rgb(208,231,202, .6);
   box-shadow: inset (208,231,202, .6);
-  // box-shadow: inset 0 0 1em 1em $brown;
-  // background-color: rbg(70,53,58,.8);
   color: $ltBlueGreen;
-}
-.glide_slides {
+  display: flex;
+  font-weight: 900;
+  height: 50%;
+  justify-content: center;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 1em;
   width: 100%;
+}
+
+.glide_slides {
   overflow: visible;
+  width: 100%;
 }
 
 li {
+  align-items: center;
   background-color: $brown;
   display: flex;
-  align-items: center;
   text-align: center;
 }
 
@@ -270,41 +287,39 @@ li {
 }
 
 .one-slide {
+  height: 100%;
   position: relative;
-  // border: $brown;
-  // height: 100vh;
   width: 100%;
-  height: 100%;
 }
-// ^image of slide
+
 .glide__slide {
-  filter: blur(3px);
-  opacity: .7;
-  transition: .1s linear;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
   align-items: baseline;
-  padding: .2em;
   box-shadow: inset 0 0 20px $radishPurple;
+  display: flex;
+  filter: blur(3px);
+  flex-direction: column;
+  height: 100%;
+  opacity: .7;
+  padding: .2em;
+  transition: .1s linear;
+  width: 100%;
 
 }
 
 .glide__slide--active {
-  opacity: 1;
   filter: none;
+  opacity: 1;
 }
-// ^slide content over image?
-.glide__track,
-.glide__arrows {
+
+.glide__arrows,
+.glide__track {
   position: relative;
 }
 
 .glide__arrow {
   background-color: rgb(245,243,193, .8);
-  color: $brown;
   border-color: $brown;
+  color: $brown;
   font-weight: 900;
 }
 
@@ -314,11 +329,12 @@ li {
 //-----^--glide-nonsense--^-----
 
 .side-piece {
-  height: 100%;
-  width: 100%;
   display: flex;
   flex-direction: row;
+  height: 100%;
+  width: 100%;
 }
+
 .right-side-but-left-actually {
   height: 100%;
   width: 10%;
@@ -331,74 +347,74 @@ li {
 
 .small-top-left,
 .small-bottom-left {
-  width: 100%;
   height: 50%;
+  width: 100%;
 }
 
 .small-top-left {
-  font-weight: 700;
+  align-items: center;
   color: $ltGreen;
   display: flex;
-  align-items: center;
+  font-weight: 700;
   padding: 1em;
 }
 
 .tester-box {
-  width: 100%;
   height: 100%;
+  width: 100%;
 }
 
 .tester-glide-image {
-  width: 50px;
   height: 50px;
+  width: 50px;
 }
 
 h3 {
+  color: $brown;
   font-size: large;
   font-weight: bold;
   padding: 1em;
-  color: $brown;
 }
+
 .new-trips-section {
-  padding-top: 1em;
-  height:100%;
-  width: 50%;
   background-color: rgb(70,53,58,.2);
   background-color: rgb(194,227,210, .4);
+  height:100%;
   overflow: auto;
+  padding-top: 1em;
+  width: 50%;
 }
+
 .upcoming {
   background-color: rgb(181,221,216, 6);
+  border-radius: .15em;
   box-shadow: inset 0 0 20px $ltYellow;
-
   color: $brown;
   height: 2em;
-  width: 90%;
-  padding: .4em;
   margin: .5em;
-  border-radius: .15em;
+  padding: .4em;
+  width: 90%;
 }
 
 .aside-bar {
-  width: 20%;
-  height: 100%;
-  padding: 1em;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
   align-items: center;
   background-color: rgb(194,227,210, .3);
-  // background-color: #ffc89c;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-evenly;
+  padding: 1em;
+  width: 20%;
 }
 
 .form-container {
-  width: 100%;
-  height: 80%;
-  padding: .2em;
-  border-radius: .15em;
-  color: $brown;
   background-color: rgb(126,178,228, .6);
   box-shadow: inset 0 0 20px $ltYellow;
+  border-radius: .15em;
+  color: $brown;
+  height: 80%;
+  padding: .2em;
+  width: 100%;
 }
 
 form,
@@ -406,16 +422,18 @@ form,
   display: flex;
   flex-direction: column;
   font-family: $font-stack;
-  width: 100%;
   height: 100%;
+  width: 100%;
 }
 
 select:required:invalid { 
   color: gray; 
 }
+
 option[value=""][disabled] {
   display: none;
 }
+
 option {
   color: $brown;
 }
@@ -425,52 +443,51 @@ option {
 .destNation,
 .datePicker,
 .costEstimate {
-  margin: 1em;
   display: flex;
   flex-direction: column;
+  margin: 1em;
 }
 
 .num-days,
 .num-travelers {
-  width: 5em;
-  height: 2em;
-  padding: 1em;
-  margin: .5em;
+  border: $softYellow;
+  border-radius: .4em;
+  box-sizing: border-box;
   cursor: pointer;
   display: inline-block;
-  box-sizing: border-box;
-  border-radius: .4em;
-  border: $softYellow;
+  height: 2em;
+  margin: .5em;
+  padding: 1em;
+  width: 5em;
 }
 
 .select-destinations {
-  display: inline-block;
-  box-sizing: border-box;
-  border-radius: .4em;
   border: $softYellow;
+  border-radius: .4em;
+  box-sizing: border-box;
+  display: inline-block;
 }
 
 footer,
 .logo-links {
-  width: 100%;
-  height: 10%;
   display: flex;
   flex-direction: row;
+  height: 10%;
+  width: 100%;
 }
 
 .money-tracker {
-  width: 100%;
-  height: 10%;
-  font-family: $font-stack;
-  display: flex;
-  justify-content: center;
   align-items: center;
   background-color: rgb(181,221,216, 4);
   border-radius: .4em;
-  padding: .2em;
   color: $brown;
+  display: flex;
+  font-family: $font-stack;
+  height: 10%;
+  justify-content: center;
+  padding: .2em;
+  width: 100%;
 }
-
 
 .margin-right{
   height: 100%;

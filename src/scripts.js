@@ -1,11 +1,11 @@
 import './css/styles.scss';
 import { ghostFacts } from "./data/ghost-facts";
-console.log(ghostFacts[0]);
 import Agent from "./classes/Agent";
 import Glide from '@glidejs/glide';
 import { callForData, makeTrip } from "./api";
 import dayjs from 'dayjs';
 import "./images/marker.svg";
+
 let agent1;
 let clientId1;
 
@@ -29,6 +29,7 @@ form.addEventListener("submit", formSubmitHandler);
 form.addEventListener("change", estimatedCost);
 factsBox.addEventListener("dblclick", displayFact);
 
+//-----login-submission-form-----
 loginSubmitbtn.addEventListener("click", function(event) {
     event.preventDefault();
     checkSubmission();
@@ -50,6 +51,7 @@ function checkSubmission() {
         document.querySelector("#mainSection").classList.remove("hidden");
     }
 }
+
 function checkAgent(travelerUserName) {
     if((travelerUserName === "agent")) {
         return travelerUserName;
@@ -83,6 +85,7 @@ function checkPassword(travelerUserName) {
     }
 }
 
+//-----main-page-display----
 function pageLoad() {
     dateSpot.innerText = dayjs().toDate();
     doPromise();
@@ -145,7 +148,7 @@ function displayCurrentAndUpcomingTrips(clientId1) {
     })
 }
 
-//-----form-functions-----
+//-----trip-form-functions-----
 function getTripsDropdown() {
     agent1.placesData.forEach(place => {
         myDropDown.innerHTML += `<option id="some${place.id}" value="${place.id}">${place.destination}</option>`;
@@ -175,14 +178,12 @@ function formSubmitHandler(event) {
         status: "pending",
         suggestedActivities: []
     }
-    console.log("makeThisTrip.id", makeThisTrip.id);
-    // console.log("destionations", destionationID)
     makeTrip(makeThisTrip);
-    // displayExpenses();
     doPromise();
     event.target.reset();
 }
 
+//-----extra-stuff-----
 function startGlide() {
     const config = {
         type: "carousel",

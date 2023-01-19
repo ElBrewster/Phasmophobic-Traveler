@@ -130,7 +130,8 @@ describe("AllTrips", () => {
         let todayDate2 = "2020/02/25";
         let method4 = alltrips2.checkClientTripCompletion(userID2, todayDate2);
         let finishedTrips = [
-        {id: 80, userID: 43, date: "2019/09/28", duration: 4, status: "approved"}];        expect(method4).to.have.deep.members(finishedTrips);
+        {id: 80, userID: 43, date: "2019/09/28", duration: 4, status: "approved"}];        
+        expect(method4).to.have.deep.members(finishedTrips);
         //just evaluate on approved and date I think? And if duration is over! because if it was a pending approval and past date, they didn't go
     });
 });
