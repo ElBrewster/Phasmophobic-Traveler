@@ -380,12 +380,63 @@ li {
   height: 50px;
   width: 50px;
 }
-
+//-----trip-fillout-form-----
+//aside-bar
+//form-container
+//form-section
+//h3, trip-form
+//legend, num-travelers-label, number-of-days, destionations-container, date-picker, costEstimate, trip-form-submit
+.aside-bar {
+  align-items: center;
+  background-color: rgb(168,216,220, .3);
+  //blue!
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-evenly;
+  padding: 1em;
+  width: 20%;
+}
+.form-container {
+  background-color: rgb(126,178,228, .6);
+  box-shadow: inset 0 0 20px $ltYellow;
+  border-radius: .15em;
+  color: $brown;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  height: 80%;
+  padding: .2em;
+  width: 100%;
+}
+.form-section {  
+  display: flex;
+  flex-direction: column;
+  font-family: $font-stack;
+  height: 100%;
+  width: 100%;
+}
 h3 {
   color: $brown;
   font-size: large;
   font-weight: bold;
   padding: 1em;
+}
+h3,
+.trip-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.legend,
+.num-travelers-label,
+.number-of-days,
+.destionations-container,
+.date-picker,
+.costEstimate,
+.trip-form-submit {
+  display: flex;
+  flex-direction: column;
 }
 
 .new-trips-section {
@@ -410,40 +461,27 @@ h3 {
   width: 90%;
 }
 
-.aside-bar {
-  align-items: center;
-  background-color: rgb(168,216,220, .3);
-  //blue!
+
+
+.trip-form {
   display: flex;
   flex-direction: column;
-  height: 100%;
-  justify-content: space-evenly;
-  padding: 1em;
-  width: 20%;
-}
+  justify-content: space-around;
+  align-items: flex-start;
+} 
 
-.form-container {
-  background-color: rgb(126,178,228, .6);
-  box-shadow: inset 0 0 20px $ltYellow;
-  border-radius: .15em;
-  color: $brown;
-  height: 80%;
-  padding: .2em;
-  width: 100%;
-}
-
-form,
-.form-section {  
-  display: flex;
-  flex-direction: column;
-  font-family: $font-stack;
-  height: 100%;
-  width: 100%;
-}
 
 select:required:invalid { 
   color: gray; 
 }
+
+.select-destination {
+  color: $brown;
+  display: flex;
+  align-items: center;
+  width: 80%;
+}
+
 
 option[value=""][disabled] {
   display: none;
@@ -453,10 +491,10 @@ option {
   color: $brown;
 }
 
-.numTrav,
+.num-travelers-label,
 .tripDur,
 .destNation,
-.datePicker,
+.date-picker,
 .costEstimate {
   display: flex;
   flex-direction: column;
@@ -482,6 +520,7 @@ option {
   box-sizing: border-box;
   display: inline-block;
 }
+//-----^-trip-form-destination-^-----
 
 footer,
 .logo-links {

@@ -11,7 +11,7 @@ let clientId1;
 
 let dateSpot = document.querySelector("#todaysDate")
 let form = document.querySelector("#tripForm");
-let myDropDown = document.querySelector("#select-destinations");
+let myDropDown = document.querySelector("#selectDestinations");
 let numTraveling = document.querySelector("#numTravelers");
 let numDays = document.querySelector("#numDays");
 let costEstimatePrint = document.querySelector("#costEstimate");
