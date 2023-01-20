@@ -2,7 +2,7 @@
 
 ## Table of Contents
 - [Abstract](#abstract)
-- [Installation Instructios](#installation-instructions)
+- [Installation Instructions](#installation-instructions)
 - [Preview of App](#preview-of-app)
 - [Context](#context)
 - [Contributors](#contributors)
