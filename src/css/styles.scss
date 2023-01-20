@@ -16,7 +16,6 @@ $ltGreen: #d0e7ca;
 $ltGreenRGB: rgb(208,231,202);
 $chillGreen: #c2e3d2;
 $chillGreenRGB: rgb(194,227,210);
-//remove the yellow in the application, it sucks
 $ltBlueGreen: #b5ddd8;
 $ltBlueGreenRGB: rgb(181,221,216);
 $kitchenTileBlue: #a8d8dc;
@@ -434,7 +433,7 @@ h3 {
   color: $brown;
   font-size: large;
   font-weight: bold;
-  padding: 1em;
+  // padding: 1em;
 }
 
 h3,
@@ -454,7 +453,7 @@ h3,
 .trip-form-submit {
   display: flex;
   flex-direction: column;
-  margin: 1em;
+  margin: .2em;
 }
 
 .num-days,

@@ -1,14 +1,14 @@
 # the Phasmophobic Traveler 👻
 
 ## Table of Contents
--[Abstract](#abstract)
--[Installation Instructios](#installation-instructions)
--[Preview of App](#preview-of-app)
--[Context](#context)
--[Contributors](#contributors)
--[Learning Goals](#learning-goals)
--[Technology Used](#technology-used)
--[Resources & Mentions](#resources--mentions)
+- [Abstract](#abstract)
+- [Installation Instructios](#installation-instructions)
+- [Preview of App](#preview-of-app)
+- [Context](#context)
+- [Contributors](#contributors)
+- [Learning Goals](#learning-goals)
+- [Technology Used](#technology-used)
+- [Resources & Mentions](#resources--mentions)
 
 ### `Abstract:`
 This application manages and tracks different trips for users through a travel agency. As a user you can keep track of the places a visited, get new ideas for a next trip, and connect with an agent to purchase a journey. `the Phasmophobic Traveler` is a travel app best suited to those who prefer paranormal-focused sight-seeing.
@@ -27,7 +27,7 @@ This application manages and tracks different trips for users through a travel a
     * VS Code - code .
 
 ### `Preview of App:`
-<img width="" alt="" src="">
+![gif](src/images/ezgif.phasmophobicApp.gif)
 
 ### `Context:`
 I spent about a week on this project which was meant to assess my understanding of the learning material for Mod 2 at Turing School.
