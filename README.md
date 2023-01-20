@@ -52,4 +52,4 @@ I was thinking about this color scheme article, in particular the iridescent pal
 https://cran.r-project.org/web/packages/khroma/vignettes/tol.html
 
 Also please note the names in the image files for the background images used, in particular photo by Ekaterina Astakhova:
-// https://www.pexels.com/@octoptimist/ Ekaterina Astakhova
+https://www.pexels.com/@octoptimist/ Ekaterina Astakhova
