@@ -14,7 +14,7 @@
 This application manages and tracks different trips for users through a travel agency. As a user you can keep track of the places a visited, get new ideas for a next trip, and connect with an agent to purchase a journey. `the Phasmophobic Traveler` is a travel app best suited to those who prefer paranormal-focused sight-seeing.
 
 ### `Installation Instructions:`
-<!-- 1. [Click To Open Repo](https://github.com/KarrarQ/idea-Box) -->
+1. [Click To Open Repo](https://elbrewster.github.io/Phasmophobic-Traveler/)
 2. Click the "Fork" button. (This will create a user copy of the repository.)
 3. Open the Terminal application.
 4. In Terminal, use the "cd" command to navigate to where the local repository will live.
