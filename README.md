@@ -45,7 +45,7 @@ I spent about a week on this project which was meant to assess my understanding 
 
 ### `Technology Used:`
 The HTML, CSS/SCSS, and JavaScript for this application was written in VS Code and pushed into GitHub. 
-I also used NPM packages glide.js and day.js, did TDD through Mocha and Chai, and implemented the fetch API.
+I also used the third party libraries glide.js and day.js, I did TDD via Mocha and Chai, and implemented the fetch API.
 
 ## `Resources & Mentions:`
 I was thinking about this color scheme article, in particular the iridescent palette in the "Sequential data" section and the second panel in "Sequential schemes":
