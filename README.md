@@ -2,7 +2,7 @@
 
 ## Table of Contents
 - [Abstract](#abstract)
-- [Installation Instructios](#installation-instructions)
+- [Installation Instructions](#installation-instructions)
 - [Preview of App](#preview-of-app)
 - [Context](#context)
 - [Contributors](#contributors)
@@ -14,7 +14,7 @@
 This application manages and tracks different trips for users through a travel agency. As a user you can keep track of the places a visited, get new ideas for a next trip, and connect with an agent to purchase a journey. `the Phasmophobic Traveler` is a travel app best suited to those who prefer paranormal-focused sight-seeing.
 
 ### `Installation Instructions:`
-<!-- 1. [Click To Open Repo](https://github.com/KarrarQ/idea-Box) -->
+1. [Click To Open Repo](https://elbrewster.github.io/Phasmophobic-Traveler/)
 2. Click the "Fork" button. (This will create a user copy of the repository.)
 3. Open the Terminal application.
 4. In Terminal, use the "cd" command to navigate to where the local repository will live.
@@ -45,11 +45,11 @@ I spent about a week on this project which was meant to assess my understanding 
 
 ### `Technology Used:`
 The HTML, CSS/SCSS, and JavaScript for this application was written in VS Code and pushed into GitHub. 
-I also used NPM packages glide.js and day.js, did TDD through Mocha and Chai, and implemented the fetch API.
+I also used the third party libraries glide.js and day.js, I did TDD via Mocha and Chai, and implemented the fetch API.
 
 ## `Resources & Mentions:`
 I was thinking about this color scheme article, in particular the iridescent palette in the "Sequential data" section and the second panel in "Sequential schemes":
 https://cran.r-project.org/web/packages/khroma/vignettes/tol.html
 
 Also please note the names in the image files for the background images used, in particular photo by Ekaterina Astakhova:
-// https://www.pexels.com/@octoptimist/ Ekaterina Astakhova
+https://www.pexels.com/@octoptimist/ Ekaterina Astakhova
